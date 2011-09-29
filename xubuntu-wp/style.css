@@ -58,6 +58,7 @@ body {
 .small { font-size: 85%; }
 .alignleft { float: left; margin: 0 20px 20px 0; }
 .alignright { float: right; margin: 0 0 20px 20px; }
+.aligncenter { text-align: center; }
 
 /*  Selection style
  *
@@ -115,7 +116,7 @@ blockquote {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	text-align: left;
-	margin: 1em 0 0.5em 0;
+	margin: 1.3em 0 0.6em 0;
 }
 
 h1 {
@@ -127,8 +128,12 @@ h1 {
 		border-bottom-color: #d9d9d9;
 		border-bottom: 1px solid rgba(0,0,0,.15);
 	}
+	h1.post-title {
+		margin-bottom: 0.4em;
+	}
 
 h2 {
+	margin-top: 1.1em;
 	margin-bottom: 0.5em;
 
 	font-size: 210%;
@@ -140,14 +145,14 @@ h2 {
 	#sidebar h2 { font-size: 150%; }
 
 h3 {
-	font-size: 120%;
+	font-size: 150%;
 	color: #6a6a6a;
 }
 	#comments h3 { margin: 0 0 1em 0; }
 	.picslide h3 { margin: 0; }
 
 h4 {
-	font-size: 120%;
+	font-size: 110%;
 	font-weight: lighter;
 	color: #999;
 	color: rgba(0,0,0,.4);
