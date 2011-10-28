@@ -142,6 +142,7 @@ h2 {
 
 	color: #2c5aa0;
 }
+	#latest-news h2 { font-size: 180%; color: #999; }
 	#sidebar h2 { font-size: 150%; }
 
 h3 {
@@ -164,10 +165,10 @@ hr {
 }
 
 li { list-style-position: inside; }
-	#xubuntu.item-home li { list-style-type: none; }
-	#latest-news li { font-size: 120%; }
+	#xubuntu.item-home li { list-style-type: none; margin-bottom: 0; margin-left: 0; }
+	#xubuntu.item-home #latest-news li { font-size: 120%; margin-bottom: 0.6em; }
 	#mainwrap li { margin-bottom: 0.5em; list-style-position: outside; margin-left: 1em; }
-	#mainwrap ul li { list-style-type: disc; }
+	#mainwrap ul li { list-style-type: disc; }
 	#mainwrap ol li { list-style-type: decimal; }
 
 p { }
