@@ -48,7 +48,7 @@ function LatestNews( $atts, $content, $code ) {
 	global $post;
 	$myposts = get_posts( array( 'category' => $cat, 'numberposts' => 4 ) );
 	foreach( $myposts as $post ) {
-		$out .= "<li class=\"news\"><a href=\"" . get_permalink( ) . "\">" . get_the_title( ) . " &raquo;";
+		$out .= "<li class=\"news\"><a href=\"" . get_permalink( ) . "\">" . get_the_title( ) . "&nbsp;&raquo;";
 		$cat_res = get_the_category( ); unset( $cats );
 		foreach( $cat_res as $num => $cat ) {
 			$cats .= $cat->name;
