@@ -98,7 +98,7 @@ a {
 		color: rgba(0,25,65,.8);
 		border-bottom: 1px solid rgba(0,0,0,.3);
 	}
-	#xubuntu.item-home #main li a {
+	#xubuntu.is-front #main li a {
 		font-size: 120%;
 		line-height: 1.3em;
 		color: #6e9bd4; /* #96add0; */
@@ -149,7 +149,7 @@ h2 {
 
 	color: #2c5aa0;
 }
-	#latest-news h2 { font-size: 180%; color: #999; }
+	#front_columns h2 { font-size: 180%; color: #999; margin-top: 0.5em; }
 	#sidebar h2 { font-size: 150%; }
 	.type-post h2 { font-size: 130%; }
 
@@ -173,8 +173,8 @@ hr {
 }
 
 li { list-style-position: inside; }
-	#xubuntu.item-home li { list-style-type: none; margin-bottom: 0; margin-left: 0; }
-	#xubuntu.item-home #latest-news li { font-size: 120%; margin-bottom: 0.6em; }
+	#xubuntu.is-front li { list-style-type: none; margin-bottom: 0; margin-left: 0; }
+	#xubuntu.is-front #latest-news li { font-size: 130%; margin-bottom: 0.6em;}
 	#mainwrap li { margin-bottom: 0.5em; list-style-position: outside; margin-left: 1em; }
 	#mainwrap ul li { list-style-type: disc; }
 	#mainwrap ol li { list-style-type: decimal; }
@@ -206,7 +206,7 @@ p { }
 	float: left;
 }
 	#main { margin-right: 295px; }
-	#xubuntu.item-home #main { margin-top: -2em; margin-right: 465px; }
+	#xubuntu.is-front #main { margin-top: -2em; margin-right: 465px; }
 
 #sidebar {
 	float: right;
@@ -214,10 +214,21 @@ p { }
 	margin-left: -260px;
 	padding-bottom: 2em;
 }
-#xubuntu.item-home #sidebar { width: 430px; margin-left: -430px; }
+#xubuntu.is-front #sidebar { width: 430px; margin-left: -430px; }
 
-#latest-news { margin-top: 2em; }
-#xubuntu.item-home .picslide { margin-top: 2.2em; }
+#xubuntu.is-front .picslide { margin-top: 2.2em; }
+
+#front_columns {
+	clear: both;
+	margin: 0 2em;
+	border-top: 1px solid #d1d1d1;
+}
+
+#front_columns .column {
+	float: left;
+	width: 30%;
+	padding-right: 3%;
+}
 
 #postnavi {
 	clear: both;

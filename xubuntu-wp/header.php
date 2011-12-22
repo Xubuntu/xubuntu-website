@@ -36,8 +36,9 @@
 </head>
 
 <?php if( is_single( ) ) { $singular = "item-single"; } elseif( is_archive( ) || is_home( ) ) { $singular = "item-archive"; } ?>
+<?php if( is_front_page( ) ) { $front = "is-front"; } ?>
 
-<body id="xubuntu" class="item-<?php print $post->post_name . ' ' . $singular; ?>">
+<body id="xubuntu" class="item-<?php print $post->post_name . ' ' . $singular . ' ' . $front; ?>">
 
 <div id="logo">
 	<a id="logoa" href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo-glow.png" /></a>

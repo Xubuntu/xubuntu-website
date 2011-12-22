@@ -1,5 +1,8 @@
 <?php
 
+/* enable shortcodes for widgets */
+add_filter( 'widget_text', 'do_shortcode' );
+
 /* enable menu */
 add_action( 'init', 'xubuntu_navi_menu' );
 function xubuntu_navi_menu( ) {
@@ -11,10 +14,10 @@ function xubuntu_navi_menu( ) {
 /* enable widgets */
 if( function_exists( 'register_sidebar' ) ) {
 	register_sidebar( array(
-		"name" => "Homepage sidebar",
-		"id" => "xubuntu_home_sidebar",
-		"before_widget" => "",
-		"after_widget" => "",
+		"name" => "Frontpage columns",
+		"id" => "xubuntu_front_columns",
+		"before_widget" => "<div class='column'>",
+		"after_widget" => "</div>",
 		"before_title" => "<h2>",
 		"after_title" => "</h2>"
 	) );
@@ -60,7 +63,10 @@ function LatestNews( $atts, $content, $code ) {
 
 	if( $out ) {
 		$ret = "<div id=\"latest-news\">";
-		$ret .= "<h2>{$title}</h2>\n<ul>{$out}</ul>";
+		if( strlen( $title ) > 0 ) {
+			$ret .= "<h2>{$title}</h2>\n";
+		}
+		$ret .= "<ul>{$out}</ul>";
 		$ret .= "</div>";
 	}
 

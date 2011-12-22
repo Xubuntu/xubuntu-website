@@ -10,7 +10,9 @@
 	<?php
 		if( function_exists( 'dynamic_sidebar' ) ) {
 			if( is_front_page( ) ) {
-				dynamic_sidebar( "xubuntu_home_sidebar" );
+				// print picslide here
+				echo do_shortcode( '[picslide size="450x450"]' );
+				// dynamic_sidebar( "xubuntu_home_sidebar" );
 			} elseif( is_home( ) || is_archive( ) || is_single( ) ) {
 				dynamic_sidebar( "xubuntu_archive_sidebar" );
 			} else {
@@ -19,5 +21,11 @@
 		}
 	?>
 </div>
+
+<?php if( is_front_page( ) ) { ?>
+	<div id="front_columns" class="group">
+		<?php dynamic_sidebar( "xubuntu_front_columns" ); ?>
+	</div>
+<?php } ?>
 
 <?php get_footer( ); ?>
