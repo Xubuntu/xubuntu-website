@@ -1,10 +1,10 @@
 /*
- *  Theme Name: Xubuntu WordPress
- *  Theme URI: http://xubuntu.org/
- *  Description: Theme enhanced with HTML5 and CSS3.
+ *  Theme Name: WordPress for Xubuntu.org
+ *  Description: A theme built for the Xubuntu website to be released in 2012.
  *  Author: Pasi Lallinaho
- *  Author URI: http://knome.fi/
- *  Version: 11.10-02
+ *  Version: 12.04-beta1
+ *  Author URI: http://open.knome.fi/
+ *  Theme URI: https://xubuntu.org/
  *
  */
 
@@ -157,8 +157,6 @@ h3 {
 	font-size: 125%;
 	color: #6a6a6a;
 }
-	#comments h3 { margin: 0 0 1em 0; }
-	.picslide h3 { margin: 0; }
 
 h4 {
 	font-size: 110%;
@@ -178,9 +176,6 @@ li { list-style-position: inside; }
 	#mainwrap li { margin-bottom: 0.5em; list-style-position: outside; margin-left: 1em; }
 	#mainwrap ul li { list-style-type: disc; }
 	#mainwrap ol li { list-style-type: decimal; }
-
-p { }
-	.picslide p { font-size: 110%; }
 
 /*  Layout styles
  *
@@ -216,11 +211,10 @@ p { }
 }
 #xubuntu.is-front #sidebar { width: 430px; margin-left: -430px; }
 
-#xubuntu.is-front .picslide { margin-top: 2.2em; }
-
 #front_columns {
 	clear: both;
 	margin: 0 2em;
+	padding-bottom: 1em;
 	border-top: 1px solid #d1d1d1;
 }
 
@@ -356,106 +350,4 @@ a.header-image:focus {
 	color: #808080;
 	color: rgba(0,0,0,.5);
 }
-
-/*  Comments
- *
- */
-
-.wpcomments,
-#respond {
-	min-width: 435px;
-	margin: 1.5em 0;
-	padding-top: 0.5em;
-	border-top: 1px solid #bbb;
-}
-
-#respond {
-	margin-top: 3em;
-}
-
-#comments p {
-	font-size: 10pt !important;
-}
-
-.comment-meta,
-.comment-reply {
-	font-size: 9.5pt !important;
-}
-
-.type-comment,
-.type-pingback {
-	margin-bottom: 1em;
-	margin-top: 6px;
-}
-
-.comment-meta {
-	display: block;
-	margin: -4px 0 5px 0;
-}
-
-.avatar {
-	margin: 0 3px -4px 0;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-}
-
-.comment-comment {
-	color: #444;
-
-	padding: 6px;
-
-	background-color: #fdfdfd;
-
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-}
-	.comment-comment p {
-		margin-bottom: 0.3em;
-	}
-
-#comments li ul {
-	margin: 10pt 0 0 30pt;
-}
-
-#comments ul.children {
-	margin-bottom: -8pt; 
-}
-
-#respond .comment-form-author input,
-#respond .comment-form-email input,
-#respond .comment-form-url input {
-	width: 40%;
-}
-
-#respond .comment-form-author label,
-#respond .comment-form-email label,
-#respond .comment-form-url label {
-	display: block;
-	width: 55%;
-	float: right;
-	text-align: left;
-}
-
-#respond span.required {
-	float: right;
-	margin-right: 5px;
-	font-size: 160%;
-	margin-top: 0.2em;
-	color: #3369bb;
-	color: rgba(0,68,170,.8);
-}
-
-#respond .comment-notes span.required { float: none; }
-#respond .comment-form-comment label { display: block; }
-#respond textarea { width: 70%; }
-#respond .form-allowed-tags { display: none; }
-
-#comments li.pingback {
-	font-size: 85%;
-	line-height: 1.2em;
-	padding-left: 1.7em;
-}
-#comments li.pingback .comment-from { font-weight: bold; }
 
