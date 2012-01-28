@@ -265,25 +265,19 @@ p { }
  *
  */
 
-.gm-get-xubuntu { background-image: url(images/get-xubuntu.png); }
-.gm-get-support { background-image: url(images/get-support.png); }
-.gm-get-involved { background-image: url(images/get-involved.png); }
+.gm-get-xubuntu { background-image: url(images/get-xubuntu-32.png); }
+.gm-get-support { background-image: url(images/get-support-32.png); }
+.gm-get-involved { background-image: url(images/get-involved-32.png); }
 
-.gm-menu { background-repeat: no-repeat; }
-.gm-menu a { border-bottom: none; }
-
-#navi .gm-menu { background-position: 50% 0; }
-#navi .gm-menu a { display: block; margin-top: -60px; padding-top: 60px; height: 20px; overflow: hidden; }
-
-#sidebar .gm-menu { background-position: 0 50%; font-size: 180%; }
-#sidebar .gm-menu a { display: table-cell; margin: 0; padding-left: 55px; width: 400px; height: 55px; vertical-align: middle; }
+.gm-menu { background-repeat: no-repeat; background-position: 0 50%; font-size: 140%; }
+.gm-menu a { border-bottom: none; display: table-cell; margin: 0; padding-left: 38px; height: 38px; vertical-align: middle; }
 
 #wpfooter .gm-get-xubuntu { background-image: url(images/get-xubuntu-16.png); }
 #wpfooter .gm-get-support { background-image: url(images/get-support-16.png); }
 #wpfooter .gm-get-involved { background-image: url(images/get-involved-16.png); }
 
-#wpfooter .gm-menu { background-position: 0 50%; }
-#wpfooter .gm-menu a { display: table-cell; margin: 0; padding-left: 20px; height: 20px; vertical-align: middle; }
+#wpfooter .gm-menu { font-size: 100%; }
+#wpfooter .gm-menu a { padding-left: 20px; height: 20px; }
 
 /*  Specific styles
  *
