@@ -1,11 +1,12 @@
-<div id="postnavi">
-	<?php
+<?php
 	if( get_previous_posts_link() || get_next_posts_link() ) {
-		previous_posts_link( __( "Newer posts", 'xubuntu-wp' ) ); print "<br />";
-	  	next_posts_link( __( "Older posts", 'xubuntu-wp' ) ); 
+		?><div id="postnavi"><?php
+		previous_posts_link( __( 'Newer posts', 'xubuntu' ) );
+		if( get_previous_posts_link() && get_next_posts_link() ) { print "<br />"; }
+	  	next_posts_link( __( 'Older posts', 'xubuntu' ) ); 
+		?></div><?php
 	}
-	?>
-</div>
+?>
 
 <div id="wpfooter" class="group">
 	<div id="footer-widgets">
