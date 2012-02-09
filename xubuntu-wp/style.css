@@ -129,6 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 150%;
 	letter-spacing: 0.01em;
+	line-height: 1.3em;
 }
 	h1 a {
 		padding-bottom: 2px;
@@ -136,7 +137,9 @@ h1 {
 		border-bottom: 1px solid rgba(0,0,0,.15);
 	}
 	h1.post-title {
+		line-height: 1.5em;
 		margin-bottom: 0.4em;
+		margin-top: -0.5em;
 	}
 
 h2 {
