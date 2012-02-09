@@ -17,8 +17,6 @@
 
 		<?php endwhile; ?>
 	<?php else : ?>
-		<div class="notfound">
-			<h3><?php _e( 'Page Not Found', 'xubuntu' ); ?></h3>
-			<p><?php _e( 'I\'m sorry, but you\'re looking for something that is not here.', 'xubuntu' ); ?></p>
-		</div>
+		<h1 class="post-title"><?php _e( 'Page Not Found', 'xubuntu' ); ?></h1>
+		<p><?php _e( 'I\'m sorry, but you\'re looking for something that is not here.', 'xubuntu' ); ?></p>
 	<?php endif; ?>

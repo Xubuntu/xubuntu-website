@@ -1,10 +1,12 @@
 <?php
-	if( get_previous_posts_link() || get_next_posts_link() ) {
-		?><div id="postnavi"><?php
-		previous_posts_link( __( 'Newer posts', 'xubuntu' ) );
-		if( get_previous_posts_link() && get_next_posts_link() ) { print "<br />"; }
-	  	next_posts_link( __( 'Older posts', 'xubuntu' ) ); 
-		?></div><?php
+	if( !is_404( ) ) {
+		if( get_previous_posts_link() || get_next_posts_link() ) {
+			?><div id="postnavi"><?php
+			previous_posts_link( __( 'Newer posts', 'xubuntu' ) );
+			if( get_previous_posts_link() && get_next_posts_link() ) { print "<br />"; }
+		  	next_posts_link( __( 'Older posts', 'xubuntu' ) ); 
+			?></div><?php
+		}
 	}
 ?>
 
