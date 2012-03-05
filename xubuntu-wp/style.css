@@ -1,8 +1,8 @@
 /*
  *  Theme Name: WordPress for Xubuntu.org
- *  Description: A theme built for the Xubuntu website to be released in 2012.
+ *  Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
  *  Author: Pasi Lallinaho
- *  Version: 12.04-beta1
+ *  Version: 2012
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -28,8 +28,8 @@ body {
 
 #wpcontent {
 	width: 90%;
-	min-width: 700px;
-	max-width: 1100px;
+	min-width: 960px;
+	max-width: 1200px;
 
 	margin: 0 auto;
 
