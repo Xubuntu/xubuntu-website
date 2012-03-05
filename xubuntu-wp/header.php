@@ -41,7 +41,7 @@
 <body id="xubuntu" class="item-<?php print $post->post_name . ' ' . $singular . ' ' . $front; ?>">
 
 <div id="logo">
-	<a id="logoa" href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo-glow.png" /></a>
+	<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" /></a>
 </div>
 
 <div id="wpcontent" class="group">

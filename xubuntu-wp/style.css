@@ -9,7 +9,7 @@
  */
 
 html {
-	background: #162d50 url(images/page-background.png) 0 0 repeat-x;
+	background: #163d79 url(images/page-background.png) 0 0 repeat-x;
 }
 
 body {
@@ -22,6 +22,8 @@ body {
 	background: transparent url(images/page-background-stripe.png) 0 0 repeat-x;
 	color: #203b66;
 	border-top: 4px solid #1c3966;
+
+	min-height: 760px;
 }
 
 #wpcontent {
@@ -190,7 +192,7 @@ li { list-style-position: inside; }
 	max-width: 1100px;
 
 	margin: 0 auto;
-	padding: 0 2em 0.5em 1.3em;
+	padding: 0 1.3em 1.3em 1.3em;
 }
 
 #logo a {
@@ -213,6 +215,7 @@ li { list-style-position: inside; }
 	padding-bottom: 2em;
 }
 #xubuntu.is-front #sidebar { width: 430px; margin-left: -430px; }
+#xubuntu.is-front #sidebar .photoslider { margin-top: 2.5em; }
 
 #front_columns {
 	clear: both;
@@ -330,16 +333,6 @@ a.header-image:focus {
 .post-meta, .post-meta a {
 	color: #ccc;
 	color: rgba(0,0,0,.2);
-}
-
-.comment-meta, .comment-meta a {
-	color: #aaa;
-	color: rgba(0,0,0,.5);
-}
-
-.comment-meta a {
-	border-bottom: 1px solid #ddd;
-	border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 .post-meta span a {
