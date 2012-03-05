@@ -39,4 +39,11 @@ if( function_exists( 'register_sidebar' ) ) {
 	) );
 }
 
+/* enable uploading svg's */
+add_filter( 'upload_mimes', 'xubuntu_upload_mime' );
+function xubuntu_upload_mime( $mimes = array( ) ) {
+	$mimes['svg'] = 'image/svg';
+	return $mimes;
+}
+
 ?>
