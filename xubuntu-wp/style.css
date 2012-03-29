@@ -125,22 +125,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 150%;
-	letter-spacing: 0.01em;
-	line-height: 1.3em;
-}
-	h1 a {
-		padding-bottom: 2px;
-		border-bottom-color: #d9d9d9;
-		border-bottom: 1px solid rgba(0,0,0,.15);
-	}
-	h1.post-title {
-		line-height: 1.5em;
-		margin-bottom: 0.4em;
-		margin-top: -0.5em;
-	}
-
-h2 {
 	margin-top: 1.1em;
 	margin-bottom: 0.5em;
 
@@ -150,21 +134,29 @@ h2 {
 
 	color: #2c5aa0;
 }
-	#front_columns h2 { font-size: 180%; color: #999; margin-top: 0.5em; }
-	#sidebar h2 { font-size: 150%; }
-	.type-post h2 { font-size: 130%; }
+	h1.post-title {
+		line-height: 1.5em;
+		margin-bottom: 0;
+	}
+	.item-archive h1.post-title {
+		font-size: 150%;
+	}
+	.type-post h1 {
+		color: #222;
+	}
+	h1 a {
+		padding-bottom: 2px;
+		border-bottom-color: #d9d9d9;
+		border-bottom: 1px solid rgba(0,0,0,.15);
+	}
 
-h3 {
-	font-size: 125%;
-	color: #6a6a6a;
-}
+h2 { font-size: 170%; }
+	#front_columns h2 { color: #999; margin-top: 0.5em; }
 
-h4 {
-	font-size: 110%;
-	font-weight: lighter;
-	color: #999;
-	color: rgba(0,0,0,.4);
-}
+h3 { font-size: 140%; color: #444; }
+h4 { font-size: 130%; color: #555; }
+h5 { font-size: 120%; color: #888; }
+h6 { font-size: 105%; color: #aaa; }
 
 hr {
 	margin: 1em 0;
