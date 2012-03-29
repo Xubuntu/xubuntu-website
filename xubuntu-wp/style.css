@@ -166,10 +166,10 @@ hr {
 
 li { list-style-position: inside; }
 	#xubuntu.is-front li { list-style-type: none; margin-bottom: 0; margin-left: 0; }
-	#xubuntu.is-front #latest-news li { font-size: 130%; margin-bottom: 0.6em;}
-	#mainwrap li { margin-bottom: 0.5em; list-style-position: outside; margin-left: 1em; }
+	#xubuntu.is-front #latest-news li { font-size: 130%; margin-bottom: 0.6em; }
+	#mainwrap li { margin-bottom: 0.5em; list-style-position: outside; margin-left: 1.2em; }
 	#mainwrap ul li { list-style-type: disc; }
-	#mainwrap ol li { list-style-type: decimal; }
+	#mainwrap ol li { list-style-type: decimal; margin-left: 1.6em; }
 
 /*  Layout styles
  *
