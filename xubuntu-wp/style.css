@@ -111,12 +111,16 @@ blockquote {
 	border-left: 3px solid rgba(0,68,170,.3);
 }
 
-code {
+code, p.code {
 	font-size: 110%;
 	background-color: #ddd;
 	color: #3369bb;
 	padding: 0.2em 0.4em;
 }
+	p.code {
+		font-size: 100%;
+		font-family: monospace;
+	}
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
