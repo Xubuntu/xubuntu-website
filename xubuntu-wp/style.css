@@ -84,7 +84,7 @@ blockquote {
 	margin-left: 20px;
 	padding-left: 20px;
 	border-left-color: #3369bb;
-	border-left: 3px solid rgba( 0, 68, 170, .3 );
+	border-left: 3px solid rgba( 0, 68, 170, 0.3 );
 }
 
 code, p.code {
@@ -112,7 +112,7 @@ h1 {
 	font-weight: normal;
 	line-height: 1.15em;
 
-	color: #2c5aa0;
+	color: #1c50a1;
 }
 	h1.post-title {
 		line-height: 1.5em;
@@ -128,12 +128,10 @@ h1 {
 	h1 a {
 		padding-bottom: 2px;
 		border-bottom-color: #d9d9d9;
-		border-bottom: 1px solid rgba( 0, 0, 0, .15 );
+		border-bottom: 1px solid rgba( 0, 0, 0, 0.15 );
 	}
 
 h2 { font-size: 170%; }
-	#front_columns h2 { color: #555; margin-top: 0.5em; }
-
 h3 { font-size: 140%; color: #444; }
 h4 { font-size: 130%; color: #555; }
 h5 { font-size: 120%; color: #888; }
@@ -145,8 +143,6 @@ hr {
 }
 
 li { list-style-position: inside; }
-	#xubuntu.is-front li { list-style-type: none; margin-bottom: 0; margin-left: 0; }
-	#xubuntu.is-front #latest-news li { font-size: 130%; margin-bottom: 0.6em; }
 	#mainwrap li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
 	#mainwrap ul li { list-style-type: disc; }
 	#mainwrap ol li { list-style-type: decimal; margin-left: 1.6em; }
@@ -179,26 +175,12 @@ li { list-style-position: inside; }
 	float: left;
 }
 	#main { margin-right: 295px; }
-	#xubuntu.is-front #main { margin-top: -2em; margin-right: 465px; }
 
 #sidebar {
 	float: right;
 	width: 260px;
 	margin-left: -260px;
 	padding-bottom: 2em;
-}
-
-#front_columns {
-	clear: both;
-	margin: 0 2em;
-	padding-bottom: 1em;
-	border-top: 1px solid #d1d1d1;
-}
-
-#front_columns .column {
-	float: left;
-	width: 30%;
-	padding-right: 3%;
 }
 
 #postnavi {
@@ -245,7 +227,6 @@ li { list-style-position: inside; }
 		line-height: 1.4em;
 	}
 
-
 .is-front #sidebar {
 	width: 475px;
 	margin: 40px 40px 0 -505px;
@@ -254,6 +235,25 @@ li { list-style-position: inside; }
 	.is-front #sidebar .photoslider {
 		margin-top: -2.3em;
 	}
+
+#front_columns {
+	clear: both;
+	margin: 0 2em;
+	padding-bottom: 1em;
+	border-top: 1px solid #d1d1d1;
+}
+
+#front_columns .column {
+	float: left;
+	width: 30%;
+	padding-right: 3%;
+}
+
+#front_columns h2 { color: #555; margin-top: 0.5em; }
+
+#xubuntu.is-front li { list-style-type: none; margin-bottom: 0; margin-left: 0; }
+#xubuntu.is-front #latest-news li { font-size: 130%; margin-bottom: 0.6em; }
+
 
 /*  Menu with images
  *
