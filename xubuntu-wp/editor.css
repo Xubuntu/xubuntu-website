@@ -21,13 +21,13 @@ blockquote {
 	border-left: 3px solid rgba( 0, 68, 170, .3 );
 }
 
-code, p.code {
+code, p.codeblock {
 	font-size: 110%;
 	background-color: #ddd;
 	color: #3369bb;
 	padding: 0.2em 0.4em;
 }
-	p.code {
+	p.codeblock {
 		font-size: 100%;
 		font-family: monospace;
 	}
@@ -58,4 +58,13 @@ h6 { font-size: 105%; color: #aaa; }
 hr {
 	margin: 1em 0;
 	border-bottom: 1px solid #dadada;
+}
+
+/*  Editor-specific
+ *
+ */
+
+span.needs-review,
+span.mceText {
+	border-bottom: 1px solid #e6b045;
 }

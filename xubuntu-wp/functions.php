@@ -80,6 +80,18 @@ function xubuntu_feed_head( ) {
 	print '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo( 'name' ) . ' // Articles feed" href="' . get_bloginfo( 'rss2_url' ) . '" />' . "\n";
 }
 
+/*  Add admin CSS
+ *
+ */
+
+add_action( 'admin_head', 'xubuntu_admincss' );
+
+function xubuntu_admincss( ) {
+	wp_register_style( 'xubuntu-admin', get_template_directory_uri( ) . '/admin.css' );
+	wp_enqueue_style( 'xubuntu-admin' );
+}
+
+
 /*  Add an editor style
  *
  */
@@ -87,6 +99,77 @@ function xubuntu_feed_head( ) {
 add_action( 'init', 'xubuntu_editor_style' );
 function xubuntu_editor_style( ) {
 	add_editor_style( 'editor.css' );
+}
+
+/*  Tweak TinyMCE menus
+ *
+ */
+
+add_filter( 'mce_buttons', 'xubuntu_mcebuttons' );
+
+function xubuntu_mcebuttons( $buttons ) {
+	$buttons = array(
+		"formatselect",
+		"bold",
+		"italic",
+		"underline",
+		"strikethrough",
+		"styleselect",
+		"bullist",
+		"numlist",
+		"link",
+		"unlink",
+		"charmap",
+		"fullscreen",
+//		"wp_adv"
+	);
+
+	return $buttons;
+}
+
+add_filter( 'mce_buttons_2', 'xubuntu_mcebuttons2' );
+
+function xubuntu_mcebuttons2( $buttons ) {
+	return array(  );
+}
+
+add_filter( 'tiny_mce_before_init', 'xubuntu_tinymceinit' );
+
+function xubuntu_tinymceinit( $init_array ) {
+	// http://codex.wordpress.org/TinyMCE_Custom_Styles#Using_style_formats
+	$style_formats = array(
+		array(
+			'title' => 'Blockquote',
+			'block' => 'blockquote',
+			'wrapper' => true
+		),
+		array(
+			'title' => 'Code (block)',
+			'block' => 'p',
+			'inline' => 'code',
+			'classes' => 'codeblock',
+			'wrapper' => true
+		),
+		array(
+			'title' => 'Code (inline)',
+			'inline' => 'code'
+		),
+		array(
+			'title' => 'Needs review',
+			'inline' => 'span',
+			'classes' => 'needs-review'
+		),
+		array(
+			'title' => 'Preformatted',
+			'block' => 'pre',
+			'wrapper' => true
+		)
+	);
+
+	$init_array['style_formats'] = json_encode( $style_formats );
+	$init_array['theme_advanced_blockformats'] = 'p,h2,h3,h4,h5,h6';
+
+	return $init_array;
 }
 
 ?>
