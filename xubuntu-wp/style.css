@@ -44,12 +44,12 @@ body {
  */
 
 ::selection {
-	background-color: #2c5aa0;
-	color: #fff;
+	background-color: #c2d5f2;
+	color: #333840;
 }
 ::-moz-selection {
-	background-color: #2c5aa0;
-	color: #fff;
+	background-color: #c2d5f2;
+	color: #333840;
 }
 
 /*  Element styles
@@ -63,7 +63,7 @@ p, ol, ul, dl, blockquote, pre, table {
 
 a {
 	text-decoration: none;
-	color: #2c5aa0;
+	color: #205dba;
 	border-bottom: 1px solid transparent;
 
 	-webkit-transition: all 0.3s ease-in-out;
@@ -74,22 +74,17 @@ a {
 	a:hover,
 	a:active,
 	a:focus {
-		color: rgba(0,25,65,.8);
-		border-bottom: 1px solid rgba(0,0,0,.3);
+		color: #062554;
+		border-bottom: 1px solid #bccde6;
 	}
-	#xubuntu.is-front #main li a {
-		font-size: 120%;
-		line-height: 1.3em;
-		color: #6e9bd4; /* #96add0; */
-	}
-	li.news a { color: #203b66 !important; }
-	a.attachment { border-bottom: none; }
+/* 	li.news a { color: #203b66 !important; } */
+/* 	a.attachment { border-bottom: none; } */
 
 blockquote {
 	margin-left: 20px;
 	padding-left: 20px;
 	border-left-color: #3369bb;
-	border-left: 3px solid rgba(0,68,170,.3);
+	border-left: 3px solid rgba( 0, 68, 170, .3 );
 }
 
 code, p.code {
@@ -133,7 +128,7 @@ h1 {
 	h1 a {
 		padding-bottom: 2px;
 		border-bottom-color: #d9d9d9;
-		border-bottom: 1px solid rgba(0,0,0,.15);
+		border-bottom: 1px solid rgba( 0, 0, 0, .15 );
 	}
 
 h2 { font-size: 170%; }
@@ -215,7 +210,7 @@ li { list-style-position: inside; }
 
 #wpfooter {
 	clear: both;
-	background-color: #e7e7e7;
+	background-color: #eaeaea;
 	padding: 0.3em 0 1em 0;
 
 	font-size: 80%;
@@ -245,6 +240,11 @@ li { list-style-position: inside; }
 .is-front #main {
 	margin: -2em 455px 0 0;
 }
+ 	.is-front #main li a {
+		font-size: 120%;
+		line-height: 1.4em;
+	}
+
 
 .is-front #sidebar {
 	width: 475px;
