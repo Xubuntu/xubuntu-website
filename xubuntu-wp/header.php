@@ -40,8 +40,13 @@
 
 <body id="xubuntu" class="item-<?php print $post->post_name . ' ' . $singular . ' ' . $front; ?>">
 
-<div id="logo">
-	<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" /></a>
+<div id="header">
+	<div id="logo">
+		<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" /></a>
+	</div>
+	<div id="navi">
+		<?php wp_nav_menu( array( 'theme_location' => 'horizontal_navi', 'container_class' => 'group', 'fallback_cb' => FALSE ) ); ?>
+	</div>
 </div>
 
 <div id="wpcontent" class="group">

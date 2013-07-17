@@ -26,11 +26,11 @@ body {
 	min-height: 760px;
 }
 
-/*  Site width stuff
+/*  Site width
  *
  */
 
-#wpcontent, #logo {
+#wpcontent, #header {
 	width: 90%;
 	margin: 0 auto;
 
@@ -71,14 +71,10 @@ a {
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-	a:hover,
-	a:active,
-	a:focus {
+	a:hover, a:active, a:focus {
 		color: #062554;
 		border-bottom: 1px solid #bccde6;
 	}
-/* 	li.news a { color: #203b66 !important; } */
-/* 	a.attachment { border-bottom: none; } */
 
 blockquote {
 	margin-left: 20px;
@@ -147,6 +143,12 @@ li { list-style-position: inside; }
 	#mainwrap ul li { list-style-type: disc; }
 	#mainwrap ol li { list-style-type: decimal; margin-left: 1.6em; }
 
+/* Fix */
+	a.attachment,
+	#wpfooter a { border-bottom: none; }
+	#wpfooter a { font-weight: bold; }
+
+
 /*  Layout styles
  *
  */
@@ -160,12 +162,17 @@ li { list-style-position: inside; }
 	border-radius: 5px;
 }
 
+#header {
+	height: 75px;
+}
+
 #logo {
-	padding: 0 1.3em 1.3em 1.3em;
+	float: left;
+	padding: 0;
+	margin-left: 2em;
 }
 
 #logo a {
-	margin-left: 2em;
 	border-bottom: none;
 }
 
@@ -190,13 +197,16 @@ li { list-style-position: inside; }
 	border-top: 1px solid #d1d1d1;
 }
 
+/*  Footer
+ *
+ */
+
 #wpfooter {
 	clear: both;
-	background-color: #eaeaea;
+	background-color: #eaeaea; 
 	padding: 0.3em 0 1em 0;
 
 	font-size: 80%;
-	font-weight: bold;
 	line-height: 1.3em;
 
 	-webkit-border-bottom-left-radius: 5px;
@@ -219,52 +229,144 @@ li { list-style-position: inside; }
  *
  */
 
+#xubuntu.is-front li {
+	list-style-type: none;
+	margin: 0;
+}
+
+.is-front #latest-news li {
+	font-size: 130%;
+	margin-bottom: 0.6em;
+}
+
+.is-front #main li a {
+	font-size: 120%;
+	line-height: 1.5em;
+}
+
 .is-front #main {
 	margin: -2em 455px 0 0;
 }
- 	.is-front #main li a {
-		font-size: 120%;
-		line-height: 1.4em;
-	}
 
-.is-front #sidebar {
-	width: 475px;
-	margin: 40px 40px 0 -505px;
-	padding: 0 !important;
+.is-front #main h1 {
+	margin-bottom: 0.8em;
 }
-	.is-front #sidebar .photoslider {
-		margin-top: -2.3em;
-	}
 
-#front_columns {
+.is-front #main p {
+	font-size: 102%;
+	line-height: 1.7em;
+	margin-bottom: 1.1em;
+	color: #555;
+}
+
+.is-front #main ul {
+	margin-top: 2.5em;
+	font-size: 80%;
+}
+
+.is-front #main li {
+	margin-bottom: -0.1em;
+}
+
+.is-front #main ul strong {
+	font-size: 135%;
+	display: inline-block;
+	margin-bottom: 0.2em;
+}
+
+.is-front #main ul strong a {
+	border-bottom-width: 2px;
+}
+
+.is-front #front_columns {
 	clear: both;
-	margin: 0 2em;
-	padding-bottom: 1em;
-	border-top: 1px solid #d1d1d1;
+	margin: 0 0 2em 0;
+	padding: 1em 2em;
+
+	background-color: rgba( 255, 255, 255, 0.75 );
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
 }
 
-#front_columns .column {
+.is-front #front_columns .column {
 	float: left;
 	width: 30%;
 	padding-right: 3%;
 }
 
-#front_columns h2 { color: #555; margin-top: 0.5em; }
+.is-front #front_columns h2 {
+	color: #555;
+	margin-top: 0.5em;
+	font-size: 130%;
+}
 
-#xubuntu.is-front li { list-style-type: none; margin-bottom: 0; margin-left: 0; }
-#xubuntu.is-front #latest-news li { font-size: 130%; margin-bottom: 0.6em; }
+.is-front #front_columns a {
+	display: block;
+	height: 1.6em;
+	border-bottom: none;
+}
+
+.is-front #front_columns a:hover:after,
+.is-front #front_columns a:active:after,
+.is-front #front_columns a:focus:after {
+	content: "»";
+	font-size: 110%;
+	margin-left: 0.6em;
+}
+
+.is-front #sidebar {
+	width: 475px;
+	padding: 0 !important;
+	margin: 40px 40px 0 -505px;
+}
+
+/*  Photoslider  */
+
+.is-front #sidebar .photoslider {
+	margin-top: -2.3em;
+}
+
+.is-front #sidebar .photoslider.ctrl-ontop .c-prev,
+.is-front #sidebar .photoslider.ctrl-ontop .c-next {
+	top: 28px;
+	height: 22px;
+
+	display: block;
+	opacity: 0;
+  
+	background-color: rgba(255, 255, 255, 0.9) !important;
+	color: #205dba !important;
+  
+	font-weight: normal !important;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.is-front #sidebar .photoslider.ctrl-ontop:hover .c-prev,
+.is-front #sidebar .photoslider.ctrl-ontop:hover .c-next {
+	opacity: 1;
+}
+
+.is-front #sidebar .photoslider.ctrl-ontop .c-prev:hover,
+.is-front #sidebar .photoslider.ctrl-ontop .c-next:hover {
+	background-color: #fff !important;
+}
+
 
 
 /*  Menu with images
  *
  */
 
-.gm-get-xubuntu { background-image: url(images/get-xubuntu-32.png); }
-.gm-get-support { background-image: url(images/get-support-32.png); }
-.gm-get-involved { background-image: url(images/get-involved-32.png); }
-
-.gm-menu { background-repeat: no-repeat; background-position: 0 50%; font-size: 140%; }
-.gm-menu a { border-bottom: none; display: table-cell; margin: 0; padding-left: 38px; height: 38px; vertical-align: middle; }
+#wpfooter .gm-menu { background-repeat: no-repeat; background-position: 0 50%; font-size: 140%; }
+#wpfooter .gm-menu a { border-bottom: none; display: table-cell; margin: 0; padding-left: 38px; height: 38px; vertical-align: middle; }
 
 #wpfooter .gm-get-xubuntu { background-image: url(images/get-xubuntu-16.png); }
 #wpfooter .gm-get-support { background-image: url(images/get-support-16.png); }
@@ -272,6 +374,8 @@ li { list-style-position: inside; }
 
 #wpfooter .gm-menu { font-size: 100%; }
 #wpfooter .gm-menu a { padding-left: 20px; height: 20px; }
+
+#wpfooter .menu-graphical-menu-container { margin-top: 1.5em; }
 
 /*  Specific styles
  *
@@ -339,4 +443,47 @@ a.header-image:focus {
 	color: #808080;
 	color: rgba(0,0,0,.5);
 }
+
+
+/* navi */
+#navi {
+	float: right;
+	margin: 2em 2em 0 0;
+}
+
+#navi li {
+	display: inline;
+	font-size: 110%;
+	letter-spacing: 0.02em;
+}
+
+#navi a {
+	display: inline-block;
+	font-weight: bold;
+	padding: 5px 0.9em;
+	margin-right: 0.3em;
+
+	background-color: rgba( 0, 68, 170, 0.4 );
+	color: #fff;
+	border-bottom: none;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+	#navi li.current-menu-item a {
+		background-color: rgba( 0, 38, 94, 0.6 );
+	}
+	#navi li.current-menu-item a:hover, #navi li.current-menu-item a:active, #navi li.current-menu-item a:focus,
+	#navi a:hover, #navi a:active, #navi a:focus {
+		background-color: rgba( 0, 7, 18, 0.8 );
+	}
+
+#navi .gm-home a { background-image: url(images/home-20.png); }
+#navi .gm-get-xubuntu a { background-image: url(images/get-xubuntu-20.png); }
+#navi .gm-get-support a { background-image: url(images/get-support-20.png); }
+#navi .gm-get-involved a { background-image: url(images/get-involved-20.png); }
+
+#navi .gm-menu a { background-repeat: no-repeat; background-position: 10px 50%; padding-left: 2.7em; }
 
