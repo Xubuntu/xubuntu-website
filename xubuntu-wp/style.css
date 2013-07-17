@@ -2,7 +2,7 @@
  *  Theme Name: WordPress for Xubuntu.org
  *  Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
  *  Author: Pasi Lallinaho
- *  Version: 2012
+ *  Version: 2013
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -38,25 +38,6 @@ body {
 	max-width: 1200px;
 	clear: both;
 }
-
-/*  Self-clearing float
- *  (and other little tweaks)
- *
- */
-
-.group:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-}
-
-.hidden { display: none; }
-.small { font-size: 85%; }
-.alignleft { float: left; margin: 0 20px 20px 0; }
-.alignright { float: right; margin: 0 0 20px 20px; }
-.aligncenter { text-align: center; }
 
 /*  Selection style
  *
@@ -211,8 +192,6 @@ li { list-style-position: inside; }
 	margin-left: -260px;
 	padding-bottom: 2em;
 }
-#xubuntu.is-front #sidebar { width: 430px; margin-left: -430px; }
-#xubuntu.is-front #sidebar .photoslider { margin-top: 2.5em; }
 
 #front_columns {
 	clear: both;
@@ -257,6 +236,23 @@ li { list-style-position: inside; }
 		float: left;
 		width: 18%;
 		padding-right: 2%;
+	}
+
+/*  Frontpage tweaks
+ *
+ */
+
+.is-front #main {
+	margin: -2em 455px 0 0;
+}
+
+.is-front #sidebar {
+	width: 475px;
+	margin: 40px 40px 0 -505px;
+	padding: 0 !important;
+}
+	.is-front #sidebar .photoslider {
+		margin-top: -2.3em;
 	}
 
 /*  Menu with images

@@ -50,3 +50,21 @@ table {
 	border-spacing: 0;
 }
 
+/*  Self-clearing float
+ *  (and other little tweaks)
+ *
+ */
+
+.group:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.hidden { display: none; }
+.small { font-size: 85%; }
+.alignleft { float: left; margin: 0 20px 20px 0; }
+.alignright { float: right; margin: 0 0 20px 20px; }
+.aligncenter { text-align: center; }
