@@ -1,0 +1,386 @@
+/*
+ *  Theme Name: Xubuntu Fourteen
+ *  Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
+ *  Author: Pasi Lallinaho
+ *  Version: 01.07
+ *  Author URI: http://open.knome.fi/
+ *  Theme URI: https://xubuntu.org/
+ *
+ */
+
+html {
+	background: #0b3a6b url(images/pagebg.png) 50% -25px repeat;
+}
+
+body {
+	padding: 2em 0 3em 0;
+
+	font-size: small;
+	font-family: "Open Sans", sans-serif;
+	line-height: 1.5em;
+
+	background: transparent url(images/bodybg.png) 0 0 repeat-x;
+	color: #3c3c3c;
+	border-top: 4px solid #2c82dd;
+	border-top: 4px solid rgba( 44, 130, 221, 0.75 );
+
+	min-height: 760px;
+}
+
+/*  Site width
+ *
+ */
+
+#wpcontent, #header, #wpfooter {
+	width: 90%;
+	margin: 0 auto;
+
+	min-width: 960px;
+	max-width: 1200px;
+	clear: both;
+}
+
+/*  Layout
+ *
+ */
+
+#mainwrap {
+	width: 92%;
+	padding: 25px 35px;
+	float: left;
+}
+	.is-front #mainwrap { padding-top: 0; }
+
+#main { margin-right: 295px; }
+	.is-front #main { margin-right: 545px; }
+
+#sidebar {
+	float: right;
+	width: 210px;
+	margin: 2em 0 2em -260px;
+
+	vertical-align: top;
+}
+
+#sidebar.sidebar-front {
+	width: 510px;
+	margin: 0 0 2em -560px;
+}
+
+
+/*  Selection style
+ *
+ */
+
+::selection {
+	background-color: #398ee7;
+	color: #fff;
+}
+
+/*  Element styles
+ *
+ */
+
+p, ol, ul, dl, blockquote, pre, table {
+	margin-bottom: 1em;
+	font-size: 90%;
+}
+
+a {
+	text-decoration: none;
+	color: #2c82dd;
+	border-bottom: 1px solid transparent;
+	transition: all 0.3s ease-in-out;
+}
+	a:hover,
+	a:active,
+	a:focus {
+		color: #13385e;
+		border-bottom: 1px solid #3c3c3c;
+	}
+	#logo a { border-bottom: none; }
+	#sidebar a { color: #444; }
+
+blockquote {
+	display: inline-block;
+	font-size: 95%;
+	font-weight: normal;
+
+	background-color: #f8f8f8;
+	background-color: rgba( 255, 255, 255, 0.6 );
+
+	padding: 0.6em 1.2em 0.7em 1em;
+	border-radius: 7px;
+}
+	blockquote p:last-child { margin-bottom: 0; }
+
+code {
+	font-size: 105%;
+	background-color: #d8d8d8;
+	background-color: rgba( 0, 0, 0, 0.1 );
+	color: #2c82dd;
+	padding: 0.2em 0.4em;
+	margin: 0 0.2em;
+
+	border-radius: 4px;
+}
+	code.block {
+		display: block;
+		margin: 0 !important;
+	}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	text-align: left;
+	margin: 1.3em 0 0.6em 0;
+}
+
+h1 {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	font-weight: 600;
+	font-size: 200%;
+	line-height: 1.3em;
+
+	color: #1c50a1;
+}
+	.is-front h1 {
+		font-weight: normal;
+		width: 100%;
+		margin: 1em 3em 1em -35px;
+		padding: 1em 10% 1em 35px;
+
+		background-color: #efefef;
+		background: rgba( 255, 255, 255, 0.5 ) url(images/headerbg.png) 0 0 repeat-x;
+
+		border-top-right-radius: 14px;
+		border-bottom-right-radius: 14px;
+
+		border-bottom: 3px solid #bed8f3;
+		border-bottom: 3px solid rgba( 57, 142, 231, 0.3 );
+	}
+
+h2 { font-size: 170%; }
+h3 { font-size: 140%; color: #444; }
+h4 { font-size: 130%; color: #555; }
+h5 { font-size: 120%; color: #888; }
+h6 { font-size: 105%; color: #aaa; }
+
+hr {
+	margin: 1em 0;
+	border-bottom: 1px solid #dadada;
+}
+
+li { list-style-position: inside; }
+	#mainwrap li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
+	#mainwrap ul li { list-style-type: disc; }
+	#mainwrap ol li { list-style-type: decimal; margin-left: 1.6em; }
+	#archive-posts ul li { list-style-type: none; margin-left: 0; }
+	#archive-posts ul li span.post-time { display: inline-block; width: 20%; margin-right: 5px; text-align: right; }
+
+p { }
+	.is-front p { font-size: 105%; line-height: 1.4em; font-family: "Open Sans"; }
+	p.preface {
+		margin: 2em 0;
+		padding: 1.5em 0;
+
+		word-spacing: 0.2em;
+		line-height: 1.8em;
+
+		font-size: 90%;
+		font-weight: 600;
+		border-top: 1px solid rgba( 0, 0, 0, 0.1 );
+		border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );
+	}
+
+/*  Layout styles
+ *
+ */
+
+#wpcontent {
+	font-size: 110%;
+	background: #f1f1f1 url(images/contentbg.png) 0 0 repeat-x;
+
+	border-radius: 7px;
+	padding-bottom: 25px;
+}
+
+.is-front #wpcontent { background-image: url(images/contentbg-front.png); }
+
+#header {
+	height: 75px;
+}
+
+#logo {
+	float: left;
+	margin-left: 35px;
+}
+
+#sidebar.sidebar-main {
+	padding: 25px;
+	background-color: rgba( 255, 255, 255, 0.7 );
+	border-top-left-radius: 14px;
+	border-bottom-left-radius: 14px;
+}
+
+#xubuntu_front_menu {
+	clear: both;
+	border-top: 1px solid #ccc;
+	margin: 0 35px;
+	padding-top: 1em;
+}
+
+#wpfooter {
+	padding: 2px;
+	font-size: 90%;
+	color: #aaa;
+}
+
+
+/*  Photoslider styling
+ *
+ */
+
+.ps_wrap img {
+	border-radius: 14px;
+}
+
+.photoslider.ctrl-ontop .c-prev,
+.photoslider.ctrl-ontop .c-next {
+	height: 25px !important;
+	width: 25px;
+
+	margin-top: -0.8em;
+
+	display: block;
+	opacity: 0;
+
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.9) !important;
+	color: #1c50a1 !important;
+
+	border-bottom: 3px solid #bed8f3;
+	border-bottom: 3px solid rgba( 57, 142, 231, 0.3 );
+
+	font-weight: normal !important;
+
+	border-radius: 0;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+
+	transition: all 0.3s ease-in-out;
+}
+
+.photoslider.ctrl-ontop:hover .c-prev,
+.photoslider.ctrl-ontop:hover .c-next {
+	opacity: 1;
+}
+
+
+/*  Specific styles
+ *
+ */
+
+a.header-image,
+a.header-image:hover,
+a.header-image:active,
+a.header-image:focus {
+	border: none;
+}
+
+.post-title { margin: 0 0 0.3em 0; }
+.post-post { color: #333; margin: 1.5em 0; }
+
+.post table {
+	width: 100%;
+}
+.post table td {
+	border: 1px solid #ccc;
+	background-color: #f6f6f6;
+	padding: 3px;
+}
+.post table th {
+	text-align: left;
+}
+
+.news { margin-bottom: 0.8em; }
+.news-meta {
+	display: block;
+	font-size: 60%;
+	color: #999;
+	line-height: 1.1em;
+}
+
+/*  Post and comment metadata
+ *
+ */
+
+.post-meta, .post-meta a {
+	margin-top: -0.7em;
+	color: #ccc;
+	color: rgba(0,0,0,.2);
+}
+
+.post-meta span a {
+	transition: all 0.5s ease-in-out;
+}
+.post-meta span a:hover,
+.post-meta span a:focus {
+	color: #808080;
+	color: rgba(0,0,0,.5);
+}
+
+
+
+/* Make clickable area of links bigger */
+ul#menu-main-navigation a { display: block; width: 90%; }
+
+/* Sub-menu items should be normal size */
+ul#menu-main-navigation .sub-menu { font-size: 100%; }
+
+/* On the front page, we want to float the sections */
+.is-front ul#menu-main-navigation .menu-item-has-children {
+	float: left;
+	width: 20%;
+}
+
+/* Style the top level navigation links; bigger size, no color or "underline" */
+ul#menu-main-navigation .menu-item-has-children > a {
+	font-size: 125%;
+	color: #333;
+	border-bottom: none;
+}
+
+/* Add some padding before and after the sub-menus */
+ul#menu-main-navigation .menu-item-has-children ul { margin: 0.5em 0 1.5em 0; }
+
+/* Specific classes for menu */
+#menu-main-navigation li.strong { font-weight: 700; }
+#menu-main-navigation li.external { background: transparent url(images/external.png) 88% 50% no-repeat; }
+#menu-main-navigation li.external:hover { background-image: url(images/external-hover.png); }
+
+/* Only show selected page with blue color in the sidebar submenu */
+#sidebar .sub-menu .current-menu-item a { color: #2c82dd !important; }
+
+/* Blog browsing */
+#browse {
+	width: 100%;
+	border-top: 1px solid #dadada;
+	margin-top: 2em;
+}
+
+#browse .left-column {
+	float: left;
+	width: 63%;
+	margin-right: 3%;
+}
+
+#browse .right-column {
+	float: right;
+	width: 34%;
+}
+
+#browse h4 { margin-top: 0.5em; }
+#browse li { list-style-type: none !important; margin-left: 0; }
+#browse li a { display: block; width: 90%; }
+#browse .more-link a { margin-top: 0.5em; color: #777; font-size: 95%; font-weight: bold; }
