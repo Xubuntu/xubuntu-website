@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-10 23:25+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:12
+msgid "More from these categories"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:14
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:29
+msgid "More from"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:16
+msgid "See all articles from this category &raquo;"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:27
+msgid "More from these tags"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:31
+msgid "See all articles for this tag &raquo;"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:34
+msgid "Newest articles in the blog"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:71
+msgid "Browse by category"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/browse.php:82
+msgid "Go to the blog starting page &raquo;"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/content.php:15
+#: xubuntu-website-theme/xubuntu-fourteen/content-titles.php:19
+msgid "%B %e, %Y"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/content.php:23
+msgid "Read the rest of this entry &raquo;"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/content.php:29
+#: xubuntu-website-theme/xubuntu-fourteen/content-titles.php:27
+#: xubuntu-website-theme/xubuntu-fourteen/index.php:8
+msgid "Page not found"
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/content.php:30
+#: xubuntu-website-theme/xubuntu-fourteen/content-titles.php:28
+#: xubuntu-website-theme/xubuntu-fourteen/index.php:9
+msgid "I'm sorry, but you're looking for something that is not here."
+msgstr ""
+
+#: xubuntu-website-theme/xubuntu-fourteen/content-titles.php:10
+msgid "Archive"
+msgstr ""
