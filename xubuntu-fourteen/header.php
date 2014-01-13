@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- this is HTML5 -->
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes( 'xhtml' ); ?>>
 <head>
@@ -12,22 +12,25 @@
 
 	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png">
 
-	<!-- CSS reset: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ -->
+	<!-- Eric Meyer: CSS reset | http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ -->
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/reset.css" media="all" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style.css" media="all" />
+	<!-- Steve Matteson: Open Sans | http://www.google.com/fonts/specimen/Open+Sans -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,600' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style.css" media="all" />
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/templates.css" media="all" />
+
+	<!--[if IE]><link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/iefix.css" media="all" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/ie7fix.css" media="all" /><![endif]-->
 
 	<?php wp_head( ); ?>
 </head>
 
-<?php if( is_single( ) ) { $singular = "item-single"; } elseif( is_archive( ) || is_home( ) ) { $singular = "item-archive"; } ?>
-<?php if( is_front_page( ) ) { $front = "is-front"; } ?>
-
-<body id="xubuntu" class="item-<?php print $post->post_name . ' ' . $singular . ' ' . $front; ?>">
+<body id="xubuntu" <?php echo body_class( ); ?>>
 
 <div id="header">
 	<div id="logo">
-		<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" /></a>
+		<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" alt="Xubuntu" /></a>
 	</div>
 </div>
 <div id="wpcontent" class="group">

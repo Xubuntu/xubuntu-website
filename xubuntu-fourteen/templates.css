@@ -1,0 +1,194 @@
+/*  Templates usable from the TinyMCE editor
+ *
+ */
+
+/*  Aligned images  */
+
+.alignright { margin-left: 2em; }
+.alignleft { margin-right: 2em; }
+.alignright a,
+.alignleft a { border-bottom: none; }
+img.alignright,
+img.alignleft,
+.alignright img,
+.alignleft img { border-radius: 14px; }
+.alignright img,
+.alignleft img { border-bottom: 7px solid rgba( 0, 0, 0, 0.2 ); }
+.wp-caption-text {
+	margin: -4em 10px 1em 0;
+	padding-top: 4em !important;
+
+	background-color: #787878;
+	background-color: rgba( 0, 0, 0, 0.5 );
+	color: #fafafa;
+	color: rgba( 255, 255, 255, 0.8 );
+
+	border-radius: 14px;
+	padding: 0.5em 0.8em;
+}
+
+/*  Blockquote  */
+blockquote {
+	display: inline-block;
+	font-size: 95%;
+	font-weight: normal;
+
+	background-color: #f8f8f8;
+	background-color: rgba( 255, 255, 255, 0.6 );
+
+	padding: 0.6em 1.2em 0.7em 1em;
+	border-radius: 7px;
+}
+	blockquote p:last-child { margin-bottom: 0; }
+
+/*  Code sections, inline and block */
+code {
+	font-size: 105%;
+	background-color: #d8d8d8;
+	background-color: rgba( 0, 0, 0, 0.1 );
+	color: #2c82dd;
+	padding: 0.2em 0.4em;
+	margin: 0 0.2em;
+
+	border-radius: 4px;
+}
+	code.block {
+		display: block;
+		margin: 0 !important;
+	}
+	.hb.black code { background-color: #0a0a0a; }
+ 	.hb.blue code { background-color: #295d94; }
+	.hb.green code { background-color: #5b8c33; }
+	.hb.pink code { background-color: #b45e82; }
+
+	.hb.blue code,
+	.hb.green code,
+	.hb.pink code {
+		color: #eee;
+		color: rgba( 255, 255, 255, 0.9 );
+	}
+
+/*  Preface  */
+p.preface {
+	margin: 2em 0;
+	padding: 1.5em 0;
+
+	word-spacing: 0.2em;
+	line-height: 1.8em;
+
+	font-size: 90%;
+	font-weight: 600;
+	border-top: 1px solid #d2d2d2;
+	border-bottom: 1px solid #d2d2d2;
+}
+
+/*  Section highlighting  */
+.hb {
+	margin: 2em -35px 2em -35px;
+	padding: 15px 35px 25px 35px;
+
+	font-size: 120%; 
+	line-height: 1.5em;
+
+	color: #222;
+	color: rgba( 0, 0, 0, 0.65 );
+
+	border-top: 0.5em solid rgba( 255, 255, 255, 0.2 );
+}
+	.hb + .hb {
+		margin-top: -2.5em;
+		border-top: none;
+	}
+
+.hb a {
+	color: #fafafa;
+	color: rgba( 255, 255, 255, 0.9 );
+}
+	.hb a:hover,
+	.hb a:active,
+	.hb a:focus {
+		border-bottom: 1px solid #eee;
+		border-bottom: 1px solid rgba( 255, 255, 255, 0.9 );
+	}
+.hb h2 {
+	margin-top: 0.5em;
+	color: #fff;
+	color: rgba( 255, 255, 255, 0.9 );
+}
+.hb strong {
+	font-weight: 600;
+	line-height: 1.8em;
+}
+.hb .alignright,
+.hb .alignleft {
+	margin-top: 2em;
+}
+
+.hb .alignright img,
+.hb .alignleft img {
+	border-bottom: 7px solid rgba( 255, 255, 255, 0.5 );
+}
+
+.hb .wp-caption-text {
+	background-color: #fafafa;
+	background-color: rgba( 255, 255, 255, 0.5 );
+	color: #111;
+	color: rgba( 0, 0, 0, 0.8 );
+	font-size: 80%;
+}
+
+.hb.black {
+	background-color: #222;
+	background-color: rgba( 0, 0, 0, 0.9 );
+	color: #fafafa;
+	color: rgba( 255, 255, 255, 0.9 );
+}
+	.hb.black a {
+		color: #286db6;
+		color: rgba( 44, 130, 221, 0.85 );
+	}
+.hb.blue {
+	background-color: #2f6cad;
+	background-color: rgba( 0, 77, 158, 0.8 );
+}
+.hb.green {
+	background-color: #6ba43c;
+	background-color: rgba( 74, 145, 15, 0.8 );
+}
+.hb.pink {
+	background-color: #d36e99;	
+	background-color: rgba( 204, 78, 131, 0.8 );
+}
+.hb.white {
+	background-color: #fff;
+	background-color: rgba( 255, 255, 255, 0.95 );
+	border-top: 0.5em solid rgba( 0, 0, 0, 0.03 );
+}
+	.hb.white a {
+		color: #286db6;
+		color: rgba( 44, 130, 221, 0.85 );
+	}
+		.hb.white a:hover,
+		.hb.white a:active,
+		.hb.white a:focus {
+			border-bottom: 1px solid #111;
+			border-bottom: 1px solid rgba( 0, 0, 0, 0.9 );
+		}
+	.hb.white h2 {
+		color: #4c4c4c;
+		color: rgba( 0, 0, 0, 0.7 );
+	}
+	.hb.white + .hb {
+		border-top: 0.5em solid rgba( 255, 255, 255, 0.2 );
+	}
+
+/*  List in three columns */
+ul.columnlist {
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+
+	-moz-column-gap: 1em;
+	-webkit-column-gap: 1em;
+	column-gap: 1em;
+}

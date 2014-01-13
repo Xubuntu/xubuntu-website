@@ -1,11 +1,9 @@
 /*
  *  Theme Name: Xubuntu Fourteen
- *  Version: 01.10
- *  Description: An elegant theme for the Xubuntu website.
- *
+ *  Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
  *  Author: Pasi Lallinaho
+ *  Version: 01.07
  *  Author URI: http://open.knome.fi/
- *
  *  Theme URI: https://xubuntu.org/
  *
  */
@@ -42,19 +40,34 @@ body {
 	clear: both;
 }
 
-/*  Layout
+/*  Basic layouting
  *
  */
 
+#header { height: 75px; }
+
+#logo {
+	float: left;
+	margin-left: 35px;
+}
+
+#wpcontent {
+	font-size: 110%;
+	background: #f1f1f1 url(images/contentbg.png) 0 0 repeat-x;
+
+	border-radius: 7px;
+	padding-bottom: 25px;
+}
+	body.home #wpcontent { background-image: url(images/contentbg-front.png); }
+
 #mainwrap {
-	width: 92%;
 	padding: 25px 35px;
 	float: left;
 }
-	.is-front #mainwrap { padding-top: 0; }
+	body.home #mainwrap { padding-top: 0; }
 
 #main { margin-right: 295px; }
-	.is-front #main { margin-right: 545px; }
+	body.home #main { margin-right: 545px; }
 
 #sidebar {
 	float: right;
@@ -63,12 +76,27 @@ body {
 
 	vertical-align: top;
 }
+	#sidebar.sidebar-main {
+		padding: 25px;
+		background-color: #f8f8f8;
+		background-color: rgba( 255, 255, 255, 0.7 );
+		border-top-left-radius: 14px;
+		border-bottom-left-radius: 14px;
+	}
+	#sidebar.sidebar-front {
+		width: 510px;
+		margin: 0 0 2em -560px;
+	}
 
-#sidebar.sidebar-front {
-	width: 510px;
-	margin: 0 0 2em -560px;
+#wpfooter {
+	padding: 2px;
+	font-size: 90%;
+	color: #aaa;
 }
 
+#iewarning {
+	display: none;
+}
 
 /*  Selection style
  *
@@ -103,38 +131,11 @@ a {
 	#logo a { border-bottom: none; }
 	#sidebar a { color: #444; }
 
-blockquote {
-	display: inline-block;
-	font-size: 95%;
-	font-weight: normal;
-
-	background-color: #f8f8f8;
-	background-color: rgba( 255, 255, 255, 0.6 );
-
-	padding: 0.6em 1.2em 0.7em 1em;
-	border-radius: 7px;
-}
-	blockquote p:last-child { margin-bottom: 0; }
-
-code {
-	font-size: 105%;
-	background-color: #d8d8d8;
-	background-color: rgba( 0, 0, 0, 0.1 );
-	color: #2c82dd;
-	padding: 0.2em 0.4em;
-	margin: 0 0.2em;
-
-	border-radius: 4px;
-}
-	code.block {
-		display: block;
-		margin: 0 !important;
-	}
-
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	text-align: left;
 	margin: 1.3em 0 0.6em 0;
+	line-height: 1.4em;
 }
 
 h1 {
@@ -146,9 +147,11 @@ h1 {
 
 	color: #1c50a1;
 }
-	.is-front h1 {
+	h1.post-title { margin-bottom: 0; }
+	h1.post-title a { border-bottom: none; color: #1c50a1; }
+	body.home h1 {
 		font-weight: normal;
-		width: 100%;
+		width: 95%;
 		margin: 1em 3em 1em -35px;
 		padding: 1em 10% 1em 35px;
 
@@ -181,62 +184,7 @@ li { list-style-position: inside; }
 	#archive-posts ul li span.post-time { display: inline-block; width: 20%; margin-right: 5px; text-align: right; }
 
 p { }
-	.is-front p { font-size: 105%; line-height: 1.4em; font-family: "Open Sans"; }
-	p.preface {
-		margin: 2em 0;
-		padding: 1.5em 0;
-
-		word-spacing: 0.2em;
-		line-height: 1.8em;
-
-		font-size: 90%;
-		font-weight: 600;
-		border-top: 1px solid rgba( 0, 0, 0, 0.1 );
-		border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );
-	}
-
-/*  Layout styles
- *
- */
-
-#wpcontent {
-	font-size: 110%;
-	background: #f1f1f1 url(images/contentbg.png) 0 0 repeat-x;
-
-	border-radius: 7px;
-	padding-bottom: 25px;
-}
-
-.is-front #wpcontent { background-image: url(images/contentbg-front.png); }
-
-#header {
-	height: 75px;
-}
-
-#logo {
-	float: left;
-	margin-left: 35px;
-}
-
-#sidebar.sidebar-main {
-	padding: 25px;
-	background-color: rgba( 255, 255, 255, 0.7 );
-	border-top-left-radius: 14px;
-	border-bottom-left-radius: 14px;
-}
-
-#xubuntu_front_menu {
-	clear: both;
-	border-top: 1px solid #ccc;
-	margin: 0 35px;
-	padding-top: 1em;
-}
-
-#wpfooter {
-	padding: 2px;
-	font-size: 90%;
-	color: #aaa;
-}
+	body.home p { font-size: 105%; line-height: 1.4em; font-family: "Open Sans"; }
 
 
 /*  Photoslider styling
@@ -280,45 +228,32 @@ p { }
 
 
 /*  Specific styles
+ *  TODO: Do we need these?
  *
  */
 
-a.header-image,
-a.header-image:hover,
-a.header-image:active,
-a.header-image:focus {
-	border: none;
-}
-
-.post-title { margin: 0 0 0.3em 0; }
-.post-post { color: #333; margin: 1.5em 0; }
-
-.post table {
+table {
 	width: 100%;
 }
-.post table td {
+table td {
 	border: 1px solid #ccc;
 	background-color: #f6f6f6;
 	padding: 3px;
 }
-.post table th {
+table th {
 	text-align: left;
 }
 
-.news { margin-bottom: 0.8em; }
-.news-meta {
-	display: block;
-	font-size: 60%;
-	color: #999;
-	line-height: 1.1em;
-}
-
-/*  Post and comment metadata
+/*  Post styles
  *
  */
 
+.post-post {
+	color: #333;
+	margin: 1.5em 0;
+}
+
 .post-meta, .post-meta a {
-	margin-top: -0.7em;
 	color: #ccc;
 	color: rgba(0,0,0,.2);
 }
@@ -333,15 +268,26 @@ a.header-image:focus {
 }
 
 
+/*  Navigation styles
+ *
+ */
 
-/* Make clickable area of links bigger */
+#horizontal_navi {
+	clear: both;
+	border-top: 1px solid #ccc;
+	margin: 0 35px;
+	padding-top: 1em;
+}
+
+/*  Make clickable area of links bigger  */
 ul#menu-main-navigation a { display: block; width: 90%; }
 
 /* Sub-menu items should be normal size */
 ul#menu-main-navigation .sub-menu { font-size: 100%; }
 
-/* On the front page, we want to float the sections */
-.is-front ul#menu-main-navigation .menu-item-has-children {
+/* Float the sections on the frontpage and on the bottom navigation template */
+body.home ul#menu-main-navigation .menu-item-has-children,
+body.page-template-template_bottomnavi-php ul#menu-main-navigation .menu-item-has-children {
 	float: left;
 	width: 20%;
 }
@@ -356,7 +302,7 @@ ul#menu-main-navigation .menu-item-has-children > a {
 /* Add some padding before and after the sub-menus */
 ul#menu-main-navigation .menu-item-has-children ul { margin: 0.5em 0 1.5em 0; }
 
-/* Specific classes for menu */
+/* Specific classes for menu for manual use */
 #menu-main-navigation li.strong { font-weight: 700; }
 #menu-main-navigation li.external { background: transparent url(images/external.png) 88% 50% no-repeat; }
 #menu-main-navigation li.external:hover { background-image: url(images/external-hover.png); }
@@ -364,7 +310,11 @@ ul#menu-main-navigation .menu-item-has-children ul { margin: 0.5em 0 1.5em 0; }
 /* Only show selected page with blue color in the sidebar submenu */
 #sidebar .sub-menu .current-menu-item a { color: #2c82dd !important; }
 
-/* Blog browsing */
+
+/*  Blog browsing
+ *
+ */
+
 #browse {
 	width: 100%;
 	border-top: 1px solid #dadada;

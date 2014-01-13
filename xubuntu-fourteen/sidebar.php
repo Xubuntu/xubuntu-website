@@ -9,7 +9,7 @@
 		wp_nav_menu( array(
 			'theme_location' => 'front-page',
 			'container_class' => 'group',
-			'container_id' => 'xubuntu_front_menu',
+			'container_id' => 'horizontal_navi',
 			'fallback_cb' => false
 		) );
 

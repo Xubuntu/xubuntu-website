@@ -24,6 +24,6 @@
 		</div>
 
 	<?php else : ?>
-		<h1 class="post-title"><?php _e( 'Page not found', 'xubuntu' ); ?></h1>
+		<h1 class="post-title"><?php _e( 'Page Not Found', 'xubuntu' ); ?></h1>
 		<p><?php _e( 'I\'m sorry, but you\'re looking for something that is not here.', 'xubuntu' ); ?></p>
 	<?php endif; ?>

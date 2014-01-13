@@ -7,10 +7,8 @@
 add_action( 'init', 'xubuntu_init' );
 
 function xubuntu_init( ) {
-	wp_register_style( 'open-sans', get_template_directory_uri( ) . '/open-sans.css', null, '1' );
-	wp_register_style( 'xubuntu-admin', get_template_directory_uri( ) . '/admin.css' );
-
 	add_editor_style( 'editor.css' );
+	add_editor_style( 'templates.css' );
 }
 
 /*  Register widget areas
@@ -65,28 +63,6 @@ add_action( 'wp_head', 'xubuntu_head' );
 function xubuntu_head( ) {
 	// we always want to link to the main feed. always
 	print '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo( 'name' ) . ' // Articles feed" href="' . get_bloginfo( 'rss2_url' ) . '" />' . "\n";
-}
-
-/*  Add stylesheets
- *
- */
-
-add_action( 'wp_print_styles', 'xubuntu_styles' );
-
-function xubuntu_styles( ) {
-	wp_enqueue_style( 'open-sans' );
-}
-
-
-/*  Add admin stylesheets
- *
- */
-
-add_action( 'admin_print_styles', 'xubuntu_admin_styles' );
-
-function xubuntu_admin_styles( ) {
-	wp_enqueue_style( 'xubuntu-admin' );
-	wp_enqueue_style( 'open-sans' );
 }
 
 /*  Allow uploading SVG
@@ -152,7 +128,12 @@ function xubuntu_mcebuttons2( $buttons ) {
 add_filter( 'tiny_mce_before_init', 'xubuntu_tinymceinit' );
 
 function xubuntu_tinymceinit( $init_array ) {
-	// http://codex.wordpress.org/TinyMCE_Custom_Styles#Using_style_formats
+	/*  http://codex.wordpress.org/TinyMCE_Custom_Styles#Using_style_formats
+	 *  See templates.css for styling
+	 *
+	 */
+	$current = get_current_screen( );
+
 	$style_formats = array(
 		array(
 			'title' => 'Blockquote',
@@ -173,11 +154,59 @@ function xubuntu_tinymceinit( $init_array ) {
 			'title' => 'Preface',
 			'block' => 'p',
 			'classes' => 'preface',
-		)
+		),
 	);
 
+	if( current_user_can( 'publish_posts' ) && $current->post_type == 'page' ) {
+		$style_formats_2 = array(
+			array(
+				'title' => 'Highlight styles'
+			),
+			array(
+				'title' => 'Black highlight',
+				'block' => 'div',
+				'wrapper' => true,
+				'classes' => 'hb black'
+			),
+			array(
+				'title' => 'Blue highlight',
+				'block' => 'div',
+				'wrapper' => true,
+				'classes' => 'hb blue'
+			),
+			array(
+				'title' => 'Green highlight',
+				'block' => 'div',
+				'wrapper' => true,
+				'classes' => 'hb green'
+			),
+			array(
+				'title' => 'Pink highlight',
+				'block' => 'div',
+				'wrapper' => true,
+				'classes' => 'hb pink'
+			),
+			array(
+				'title' => 'White highlight',
+				'block' => 'div',
+				'wrapper' => true,
+				'classes' => 'hb white darkheading'
+			),
+			array(
+				'title' => 'Modifiers'
+			),
+			array(
+				'title' => 'Three-column list',
+				'selector' => 'ul',
+				'classes' => 'columnlist'
+			)
+		);
+
+		$style_formats = array_merge( $style_formats, $style_formats_2 );
+	}
+
 	$init_array['style_formats'] = json_encode( $style_formats );
-	$init_array['theme_advanced_blockformats'] = 'p,h2,h3,h4,h5,h6';
+	$init_array['theme_advanced_blockformats'] = 'p,h2,h3,h4';
 
 	return $init_array;
 }

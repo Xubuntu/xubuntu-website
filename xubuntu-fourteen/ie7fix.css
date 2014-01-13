@@ -1,0 +1,33 @@
+body.home .ps_wrap {
+	margin-top: 5px;
+	margin-left: -45px;
+}
+
+.photoslider.ctrl-ontop .c-prev,
+.photoslider.ctrl-ontop .c-next {
+	display: none !important;
+}
+
+/*  Fixes highlight blocks  */
+
+code {
+	background-color: #d8d8d8 !important;
+	color: #2c82dd !important;
+}
+
+/*  Navigation fixes  */
+
+ul#menu-main-navigation .menu-item-has-children {
+	margin-top: -1em;
+}
+ul#menu-main-navigation li ul li {
+	margin-left: -1.2em;
+}
+
+#sidebar.sidebar-main ul#menu-main-navigation li {
+	margin-left: -1.2em;
+}
+
+#sidebar.sidebar-main ul#menu-main-navigation li ul li {
+	margin-left: 0em;
+}

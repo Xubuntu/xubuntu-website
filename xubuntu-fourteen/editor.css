@@ -18,39 +18,11 @@ a {
 	border-bottom: 1px solid #bccde6;	/* editor-specific, this is a :hover style */
 }
 
-blockquote {
-	display: inline-block;
-	font-size: 95%;
-	font-weight: normal;
-
-	background-color: #efefef;		/* editor-specific */
-
-	margin: 0;
-	padding: 0.6em 1.2em 0.7em 1em;
-	border-radius: 7px;
-}	
-	blockquote p { margin-top: 0; }
-	blockquote p:last-child { margin-bottom: 0; }
-
-code {
-	font-size: 105%;
-	background-color: #d8d8d8;
-	background-color: rgba( 0, 0, 0, 0.1 );
-	color: #2c82dd;
-	padding: 0.2em 0.4em;
-	margin: 0 0.2em;
-
-	border-radius: 4px;
-}
-	code.block {
-		display: block;
-		margin: 0 !important;
-	}
-
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	text-align: left;
 	margin: 1.3em 0 0.6em 0;
+	line-height: 1.4em;
 }
 
 h1 {
@@ -73,17 +45,4 @@ h6 { font-size: 105%; color: #aaa; }
 hr {
 	margin: 1em 0;
 	border-bottom: 1px solid #dadada;
-}
-
-p.preface {
-	margin: 2em 0;
-	padding: 1.5em 0;
-
-	word-spacing: 0.2em;
-	line-height: 1.8em;
-
-	font-size: 100%;
-	font-weight: 600;
-	border-top: 1px solid rgba( 0, 0, 0, 0.1 );
-	border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );
 }

@@ -65,6 +65,4 @@ table {
 
 .hidden { display: none; }
 .small { font-size: 85%; }
-.alignleft { float: left; margin: 0 20px 20px 0; }
-.alignright { float: right; margin: 0 0 20px 20px; }
 .aligncenter { text-align: center; }
