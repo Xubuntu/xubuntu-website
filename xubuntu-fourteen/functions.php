@@ -33,6 +33,14 @@ if( function_exists( 'register_sidebar' ) ) {
 		"before_title" => "<h4>",
 		"after_title" => "</h4>"
 	) );
+	register_sidebar( array(
+		"name" => "Footer",
+		"id" => "xubuntu_footer",
+		"before_widget" => "<div class='widgets'>",
+		"after_widget" => "</div>",
+		"before_title" => "<h4>",
+		"after_title" => "</h4>"
+	) );
 }
 
 /*  Register menu location for front page

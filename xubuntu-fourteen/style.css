@@ -93,10 +93,9 @@ body {
 	font-size: 90%;
 	color: #aaa;
 }
-
-#iewarning {
-	display: none;
-}
+	#wpfooter .widgets div {
+		margin: 0 35px;
+	}
 
 /*  Selection style
  *
@@ -130,6 +129,10 @@ a {
 	}
 	#logo a { border-bottom: none; }
 	#sidebar a { color: #444; }
+	#wpfooter a { color: #eee; }
+		#wpfooter a:hover,
+		#wpfooter a:active,
+		#wpfooter a:focus { border-bottom: 1px solid #fff; }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
@@ -191,6 +194,10 @@ p { }
  *
  */
 
+body.home .ps_wrap {
+	margin-top: 30px;
+}
+
 .ps_wrap img {
 	border-radius: 14px;
 }
@@ -200,7 +207,7 @@ p { }
 	height: 25px !important;
 	width: 25px;
 
-	margin-top: -0.8em;
+	top: 0 !important;
 
 	display: block;
 	opacity: 0;
@@ -225,6 +232,29 @@ p { }
 .photoslider.ctrl-ontop:hover .c-next {
 	opacity: 1;
 }
+
+.photoslider .captions {
+	margin: -4em 0 1em 0;
+	padding-top: 4em !important;
+
+	background-color: #e5e5e5;
+	background-color: rgba( 0, 0, 0, 0.05 );
+	color: #2e2e2e !important;
+	color: rgba( 0, 0, 0, 0.8 ) !important;
+
+	border-radius: 14px;
+	padding: 0.5em 0.8em;
+
+	font-size: 115%;
+	font-style: normal !important;
+}
+	.photoslider .caption-title {
+		font-weight: 700;
+		margin-bottom: 0.2em;
+	}
+	.photoslider .caption-content {
+		margin-bottom: 0.2em;
+	}
 
 
 /*  Specific styles
