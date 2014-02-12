@@ -99,6 +99,10 @@ p.preface {
 		margin-top: -2.5em;
 		border-top: none;
 	}
+	.page-template-default .hb {
+		border-top-right-radius: 14px;
+		border-bottom-right-radius: 14px;
+	}
 
 .hb a {
 	color: #fafafa;
