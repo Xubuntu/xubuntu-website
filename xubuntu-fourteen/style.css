@@ -2,7 +2,7 @@
  *  Theme Name: Xubuntu Fourteen
  *  Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
  *  Author: Pasi Lallinaho
- *  Version: 01.07
+ *  Version: 02.14
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -310,32 +310,35 @@ table th {
 }
 
 /*  Make clickable area of links bigger  */
-ul#menu-main-navigation a { display: block; width: 90%; }
+#horizontal_navi ul.menu a,
+#sidebar ul.menu a { display: block; width: 90%; }
 
 /* Sub-menu items should be normal size */
-ul#menu-main-navigation .sub-menu { font-size: 100%; }
+#horizontal_navi ul.menu .sub-menu,
+#sidebar ul.menu .sub-menu { font-size: 100%; }
 
 /* Float the sections on the frontpage and on the bottom navigation template */
-body.home ul#menu-main-navigation .menu-item-has-children,
-body.page-template-template_bottomnavi-php ul#menu-main-navigation .menu-item-has-children {
+#horizontal_navi ul.menu .menu-item-has-children {
 	float: left;
 	width: 20%;
 }
 
 /* Style the top level navigation links; bigger size, no color or "underline" */
-ul#menu-main-navigation .menu-item-has-children > a {
+#horizontal_navi ul.menu .menu-item-has-children > a,
+#sidebar ul.menu .menu-item-has-children > a {
 	font-size: 125%;
 	color: #333;
 	border-bottom: none;
 }
 
 /* Add some padding before and after the sub-menus */
-ul#menu-main-navigation .menu-item-has-children ul { margin: 0.5em 0 1.5em 0; }
+#horizontal_navi ul.menu .menu-item-has-children ul,
+#sidebar ul.menu .menu-item-has-children ul { margin: 0.5em 0 1.5em 0; }
 
 /* Specific classes for menu for manual use */
-#menu-main-navigation li.strong { font-weight: 700; }
-#menu-main-navigation li.external { background: transparent url(images/external.png) 88% 50% no-repeat; }
-#menu-main-navigation li.external:hover { background-image: url(images/external-hover.png); }
+ul.menu li.strong { font-weight: 700; }
+ul.menu li.external { background: transparent url(images/external.png) 88% 50% no-repeat; }
+ul.menu li.external:hover { background-image: url(images/external-hover.png); }
 
 /* Only show selected page with blue color in the sidebar submenu */
 #sidebar .sub-menu .current-menu-item a { color: #2c82dd !important; }
