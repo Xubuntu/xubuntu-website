@@ -167,6 +167,7 @@ h1 {
 		border-bottom: 3px solid #bed8f3;
 		border-bottom: 3px solid rgba( 57, 142, 231, 0.3 );
 	}
+	body.archive h1.post-title { margin-bottom: 0.5em; }
 
 h2 { font-size: 170%; }
 h3 { font-size: 140%; color: #444; }
@@ -184,7 +185,7 @@ li { list-style-position: inside; }
 	#mainwrap ul li { list-style-type: disc; }
 	#mainwrap ol li { list-style-type: decimal; margin-left: 1.6em; }
 	#archive-posts ul li { list-style-type: none; margin-left: 0; }
-	#archive-posts ul li span.post-time { display: inline-block; width: 20%; margin-right: 5px; text-align: right; }
+	#archive-posts ul li span.post-time { display: inline-block; width: 20%; margin-right: 5px; }
 
 p { }
 	body.home p { font-size: 105%; line-height: 1.4em; font-family: "Open Sans"; }
@@ -347,6 +348,10 @@ ul.menu li.external:hover { background-image: url(images/external-hover.png); }
 /*  Blog browsing
  *
  */
+
+body.archive #main {
+	width: 90%;
+}
 
 #browse {
 	width: 100%;

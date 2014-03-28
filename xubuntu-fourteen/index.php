@@ -8,11 +8,7 @@
 				<h1 class="post-title"><?php _e( 'Page Not Found', 'xubuntu' ); ?></h1>
 				<p><?php _e( 'I\'m sorry, but you\'re looking for something that is not here.', 'xubuntu' ); ?></p>
 				<?php
-			} elseif( ( is_archive( ) && !is_paged( ) ) || is_home( ) ) {
-				/* Archive front page */
-				get_template_part( 'content', get_post_format( ) );
-			} elseif( is_archive( ) && is_paged( ) ) {
-				/* The real archives... */
+			} elseif( is_archive( ) ) {
 				get_template_part( 'content', 'titles' );
 			} else {
 				get_template_part( 'content', get_post_format( ) );

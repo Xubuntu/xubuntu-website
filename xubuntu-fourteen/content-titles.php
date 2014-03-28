@@ -3,16 +3,16 @@
 		<?php
 			if( is_archive( ) ) {
 				if( is_category( ) ) {
-					print "<h1 class='post-title'>" . single_cat_title( 'Archive: ', false ) . "</h1>";
+					print '<h1 class="post-title">' . single_cat_title( 'Archive: ', false ) . '</h1>';
 				} elseif( is_tag( ) ) {
-					print "<h1 class='post-title'>" . single_tag_title( 'Archive: ', false ) . "</h1>";
+					print '<h1 class="post-title">' . single_tag_title( 'Archive: ', false ) . '</h1>';
 				} else {
-					print "<h1 class='post-title'>" . __( 'Archive', 'xubuntu' ) . "</h1>";
+					print '<h1 class="post-title">' . __( 'Archive', 'xubuntu' ) . '</h1>';
 				}
 			}
 		?>
-
-		<div id="archive-posts">
+ 
+ 		<div id="archive-posts">
 			<ul>
 				<?php while (have_posts()) : the_post(); $post_num++; ?>
 				<li class="post-title">
