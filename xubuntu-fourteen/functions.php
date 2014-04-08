@@ -90,12 +90,8 @@ function xubuntu_upload_mime( $mimes = array( ) ) {
 add_action( 'pre_get_posts', 'xubuntu_articles_filters' );
 
 function xubuntu_articles_filters( $query ) {
-	if( ( is_home( ) && $query->is_main_query( ) ) || ( is_archive( ) && $query->is_main_query( ) && !is_paged( ) ) ) {
-		/* Single posts and archive front */
-		$query->set( 'posts_per_page', 1 );
-		return;
-	} elseif( is_archive( ) && $query->is_main_query( ) && is_paged( ) ) {
-		/* The rest of the archive pages */
+	if( is_archive( ) && $query->is_main_query( ) ) {
+		/* Archive pages */
 		$query->set( 'posts_per_page', -1 );
 		return;
 	}

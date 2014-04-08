@@ -361,16 +361,19 @@ body.archive #main {
 
 #browse .left-column {
 	float: left;
-	width: 63%;
-	margin-right: 3%;
+	width: 48%;
+	margin-right: 4%;
 }
 
 #browse .right-column {
 	float: right;
-	width: 34%;
+	width: 48%;
 }
 
 #browse h4 { margin-top: 0.5em; }
 #browse li { list-style-type: none !important; margin-left: 0; }
 #browse li a { display: block; width: 90%; }
 #browse .more-link a { margin-top: 0.5em; color: #777; font-size: 95%; font-weight: bold; }
+#browse .tags li { display: inline; margin-right: 1em; }
+#browse .tags li a { display: inline-block; width: auto; }
+#browse hr { clear: both; }

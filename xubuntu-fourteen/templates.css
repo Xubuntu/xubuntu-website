@@ -91,7 +91,7 @@ p.preface {
 	line-height: 1.5em;
 
 	color: #222;
-	color: rgba( 0, 0, 0, 0.65 );
+	color: rgba( 0, 0, 0, 0.8 );
 
 	border-top: 0.5em solid rgba( 255, 255, 255, 0.2 );
 }
@@ -145,15 +145,17 @@ p.preface {
 	background-color: #222;
 	background-color: rgba( 0, 0, 0, 0.9 );
 	color: #fafafa;
-	color: rgba( 255, 255, 255, 0.9 );
+	color: rgba( 255, 255, 255, 0.8 );
 }
 	.hb.black a {
 		color: #286db6;
-		color: rgba( 44, 130, 221, 0.85 );
+		color: rgba( 44, 130, 221, 0.8 );
 	}
 .hb.blue {
 	background-color: #2f6cad;
 	background-color: rgba( 0, 77, 158, 0.8 );
+	color: #fafafa;
+	color: rgba( 255, 255, 255, 0.8 );
 }
 .hb.green {
 	background-color: #6ba43c;
