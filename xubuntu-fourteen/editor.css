@@ -63,14 +63,14 @@ hr {
 	border-bottom: 1px solid #dadada;
 }
 
-div.mceTemp dl.wp-caption { /* editor-specific */
+dl.wp-caption { /* editor-specific */
 	border: none !important;
 	background-color: transparent;
 	padding: 0;
 }
 
-div.mceTemp dl.wp-caption dd.wp-caption-dd { /* editor-specific, usually: .wp-caption-text */
-	margin: -4em 5px 1em 5px; /* note: different values */
+dl.wp-caption dd.wp-caption-dd { /* editor-specific, usually: .wp-caption-text */
+	margin: -4em 0 1em 0 !important; /* note: different values */
 	padding-top: 4em !important;
 
 	background-color: #787878;
@@ -83,3 +83,32 @@ div.mceTemp dl.wp-caption dd.wp-caption-dd { /* editor-specific, usually: .wp-ca
 
 	text-align: left;
 }
+
+.gallery dd.wp-caption-text { /* editor-specific, usually: .wp-caption-text */
+	width: 130px !important; /* note: the preview images are always thumbnails */
+	margin: -3.7em auto 1em auto !important; /* note: different values */
+	padding-top: 4em !important;
+
+	background-color: #787878;
+	background-color: rgba( 0, 0, 0, 0.5 );
+	color: #fafafa;
+	color: rgba( 255, 255, 255, 0.8 );
+
+	border-radius: 14px;
+	padding: 0.5em 0.8em;
+
+	text-align: left;
+}
+
+dt.gallery-icon img {
+	border-radius: 14px; 
+	border-bottom: 7px solid rgba( 0, 0, 0, 0.2 );
+}
+
+.wpview-type-gallery .gallery { /* editor-specific */ /* make sure the gallery doesn't have scrollbars */
+	overflow: visible !important;
+}
+
+/* editor-specific: show proper padding */
+div.mceTemp .alignright { padding-left: 20px; }
+div.mceTemp .alignleft { padding-right: 20px; }

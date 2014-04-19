@@ -8,3 +8,7 @@
 	max-width: 300px;
 	height: auto;
 }
+
+.wp-caption-text {
+	margin-right: 10px;
+}

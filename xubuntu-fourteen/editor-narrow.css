@@ -1,0 +1,18 @@
+@media only screen and (max-width:1000px) {
+	.alignright,
+	.alignleft {
+		max-width: 310px;
+	}
+
+	.alignright img,
+	.alignleft img {
+		max-width: 300px;
+		height: auto;
+	}
+
+	div.mceTemp dl.wp-caption.alignright dd.wp-caption-dd,
+	div.mceTemp dl.wp-caption.alignleft dd.wp-caption-dd { /* editor-specific, usually: .wp-caption-text */
+		margin-left: 5px !important;
+		margin-right: 5px !important;
+	}
+}
