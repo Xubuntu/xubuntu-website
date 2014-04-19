@@ -19,6 +19,7 @@
 
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style.css" media="all" />
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/templates.css" media="all" />
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-narrow.css" media="only screen and (max-width:1200px)" />
 
 	<!--[if IE]><link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/iefix.css" media="all" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/ie7fix.css" media="all" /><![endif]-->

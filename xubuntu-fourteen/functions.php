@@ -1,5 +1,7 @@
 <?php
 
+$content_width = 585;
+
 /*  Init
  *
  */
@@ -71,6 +73,21 @@ add_action( 'wp_head', 'xubuntu_head' );
 function xubuntu_head( ) {
 	// we always want to link to the main feed. always
 	print '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo( 'name' ) . ' // Articles feed" href="' . get_bloginfo( 'rss2_url' ) . '" />' . "\n";
+}
+
+/*  Add some image sizes 
+ *
+ */
+
+add_image_size( 'half_page', 285 );
+
+add_filter( 'image_size_names_choose', 'xubuntu_image_sizes' );
+function xubuntu_image_sizes( $sizes ) {
+	$new_sizes = array(
+		'half_page' => __( '1/2 page', 'xubuntu' )
+	);
+
+	return array_merge( $sizes, $new_sizes );
 }
 
 /*  Allow uploading SVG
@@ -202,7 +219,7 @@ function xubuntu_tinymceinit( $init_array ) {
 			array(
 				'title' => 'Three-column list',
 				'selector' => 'ul',
-				'classes' => 'columnlist'
+				'classes' => 'columnlist group'
 			)
 		);
 
@@ -210,9 +227,68 @@ function xubuntu_tinymceinit( $init_array ) {
 	}
 
 	$init_array['style_formats'] = json_encode( $style_formats );
+
 	$init_array['theme_advanced_blockformats'] = 'p,h2,h3,h4';
+	$init_array['block_formats'] = 'Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4';
 
 	return $init_array;
+}
+
+/*  Shortcode for images in columns
+ *
+ */
+
+add_shortcode( 'imgcols', 'xubuntu_image_columns' );
+function xubuntu_image_columns( $orig_atts ) {
+	$atts = shortcode_atts( array(
+		'id' => null,
+		'captions' => null
+	), $orig_atts );
+
+	if( in_array( 'captions', $orig_atts ) ) {
+		$atts['captions'] = true;
+	}
+
+	$ids = explode( ',', $atts['id'] );
+	if( $ids[0] == null ) {
+		$attachments = get_children( array(
+			'numberposts' => -1,
+			'post_type' => 'attachment',
+			'post_mime_type' => 'image',
+			'post_parent' => get_the_ID( )
+		) );
+		unset( $ids );
+		foreach( $attachments as $a ) {
+			$ids[] = $a->ID;
+		}
+	}
+
+	switch( count( $ids ) ) {
+		case 0:
+			return;
+			break;
+		case 2:
+		case 4:
+			$class = "cc2";
+			break;
+		default:
+			$class = "cc3";
+		break;
+	}
+
+	$out = '<ul class="imagecolumns group ' . $class . '">';
+	foreach( $ids as $id ) {
+		if( $atts['captions'] ) {
+//			$meta = wp_get_attachment_metadata( $id, true );
+			$meta = wp_prepare_attachment_for_js( $id );
+			$out .= '<li>' . wp_get_attachment_link( $id, 'medium' ) . '<p class="wp-caption-text">' . $meta['caption'] . '</p></li>';
+		} else {
+			$out .= '<li>' . wp_get_attachment_link( $id, 'medium' ) . '</li>';
+		}
+	}
+	$out .= '</ul>';
+
+	return $out;
 }
 
 ?>

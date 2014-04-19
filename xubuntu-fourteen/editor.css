@@ -8,6 +8,14 @@ body {
 	color: #3c3c3c;
 }
 
+.group:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
 /*  Elements
  *
  */
@@ -53,4 +61,25 @@ h6 { font-size: 105%; color: #aaa; }
 hr {
 	margin: 1em 0;
 	border-bottom: 1px solid #dadada;
+}
+
+div.mceTemp dl.wp-caption { /* editor-specific */
+	border: none !important;
+	background-color: transparent;
+	padding: 0;
+}
+
+div.mceTemp dl.wp-caption dd.wp-caption-dd { /* editor-specific, usually: .wp-caption-text */
+	margin: -4em 5px 1em 5px; /* note: different values */
+	padding-top: 4em !important;
+
+	background-color: #787878;
+	background-color: rgba( 0, 0, 0, 0.5 );
+	color: #fafafa;
+	color: rgba( 255, 255, 255, 0.8 );
+
+	border-radius: 14px;
+	padding: 0.5em 0.8em;
+
+	text-align: left;
 }

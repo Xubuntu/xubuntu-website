@@ -2,7 +2,7 @@
  *  Theme Name: Xubuntu Fourteen
  *  Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
  *  Author: Pasi Lallinaho
- *  Version: 14.04
+ *  Version: 14.04.2
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -190,6 +190,17 @@ li { list-style-position: inside; }
 p { }
 	body.home p { font-size: 105%; line-height: 1.4em; font-family: "Open Sans"; }
 
+table {
+	width: 100%;
+}
+table td {
+	border: 1px solid #ccc;
+	background-color: #f6f6f6;
+	padding: 3px;
+}
+table th {
+	text-align: left;
+}
 
 /*  Photoslider styling
  *
@@ -257,23 +268,6 @@ body.home .ps_wrap {
 		margin-bottom: 0.2em;
 	}
 
-
-/*  Specific styles
- *  TODO: Do we need these?
- *
- */
-
-table {
-	width: 100%;
-}
-table td {
-	border: 1px solid #ccc;
-	background-color: #f6f6f6;
-	padding: 3px;
-}
-table th {
-	text-align: left;
-}
 
 /*  Post styles
  *

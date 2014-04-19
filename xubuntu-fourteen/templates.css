@@ -1,19 +1,23 @@
-/*  Templates usable from the TinyMCE editor
+/*  Templates (usable from the TinyMCE editor)
  *
  */
 
 /*  Aligned images  */
 
-.alignright { margin-left: 2em; }
-.alignleft { margin-right: 2em; }
+.alignright { float: right; margin: 0 0 0 20px; }
+.alignleft { float: left; margin: 0 20px 0 0; }
 .alignright a,
-.alignleft a { border-bottom: none; }
+.alignleft a,
+.aligncenter a { border-bottom: none; }
 img.alignright,
 img.alignleft,
+img.aligncenter,
 .alignright img,
-.alignleft img { border-radius: 14px; }
+.alignleft img,
+.aligncenter img { border-radius: 14px; }
 .alignright img,
-.alignleft img { border-bottom: 7px solid rgba( 0, 0, 0, 0.2 ); }
+.alignleft img,
+.aligncenter img { border-bottom: 7px solid rgba( 0, 0, 0, 0.2 ); }
 .wp-caption-text {
 	margin: -4em 10px 1em 0;
 	padding-top: 4em !important;
@@ -25,6 +29,11 @@ img.alignleft,
 
 	border-radius: 14px;
 	padding: 0.5em 0.8em;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto;
 }
 
 /*  Blockquote  */
@@ -188,13 +197,71 @@ p.preface {
 		border-top: 0.5em solid rgba( 255, 255, 255, 0.2 );
 	}
 
-/*  List in three columns */
+/*  List in columns */
 ul.columnlist {
-	-moz-column-count: 3;
-	-webkit-column-count: 3;
-	column-count: 3;
-
 	-moz-column-gap: 1em;
 	-webkit-column-gap: 1em;
 	column-gap: 1em;
+
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+}
+
+/*  Image columns shortcode: [imgcols]
+ *
+ *  Parameters:
+ *    id=1,2,3    Attachment ID's to show, leave empty for all attached images
+ *    captions    When given this parameter (without, or with any, arguments), captions are shown
+ *
+ */
+
+ul.imagecolumns {
+	display: table;
+	width: 100%;
+
+	list-style-type: none;
+}
+	ul.imagecolumns.cc2 {
+		-moz-column-count: 2;
+		-webkit-column-count: 2;
+		column-count: 2;
+	}
+	ul.imagecolumns.cc3 {
+		-moz-column-count: 3;
+		-webkit-column-count: 3;
+		column-count: 3;
+	}
+
+ul.imagecolumns li {
+	display: table-cell;
+	vertical-align: middle;
+	padding-right: 1em;
+}
+	ul.imagecolumns.cc2 li { width: 50%; }
+	ul.imagecolumns.cc3 li { width: 33%; }
+
+ul.imagecolumns img,
+ul.imagecolumns div {
+	width: 100%;
+	height: auto;
+}
+
+ul.imagecolumns img {
+	border-radius: 14px; 
+	border-bottom: 7px solid rgba( 0, 0, 0, 0.2 );
+}
+
+ul.imagecolumns div {
+	display: inline;
+}
+
+ul.imagecolumns p {
+	font-size: 95%;
+	width: 94%;
+	padding: 0 3% 2% 3%;
+}
+
+ul.imagecolumns a {
+	border-bottom: none;
 }
