@@ -112,3 +112,4 @@ dt.gallery-icon img {
 /* editor-specific: show proper padding */
 div.mceTemp .alignright { padding-left: 20px; }
 div.mceTemp .alignleft { padding-right: 20px; }
+.aligncenter { margin: 0 auto !important; }
