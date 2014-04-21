@@ -90,11 +90,13 @@ function xubuntu_after_setup_theme( ) {
  */
 
 add_image_size( 'half_page', 285 );
+add_image_size( 'full_page', 600 );
 
 add_filter( 'image_size_names_choose', 'xubuntu_image_sizes' );
 function xubuntu_image_sizes( $sizes ) {
 	$new_sizes = array(
-		'half_page' => __( '1/2 page', 'xubuntu' )
+		'half_page' => __( '1/2 page', 'xubuntu' ),
+		'full_page' => __( 'Full page', 'xubuntu' )
 	);
 
 	return array_merge( $sizes, $new_sizes );
