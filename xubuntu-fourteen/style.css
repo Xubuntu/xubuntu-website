@@ -202,6 +202,49 @@ table th {
 	text-align: left;
 }
 
+/*  Sticky widget area
+ *
+ */
+
+#sticky {
+	clear: both;
+	border-top: 1px solid #ccc;
+	margin: 0 35px;
+	padding-top: 0.75em;
+}
+	#sticky div.widget {
+		float: left;
+		width: 33.33%;
+		font-size: 90%;
+		margin-bottom: 0.75em;
+	}
+		#sticky div.content {
+			background-color: #fff;
+			margin-right: 0.75em;
+			padding: 0.5em 0.8em;
+
+			border-radius: 7px;
+		}
+			#sticky div.widget:nth-child(3n+1) {
+				clear: both;
+			}
+			#sticky div.widget:nth-child(3n+1) div.content {
+				margin: 0 0.5em 0 0;
+			}
+			#sticky div.widget:nth-child(3n+2) div.content {
+				margin: 0 0.25em 0 0.25em;
+			}
+			#sticky div.widget:nth-child(3n+3) div.content {
+				margin: 0 0 0 0.5em;
+			}
+			#sticky div.content *:last-child {
+				margin-bottom: 0;
+			}
+	#sticky h2 {
+		margin: 0;
+		font-size: 115%;
+	}
+
 /*  Photoslider styling
  *
  */

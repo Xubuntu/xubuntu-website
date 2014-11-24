@@ -28,6 +28,14 @@ if( function_exists( 'register_sidebar' ) ) {
 		"after_title" => "</h2>"
 	) );
 	register_sidebar( array(
+		"name" => "Frontpage: Sticky news",
+		"id" => "xubuntu_front_sticky",
+		"before_widget" => "<div class='widget'><div class='content'>",
+		"after_widget" => "</div></div>",
+		"before_title" => "<h2>",
+		"after_title" => "</h2>"
+	) );
+	register_sidebar( array(
 		"name" => "Sidebar",
 		"id" => "xubuntu_sidebar",
 		'class' => 'sidebar-main',

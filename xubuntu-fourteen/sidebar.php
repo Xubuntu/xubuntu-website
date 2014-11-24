@@ -3,6 +3,7 @@
 		/* Show photoslider */
 		if( function_exists( 'dynamic_sidebar' ) ) {
 			?><div id="sidebar" class="sidebar-front"><?php dynamic_sidebar( "xubuntu_front" ); ?></div><?php
+			?><div id="sticky" class="group"><?php dynamic_sidebar( "xubuntu_front_sticky" ); ?></div><?php
 		}
 
 		/* Shows menu set to 'front-page' */
