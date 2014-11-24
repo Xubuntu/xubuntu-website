@@ -1,0 +1,19 @@
+#wpcontent, #header, #wpfooter {
+	width: 95%;
+}
+
+/*  Templates  */
+.alignright,
+.alignleft {
+	max-width: 310px;
+}
+
+.alignright img,
+.alignleft img {
+	max-width: 300px;
+	height: auto;
+}
+
+.wp-caption-text {
+	margin-right: 10px;
+}
