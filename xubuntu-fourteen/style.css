@@ -185,7 +185,7 @@ li { list-style-position: inside; }
 	#mainwrap ul li { list-style-type: disc; }
 	#mainwrap ol li { list-style-type: decimal; margin-left: 1.6em; }
 	#archive-posts ul li { list-style-type: none; margin-left: 0; }
-	#archive-posts ul li span.post-time { display: inline-block; width: 20%; margin-right: 5px; }
+	#archive-posts ul li span.post-time { display: inline-block; width: 25%; margin-right: 5px; }
 
 p { }
 	body.home p { font-size: 105%; line-height: 1.4em; font-family: "Open Sans"; }

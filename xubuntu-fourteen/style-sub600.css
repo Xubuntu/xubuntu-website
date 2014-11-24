@@ -111,6 +111,10 @@ ul.columnlist {
 	column-count: 2;
 }
 
+#browse .left-column li a {
+	width: 100%;
+}
+
 .hb {
 	margin-right: -1.5em;
 	margin-left: -1.5em;

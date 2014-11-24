@@ -83,3 +83,14 @@ body.home h1 {
 		#sticky div.widget:nth-child(2n+2) div.content {
 			margin: 0 0 0 0.35em;
 		}
+
+/*  Templates  */
+#archive-posts span.post-time,
+#archive-posts a {
+	display: block;
+	width: 100% !important;
+}
+
+#archive-posts span.post-time {
+	color: #777;
+}
