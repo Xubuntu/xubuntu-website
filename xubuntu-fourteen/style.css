@@ -68,6 +68,7 @@ body {
 
 #main { margin-right: 295px; }
 	body.home #main { margin-right: 545px; }
+	body.page-template-template_bottomnavi-php #main { margin-right: 0; }
 
 #sidebar {
 	float: right;
