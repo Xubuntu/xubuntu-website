@@ -254,6 +254,28 @@ function xubuntu_tinymceinit( $init_array ) {
 	return $init_array;
 }
 
+/*  Output mobile navigation
+ *
+ */
+
+function xubuntu_mobile_navigation( ) {
+	echo '<div id="mobile_navi">';
+	wp_nav_menu( array(
+		'theme_location' => 'front-page',
+		'container_class' => 'mobile_menu group',
+		'container_id' => 'mnmenu',
+		'fallback_cb' => false,
+		'depth' => 1
+	) );
+	wp_nav_menu( array(
+		'theme_location' => 'front-page',
+		'container_class' => 'mobile_menu group',
+		'container_id' => 'flmenu',
+		'fallback_cb' => false
+	) );
+	echo '</div>';
+}
+
 /*  Build custom submenu for mobile use
  *
  */

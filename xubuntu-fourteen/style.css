@@ -51,10 +51,6 @@ body {
 	margin-left: 35px;
 }
 
-#mobile_navi {
-	display: none;
-}
-
 #wpcontent {
 	font-size: 110%;
 	background: #f7f7f7 url(images/content.png) 0 0 repeat-x;

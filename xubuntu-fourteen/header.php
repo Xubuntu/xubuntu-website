@@ -44,25 +44,7 @@
 	<div id="logo">
 		<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" alt="Xubuntu" /></a>
 	</div>
-	<div id="mobile_navi">
-		<?php
-			wp_nav_menu( array(
-				'theme_location' => 'front-page',
-				'container_class' => 'mobile_menu group',
-				'container_id' => 'mnmenu',
-				'fallback_cb' => false,
-				'depth' => 1
-			) );
-		?>
-		<?php
-			wp_nav_menu( array(
-				'theme_location' => 'front-page',
-				'container_class' => 'mobile_menu group',
-				'container_id' => 'flmenu',
-				'fallback_cb' => false
-			) );
-		?>
-	</div>
+	<?php // xubuntu_mobile_navigation( ); ?>
 </div>
 <div id="wpcontent" class="group">
 

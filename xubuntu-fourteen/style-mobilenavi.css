@@ -1,5 +1,5 @@
 #mobile_navi {
-	display: block;
+	display: none;
 	clear: left;
 	float: left;
 	position: relative;
@@ -113,41 +113,3 @@
 			#mobile_navi #flmenu ul.sub-menu li a:focus {
 				background-color: #eee;
 			}
-/*
-	#mobile_navi #mnmenu {
-		display: none;
-	}
-		#mobile_navi a {
-			display: block;
-			width: 100%;
-			border-bottom: none;
-		}
-	#mobile_navi:hover #mnmenu {
-		position: absolute;
-		z-index: 2000;
-
-		top: 32px;
-		left: 0;
-
-		background-color: #fff;
-
-		display: block;
-	}
-		#mobile_navi #mnmenu ul.menu li {
-			position: relative;
-			width: 200px;
-			height: 1.5em;
-		}
-		#mobile_navi #mnmenu ul.sub-menu {
-			position: absolute;
-			display: none;
-			top: 0;
-			left: -200px;
-
-			background-color: #fff;
-		}
-			#mobile_navi #mnmenu ul.menu li:hover ul.sub-menu {
-				display: block;
-			}
-
-*/
