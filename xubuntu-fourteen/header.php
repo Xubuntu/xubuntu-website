@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-sub1000.css" media="only screen and (max-width:1000px)" />
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-sub600.css" media="only screen and (max-width:600px)" />
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-sub450.css" media="only screen and (max-width:450px)" />
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-mobilenavi.css" media="only screen and (max-width:600px)" />
 
 	<!-- Extra stylesheets -->
 	<link rel="stylesheet" href="http://static.xubuntu.org/www/extras.css" media="all" />
@@ -42,6 +43,25 @@
 <div id="header">
 	<div id="logo">
 		<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" alt="Xubuntu" /></a>
+	</div>
+	<div id="mobile_navi">
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'front-page',
+				'container_class' => 'mobile_menu group',
+				'container_id' => 'mnmenu',
+				'fallback_cb' => false,
+				'depth' => 1
+			) );
+		?>
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'front-page',
+				'container_class' => 'mobile_menu group',
+				'container_id' => 'flmenu',
+				'fallback_cb' => false
+			) );
+		?>
 	</div>
 </div>
 <div id="wpcontent" class="group">

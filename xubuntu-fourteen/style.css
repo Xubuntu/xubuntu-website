@@ -2,14 +2,14 @@
  *  Theme Name: Xubuntu Fourteen
  *  Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
  *  Author: Pasi Lallinaho
- *  Version: 14.04.2
+ *  Version: 14.11.1
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
  */
 
 html {
-	background: #0b3a6b url(images/pagebg.png) 50% -25px repeat;
+	background: #dce2e6 url(images/page.png) 50% 0 repeat;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 	font-family: "Open Sans", sans-serif;
 	line-height: 1.5em;
 
-	background: transparent url(images/bodybg.png) 0 0 repeat-x;
+	background: transparent url(images/body.png) 0 0 repeat-x;
 	color: #3c3c3c;
 	border-top: 4px solid #2c82dd;
 	border-top: 4px solid rgba( 44, 130, 221, 0.75 );
@@ -36,7 +36,7 @@ body {
 	margin: 0 auto;
 
 	min-width: 960px;
-	max-width: 1200px;
+	max-width: 1400px;
 	clear: both;
 }
 
@@ -51,14 +51,19 @@ body {
 	margin-left: 35px;
 }
 
+#mobile_navi {
+	display: none;
+}
+
 #wpcontent {
 	font-size: 110%;
-	background: #f1f1f1 url(images/contentbg.png) 0 0 repeat-x;
+	background: #f7f7f7 url(images/content.png) 0 0 repeat-x;
 
-	border-radius: 7px;
+	border-radius: 4px;
 	padding-bottom: 25px;
+
+	box-shadow: 5px 5px 10px rgba( 0, 0, 0, 0.05 );
 }
-	body.home #wpcontent { background-image: url(images/contentbg-front.png); }
 
 #mainwrap {
 	padding: 25px 35px;
@@ -92,10 +97,10 @@ body {
 #wpfooter {
 	padding: 2px;
 	font-size: 90%;
-	color: #aaa;
+	color: #555;
 }
 	#wpfooter .widgets div {
-		margin: 0 35px;
+		margin: 0.2em 1em;
 	}
 
 /*  Selection style
@@ -130,7 +135,7 @@ a {
 	}
 	#logo a { border-bottom: none; }
 	#sidebar a { color: #444; }
-	#wpfooter a { color: #eee; }
+	#wpfooter a { color: #333; }
 		#wpfooter a:hover,
 		#wpfooter a:active,
 		#wpfooter a:focus { border-bottom: 1px solid #fff; }
@@ -159,14 +164,15 @@ h1 {
 		margin: 1em 3em 1em -35px;
 		padding: 1em 10% 1em 35px;
 
-		background-color: #efefef;
-		background: rgba( 255, 255, 255, 0.5 ) url(images/headerbg.png) 0 0 repeat-x;
+		background-color: #fff;
 
 		border-top-right-radius: 14px;
 		border-bottom-right-radius: 14px;
 
 		border-bottom: 3px solid #bed8f3;
 		border-bottom: 3px solid rgba( 57, 142, 231, 0.3 );
+
+		box-shadow: 1px -1px 5px rgba( 0, 0, 0, 0.07 );
 	}
 	body.archive h1.post-title { margin-bottom: 0.5em; }
 
@@ -189,7 +195,7 @@ li { list-style-position: inside; }
 	#archive-posts ul li span.post-time { display: inline-block; width: 25%; margin-right: 5px; }
 
 p { }
-	body.home p { font-size: 105%; line-height: 1.4em; font-family: "Open Sans"; }
+	body.home p { font-size: 105%; line-height: 1.55em; color: #444; font-family: "Open Sans"; }
 
 table {
 	width: 100%;
@@ -209,9 +215,8 @@ table th {
 
 #sticky {
 	clear: both;
-	border-top: 1px solid #ccc;
 	margin: 0 35px;
-	padding-top: 0.75em;
+	padding: 0.75em 0 0.3em 0;
 }
 	#sticky div.widget {
 		float: left;
@@ -225,6 +230,8 @@ table th {
 			padding: 0.5em 0.8em;
 
 			border-radius: 7px;
+
+			box-shadow: 2px 2px 5px rgba( 0, 0, 0, 0.05 );
 		}
 			#sticky div.widget:nth-child(3n+1) {
 				clear: both;
@@ -255,7 +262,7 @@ body.home .ps_wrap {
 }
 
 .ps_wrap img {
-	border-radius: 14px;
+	border-radius: 7px;
 }
 
 .photoslider.ctrl-ontop .c-prev,

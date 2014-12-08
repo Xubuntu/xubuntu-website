@@ -254,4 +254,42 @@ function xubuntu_tinymceinit( $init_array ) {
 	return $init_array;
 }
 
+/*  Build custom submenu for mobile use
+ *
+ */
+
+function xubuntu_submenu( ) {
+	global $post;
+	$locations = get_nav_menu_locations( );
+
+	if( isset( $locations['front-page'] ) ) {
+		$menu = wp_get_nav_menu_object( $locations['front-page'] );
+		$menu_items = wp_get_nav_menu_items( $menu->term_id );
+
+		foreach( $menu_items as $key => $item ) {
+			if( $item->menu_item_parent == 0 ) {
+				$main[$item->ID] = $item;
+			} else {
+				$sub[$item->menu_item_parent][] = $item;
+			}
+
+			if( $post->ID == $item->object_id ) {
+				// This is the current branch
+				if( $item->menu_item_parent > 0 ) {
+					$menu_branch_parent = $item->menu_item_parent;
+				} else {
+					$menu_branch_parent = $item->ID;
+				}
+			}
+		}
+
+		echo '<ul id="flmenu">';
+		echo '<li class="title"><a href="#">' . $main[$menu_branch_parent]->post_title . '</a></li>';
+		foreach( $sub[$menu_branch_parent] as $item ) {
+			echo '<li><a href="">' . $item->post_title . '</a></li>';
+		}
+		echo '</ul>';
+	}
+}
+
 ?>

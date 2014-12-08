@@ -18,6 +18,9 @@ body {
 #horizontal_navi,
 #sidebar.sidebar-main {
 	margin: 0 1.5em;
+
+	border-top: none;
+	padding-top: 0;
 }
 
 	#horizontal_navi ul.menu .menu-item-has-children,
@@ -30,6 +33,29 @@ body {
 	#horizontal_navi ul.menu .menu-item-has-children:nth-child(2n+1),
 	#sidebar ul.menu .menu-item-has-children:nth-child(2n+1) {
 		clear: left;
+	}
+
+	#horizontal_navi ul.menu .menu-item-has-children:nth-child(5n+3),
+	#sidebar ul.menu .menu-item-has-children:nth-child(5n+3) {
+		margin-left: -1.5em;
+		padding-left: 1.5em;
+	}
+
+	#horizontal_navi ul.menu .menu-item-has-children:nth-child(5n+4),
+	#sidebar ul.menu .menu-item-has-children:nth-child(5n+4) {
+		margin-right: -1.5em;
+		padding-right: 1.5em;
+	}
+
+	#horizontal_navi ul.menu .menu-item-has-children:nth-child(5n+3),
+	#horizontal_navi ul.menu .menu-item-has-children:nth-child(5n+4),
+	#sidebar ul.menu .menu-item-has-children:nth-child(5n+3),
+	#sidebar ul.menu .menu-item-has-children:nth-child(5n+4) {
+		margin-bottom: 1em;
+		padding-top: 1.5em;
+		padding-bottom: 0.5em;
+
+		background-color: #eee;
 	}
 
 	#horizontal_navi ul.menu li a,
@@ -49,7 +75,10 @@ body {
 
 /*  Front page  */
 #sticky {
-	margin: 0 1.5em;
+	margin: 0 0 1em 0;
+	padding: 1em 1.5em 0.25em 1.5em;
+
+	background-color: #ddd;
 }
 
 	#sticky div.widget {
