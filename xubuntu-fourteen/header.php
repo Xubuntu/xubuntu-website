@@ -19,19 +19,9 @@
 
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style.css" media="all" />
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/templates.css" media="all" />
-
-	<!-- Responsive stylesheets -->
-	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-sub1200.css" media="only screen and (max-width:1200px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-sub1000.css" media="only screen and (max-width:1000px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-sub600.css" media="only screen and (max-width:600px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-sub450.css" media="only screen and (max-width:450px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-mobilenavi.css" media="only screen and (max-width:600px)" />
-
-	<!-- Extra stylesheets -->
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-narrow.css" media="only screen and (max-width:1200px)" />
 	<link rel="stylesheet" href="http://static.xubuntu.org/www/extras.css" media="all" />
 
-	<!-- Stylesheets for Internet Explorer compatibility -->
 	<!--[if IE]><link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/iefix.css" media="all" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/ie7fix.css" media="all" /><![endif]-->
 
@@ -44,7 +34,6 @@
 	<div id="logo">
 		<a href="<?php bloginfo( 'home' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo.png" alt="Xubuntu" /></a>
 	</div>
-	<?php // xubuntu_mobile_navigation( ); ?>
 </div>
 <div id="wpcontent" class="group">
 

@@ -1,0 +1,83 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,600');
+
+body {
+	font-size: small;
+	font-family: "Open Sans", sans-serif !important;
+	line-height: 1.5em;
+
+	color: #3c3c3c;
+}
+
+.group:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/*  Elements
+ *
+ */
+
+a {
+	/* This imitates the hover style for editing clarity */
+	color: #205dba;
+	border-bottom: 1px solid #bccde6;
+}
+
+blockquote {
+	/* Invert colors and remove left margin */
+	background-color: #f1f1f1 !important;
+	margin: 0;
+}
+	blockquote p {
+		/* Fix spacing issues */
+		margin-top: 0;
+	}
+
+/*  Templates
+ *
+ */
+
+/*  Proper padding for aligned images  */
+div.mceTemp .alignright { padding-left: 20px; }
+div.mceTemp .alignleft { padding-right: 20px; }
+.aligncenter { margin: 0 auto !important; }
+
+/*  Gallery styles, adapted for the editor */
+dl.wp-caption dd.wp-caption-dd,
+.gallery dd.wp-caption-text {
+	text-align: center;
+	color: #999;
+	padding: 0;
+	line-height: 1.3em;
+}
+
+dt.gallery-icon img {
+	border-radius: 3px;
+	box-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.2 );
+}
+
+.wpview-type-gallery .gallery {
+	/* Make sure the gallery in editor doesn't have scrollbars */
+	overflow: visible !important;
+}
+
+
+/*  Responsive styles
+ * 
+ */
+
+@media only screen and (max-width:1000px) {
+	.alignright,
+	.alignleft {
+		max-width: 310px;
+	}
+
+	.alignright img,
+	.alignleft img {
+		max-width: 300px;
+		height: auto;
+	}
+}

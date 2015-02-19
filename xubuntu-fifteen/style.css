@@ -1,0 +1,437 @@
+/*
+ *  Theme Name: Xubuntu Fifteen
+ *  Description: A theme built for the Xubuntu website at xubuntu.org.
+ *  Author: Pasi Lallinaho
+ *  Version: 15.02.19
+ *  Author URI: http://open.knome.fi/
+ *  Theme URI: https://xubuntu.org/
+ *
+ */
+
+body {
+	font-size: small;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 500;
+	line-height: 1.5em;
+
+	background-color: #e4e4e4;
+	color: #444;
+
+	min-height: 760px;
+}
+
+/*  Content width
+ *
+ */
+
+#content, #header, #footer,
+#navi, #content_gallery,
+body.home #main, body.home .widgets {
+	width: 90%;
+	margin: 0 auto;
+
+	max-width: 1400px;
+
+	clear: both;
+}
+
+/*  Basic layouting
+ *
+ */
+
+#header_outer {
+	background: #0e82d0 url(images/header_wall.png) -100px -0.4em repeat-x;
+	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+	border-top: 0.4em solid rgba( 255, 255, 255, 0.3 );
+}
+ 	#logo {
+		margin: 1.2em 0;
+	}
+	#opennavi {
+		display: none;
+
+		float: right;
+		height: 24px;
+		width: 24px;
+
+		position: relative;
+		top: 1px;
+		right: 1em;
+		z-index: 3000;
+
+		border: none;
+	}
+	#navi_outer {
+		font-size: 90%;
+		background-color: rgba( 0, 0, 0, 0.2 );
+	}
+		#navi .navigation {
+			position: relative;
+		}
+			#navi .navigation ul {
+				margin-bottom: 0;
+			}
+			#navi .navigation .sub-menu .current_page_item a {
+				background-color: rgba( 255, 255, 255, 0.3 );
+				border-radius: 3px;
+				box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+			}
+				#navi .navigation:hover .sub-menu .current_page_item a {
+					background-color: transparent;
+					box-shadow: none;
+				}
+
+#content_outer {
+	padding: 3.5em 0 2em 0;
+
+	background-color: #eee;
+	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+}
+	#content {
+		font-size: 110%;
+		padding-bottom: 2em;
+
+		background-color: #fafafa;
+		border-radius: 4px;
+		box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+	}
+		#content.air {
+			background-color: transparent;
+			border-radius: 0;
+			box-shadow: none;
+		}
+
+		#main_outer {
+			width: 100%;
+			padding: 25px 0;
+
+			float: left;
+		}
+			#main {
+				padding: 0 35px;
+			}
+
+#footer_outer {
+	margin-top: 1em;
+}
+	#footer {
+		padding: 2px;
+		font-size: 80%;
+		color: #555;
+	}
+		#footer .navigation {
+			margin: 0.5em 0 1em 0;
+		}
+			#footer .navigation .menu {
+				display: flex;
+			}
+				#footer .navigation .menu > li {
+					flex-grow: 1;
+				}
+
+				#footer .navigation .menu .sub-menu {
+					font-size: 110%;
+				}
+
+		#footer .widget div {
+			margin: 0.2em 1em 0.2em 0;
+		}
+
+
+/*  PAGES
+ *
+ */
+
+/*  Home page
+ *
+ */
+
+body.home #content_outer {
+	background-color: #f8f8f8;
+	padding: 0;
+}
+
+	body.home #content {
+		width: 100%;
+		margin: 0;
+		max-width: 100%;
+
+		background-color: transparent;
+		box-shadow: none;
+		padding: 2em 0 0 0;
+		border-radius: 0;
+	}
+		body.home #main_outer {
+			padding-top: 0;
+		}
+			body.home #main {
+				padding: 0;
+			}
+
+/*  Widget areas  */
+
+body.home .widgets h2 {
+	margin-top: 0;
+}
+
+body.home .widgets_outer {
+	padding: 2em 0;
+	margin-bottom: 1em;
+}
+
+	body.home .widgets_outer#front,
+	body.home .widgets_outer#front-3 {
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+	}
+
+		body.home .widgets_outer#front .widget {
+			float: left;
+			width: 29%;
+			padding-right: 2%;
+			margin-right: 2%;
+			border-right: 1px dotted rgba( 0, 0, 0, 0.2 );
+		}
+
+			body.home .widgets_outer#front .widgets {
+				display: flex;
+			}
+				body.home .widgets_outer#front .widget {
+					flex-grow: 1;
+					margin-left: auto;
+					margin-right: 2em;
+				}
+			body.home .widgets_outer#front .widget:last-child {
+				border-right: none;
+				margin-right: 0;
+				padding-right: 0;
+			}
+
+/*  Blog
+ *
+ */
+
+body.single-post #main,
+body.blog #main,
+body.archive #main {
+	float: left;
+	width: 60%;
+
+	padding: 0;
+	margin-left: 35px;
+}
+
+#sidebar_outer {
+	float: right;
+	width: 35%;
+}
+	#sidebar {
+		font-size: 90%;
+		margin: -1.5em 35px 0 35px;
+	}
+
+/*  Post styles  */
+.post-post {
+	color: #333;
+	margin: 1.5em 0;
+}
+
+.post-meta, .post-meta a {
+	color: #ccc;
+	color: rgba( 0, 0, 0, 0.2 );
+}
+
+.post-meta span a {
+	transition: all 0.5s ease-in-out;
+}
+.post-meta span a:hover,
+.post-meta span a:focus {
+	color: #808080;
+	color: rgba( 0, 0, 0, 0.5 );
+}
+
+
+/*  Attachments
+ *
+ */
+
+#attachment {
+	margin-top: -1em;
+	margin-bottom: 1em;
+}
+	#attachment img {
+		width: 100%;
+		height: auto;
+
+		border-radius: 3px;
+		box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+	}
+	body.attachment .boxed {
+		padding: 1em 2em;
+	}
+	#attachment_navi {
+		text-align: center;
+		margin-bottom: 1em;
+	}
+		#attachment_navi .button:last-child {
+			margin-right: 0;
+		}
+		#attachment_navi .primary {
+			font-weight: 600 !important;
+		}
+
+
+/*  NAVIGATION
+ *
+ */
+
+.navigation .menu a {
+	display: block;
+	width: 90%;
+}
+	.navigation .menu .menu-item-has-children > a {
+		font-size: 125%;
+		color: #333;
+		border-bottom: none;
+	}
+	.navigation .menu .sub-menu {
+		font-size: 100%;
+/*		line-height: 2.1em; */
+	}
+	.navigation .menu .menu-item-has-children ul {
+		margin: 0.5em 0 1.5em 0;
+	}
+
+/*  Dropdown navigation
+ *
+ */
+.navigation.nd {
+	border-left: 1px solid rgba( 0, 0, 0, 0.2 );
+}
+
+.navigation.nd .menu {
+	display: block;
+
+	margin-bottom: 0;
+	padding: 0;
+}
+	.navigation.nd .menu li {
+		float: left;
+	}
+		.navigation.nd .menu li a {
+			width: auto;
+			display: block;
+			padding: 0.5em 15px;
+			margin: 0;
+			color: #fff;
+		}
+			.navigation.nd .menu .menu-item-has-children > a {
+				font-size: 115%;
+				font-weight: 600;
+			}
+		.navigation.nd .menu > li {
+			height: 3em;
+			margin-left: 0;
+
+			border-left: 1px solid rgba( 255, 255, 255, 0.2 );
+			border-right: 1px solid rgba( 0, 0, 0, 0.2 );
+		}
+			.navigation.nd .menu > li:last-child:after {
+				content: "";
+				position: relative;
+				float: left;
+				height: 100%;
+
+				top: -2.95em;
+				left: 100%;
+				margin-left: 1px;
+				border-right: 1px solid rgba( 255, 255, 255, 0.2 );
+			}
+			.navigation.nd .menu > li:last-child:hover:after {
+				top: -3.85em;
+			}
+
+
+	/*  Hovered menu items  */
+	.navigation.nd .menu > li:hover {
+		background-color: rgba( 0, 0, 0, 0.1 );
+	}
+		.navigation.nd .menu > li:hover > a {
+			position: relative;
+			z-index: 1100;
+			padding-bottom: 1.3em;
+			background: transparent url(images/arrowup.png) 50% 2.3em no-repeat;
+		}
+
+	/*  Submenus  */
+	.navigation.nd .menu .sub-menu {
+		display: none;
+
+		position: absolute;
+		z-index: 1000;
+		top: 3em;
+		left: 0;
+
+		width: 100%;
+		padding: 0.25em 0;
+
+		border-radius: 3px;
+	}
+		.navigation.nd .sub-menu li {
+			display: inline;
+		}
+
+		/*  Submenu hover  */
+		.navigation.nd .menu li.current_page_ancestor .sub-menu,
+		.navigation.nd .menu li:hover .sub-menu {
+			display: block;
+			z-index: 900;
+
+			background-color: #eee;
+		}
+			.navigation.nd .menu > li:hover .sub-menu {
+				z-index: 1000;
+				background-color: #fff;
+				box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+			}
+
+		.navigation.nd .sub-menu li a {
+			display: inline;
+
+			font-size: 110%;
+			color: #555;
+			padding: 0.25em 8px;
+			border: none;
+		}
+			.navigation.nd .sub-menu li:first-child {
+				padding-left: 8px;
+			}
+			.navigation.nd .sub-menu a:hover,
+			.navigation.nd .sub-menu a:active,
+			.navigation.nd .sub-menu a:focus {
+				color: #2c82dd;
+			}
+
+#navi .expand {
+	display: none;
+}
+
+/*  Horizontal navigation
+ *
+ */
+
+.navigation.nh .menu .menu-item-has-children {
+	float: left;
+	width: 20%;
+	margin-right: 2%;
+}
+	.navigation.nh .menu a {
+		width: 100%;
+	}
+	.navigation.nh .menu .menu-item-has-children {
+		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
+	}
+		.navigation.nh .menu .menu-item-has-children:nth-child(1n+5) {
+			margin-right: 0;
+			border-right: none;
+		}

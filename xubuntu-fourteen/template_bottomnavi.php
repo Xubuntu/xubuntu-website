@@ -7,9 +7,7 @@
 ?>
 
 <div id="mainwrap" class="group tpl_bottomnavi">
-	<div id="main">
-		<?php get_template_part( 'content', get_post_format( ) ); ?>
-	</div>
+	<?php get_template_part( 'content', get_post_format( ) ); ?>
 </div>
 
 <?php

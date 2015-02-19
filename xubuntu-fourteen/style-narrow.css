@@ -1,8 +1,3 @@
-#wpcontent, #header, #wpfooter {
-	width: 95%;
-}
-
-/*  Templates  */
 .alignright,
 .alignleft {
 	max-width: 310px;

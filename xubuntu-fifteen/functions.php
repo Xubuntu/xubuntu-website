@@ -1,17 +1,16 @@
 <?php
 
-$content_width = 585;
+$content_width = 585; /* TODO: Review */
 
-/*  Init
+/*  Init admin
  *
  */
 
-add_action( 'init', 'xubuntu_init' );
+add_action( 'admin_init', 'xubuntu_admin_init' );
 
-function xubuntu_init( ) {
-	add_editor_style( 'editor.css' );
-	add_editor_style( 'editor-narrow.css' );
-	add_editor_style( 'templates.css' );
+function xubuntu_admin_init( ) {
+	add_editor_style( 'style-common.css' );
+	add_editor_style( 'style-editor.css' );
 }
 
 /*  Register widget areas
@@ -19,38 +18,41 @@ function xubuntu_init( ) {
  */
 
 if( function_exists( 'register_sidebar' ) ) {
-	register_sidebar( array(
-		"name" => "Frontpage",
-		"id" => "xubuntu_front",
-		"before_widget" => "<div class='column'>",
-		"after_widget" => "</div>",
-		"before_title" => "<h2>",
-		"after_title" => "</h2>"
+	/* Frontpage widget areas */
+	register_sidebars( 3, array(
+		'name' => 'Front page %d',
+		'id' => 'front',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>'
 	) );
+
+	/* Navigation for blog pages */
 	register_sidebar( array(
-		"name" => "Sidebar",
-		"id" => "xubuntu_sidebar",
-		'class' => 'sidebar-main',
-		"before_widget" => "",
-		"after_widget" => "",
-		"before_title" => "<h4>",
-		"after_title" => "</h4>"
+		'name' => 'Blog navigation',
+		'id' => 'blog_navigation',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>'
 	) );
+	/* Footer */
 	register_sidebar( array(
-		"name" => "Footer",
-		"id" => "xubuntu_footer",
-		"before_widget" => "<div class='widgets'>",
-		"after_widget" => "</div>",
-		"before_title" => "<h4>",
-		"after_title" => "</h4>"
+		'name' => 'Footer',
+		'id' => 'footer',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>'
 	) );
 }
 
-/*  Register menu location for front page
+/*  Register menu locations
  *
  */
 
-register_nav_menu( 'front-page', 'Front page' );
+register_nav_menu( 'main_navigation', 'Main navigation' );
 
 /*  Remove unwanted metadata from <head>
  *
@@ -72,8 +74,7 @@ remove_action( 'wp_head', 'wp_generator' );
 
 add_action( 'wp_head', 'xubuntu_head' );
 function xubuntu_head( ) {
-	// we always want to link to the main feed. always
-	print '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo( 'name' ) . ' // Articles feed" href="' . get_bloginfo( 'rss2_url' ) . '" />' . "\n";
+	print '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo( 'name' ) . '" href="' . get_bloginfo( 'rss2_url' ) . '" />' . "\n";
 }
 
 /*  Enable HTML5 features
@@ -85,9 +86,32 @@ function xubuntu_after_setup_theme( ) {
 	add_theme_support( 'html5', array( 'gallery', 'caption' ) );
 }
 
-/*  Add some image sizes 
+/*  Enable featured images 
  *
  */
+
+add_theme_support( 'post-thumbnails' );
+
+/*  Register some JS for navigation
+ *
+ */
+
+add_action( 'wp_enqueue_scripts', 'xubuntu_scripts' );
+function xubuntu_scripts( ) {
+	if( !is_admin( ) ) {
+		wp_enqueue_script( 'xubuntu-menu', get_template_directory_uri( ) . '/menu.js', 'jquery', '0.1' );
+	}
+}
+
+/*  Add some image sizes
+ *  TODO: Review
+ *
+ */
+
+add_image_size( 'xubuntu_full', 1400 );
+add_image_size( 'xubuntu_split_to_2', 700 );
+add_image_size( 'xubuntu_split_to_3', 467 );
+add_image_size( 'xubuntu_split_to_4', 350 );
 
 add_image_size( 'half_page', 285 );
 add_image_size( 'full_page', 600 );
@@ -155,7 +179,7 @@ function xubuntu_mcebuttons( $buttons ) {
 add_filter( 'mce_buttons_2', 'xubuntu_mcebuttons2' );
 
 function xubuntu_mcebuttons2( $buttons ) {
-	return array(  );
+	return array( );
 }
 
 add_filter( 'tiny_mce_before_init', 'xubuntu_tinymceinit' );
@@ -226,7 +250,17 @@ function xubuntu_tinymceinit( $init_array ) {
 				'classes' => 'hb white darkheading'
 			),
 			array(
-				'title' => 'Modifiers'
+				'title' => 'Other styles'
+			),
+			array(
+				'title' => 'Button (primary)',
+				'selector' => 'a',
+				'classes' => 'button primary'
+			),
+			array(
+				'title' => 'Button (regular)',
+				'selector' => 'a',
+				'classes' => 'button'
 			),
 			array(
 				'title' => 'Three-column list',
@@ -244,6 +278,17 @@ function xubuntu_tinymceinit( $init_array ) {
 	$init_array['block_formats'] = 'Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4';
 
 	return $init_array;
+}
+
+/*  Custom function for checking if the current page is a blog page
+ *  (c) 2011 Wes Bos, https://gist.github.com/wesbos/1189639
+ *
+ */
+
+function is_blog( ) {
+	global $post;
+	$posttype = get_post_type( $post );
+	return ( ((is_archive()) || (is_author()) || (is_category()) || (is_home()) || (is_single()) || (is_tag())) && ( $posttype == 'post' ) ) ? true : false ;
 }
 
 ?>
