@@ -113,14 +113,13 @@ add_image_size( 'xubuntu_split_to_2', 700 );
 add_image_size( 'xubuntu_split_to_3', 467 );
 add_image_size( 'xubuntu_split_to_4', 350 );
 
-add_image_size( 'half_page', 285 );
-add_image_size( 'full_page', 600 );
-
 add_filter( 'image_size_names_choose', 'xubuntu_image_sizes' );
 function xubuntu_image_sizes( $sizes ) {
 	$new_sizes = array(
-		'half_page' => __( '1/2 page', 'xubuntu' ),
-		'full_page' => __( 'Full page', 'xubuntu' )
+		'xubuntu_full' => __( 'Full (1400)', 'xubuntu' ),
+		'xubuntu_split_to_2' => __( 'Half (700)', 'xubuntu' ),
+		'xubuntu_split_to_3' => __( 'Third (467)', 'xubuntu' ),
+		'xubuntu_split_to_4' => __( 'Fourth (250)', 'xubuntu' ),
 	);
 
 	return array_merge( $sizes, $new_sizes );
@@ -249,6 +248,7 @@ function xubuntu_tinymceinit( $init_array ) {
 				'wrapper' => true,
 				'classes' => 'hb white darkheading'
 			),
+
 			array(
 				'title' => 'Other styles'
 			),
@@ -266,6 +266,12 @@ function xubuntu_tinymceinit( $init_array ) {
 				'title' => 'Three-column list',
 				'selector' => 'ul',
 				'classes' => 'columnlist group'
+			),
+			array(
+				'title' => 'Boxed content',
+				'block' => 'div',
+				'wrapper' => true,
+				'classes' => 'boxed group'
 			)
 		);
 

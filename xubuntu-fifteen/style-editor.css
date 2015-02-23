@@ -64,6 +64,11 @@ dt.gallery-icon img {
 	overflow: visible !important;
 }
 
+div.boxed {
+	/* Use less padding for editor */
+	padding: 15px !important;
+}
+
 
 /*  Responsive styles
  * 
