@@ -38,9 +38,9 @@ if( function_exists( 'register_sidebar' ) ) {
 		'after_title' => '</h2>'
 	) );
 	/* Footer */
-	register_sidebar( array(
-		'name' => 'Footer',
-		'id' => 'footer',
+	register_sidebars( 2, array(
+		'name' => 'Footer %d',
+		'id' => 'footer-widgets',
 		'before_widget' => '<div class="widget">',
 		'after_widget' => '</div>',
 		'before_title' => '<h2>',
@@ -116,10 +116,10 @@ add_image_size( 'xubuntu_split_to_4', 350 );
 add_filter( 'image_size_names_choose', 'xubuntu_image_sizes' );
 function xubuntu_image_sizes( $sizes ) {
 	$new_sizes = array(
-		'xubuntu_full' => __( 'Full (1400)', 'xubuntu' ),
-		'xubuntu_split_to_2' => __( 'Half (700)', 'xubuntu' ),
-		'xubuntu_split_to_3' => __( 'Third (467)', 'xubuntu' ),
-		'xubuntu_split_to_4' => __( 'Fourth (250)', 'xubuntu' ),
+		'xubuntu_full' => __( 'Xubuntu: Full (1400)', 'xubuntu' ),
+		'xubuntu_split_to_2' => __( 'Xubuntu: Half (700)', 'xubuntu' ),
+		'xubuntu_split_to_3' => __( 'Xubuntu: Third (467)', 'xubuntu' ),
+		'xubuntu_split_to_4' => __( 'Xubuntu: Fourth (250)', 'xubuntu' ),
 	);
 
 	return array_merge( $sizes, $new_sizes );

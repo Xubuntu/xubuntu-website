@@ -108,6 +108,9 @@ h2 { font-size: 160%; }
 	.post-post .hb h2 {
 		border-top: none; padding-top: 0;
 	}
+	.widgets h2 {
+		margin-top: 0;
+	}
 h3 { font-size: 140%; color: #444; }
 h4 { font-size: 130%; color: #555; }
 h5 { font-size: 120%; color: #888; }

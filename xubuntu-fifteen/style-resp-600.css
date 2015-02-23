@@ -13,7 +13,7 @@ body {
 	border-radius: 0;
 }
 	#logo {
-		margin: 1.2em 1.2em;
+		margin: 1.2em 2.5%;
 	}
 	#navi {
 		width: 100%;
@@ -56,8 +56,7 @@ body {
 		#main {
 			width: auto;
 			margin: 0 !important;
-			padding-right: 1.5em;
-			padding: 0 15px;
+			padding: 0 2.5%;
 		}
 		
 			#main .post-post {
@@ -79,44 +78,23 @@ body {
 
 #footer_outer {
 	border-top: none;
-	padding: 0 1.5em;
+	padding: 0 2.5%;
 	margin-top: 1.5em;
 }
 	#footer {
 		padding: 0;
 	}
-		#footer .navigation {
-			border-bottom: 1px solid #ccc;
-		}
-
-		.navigation.nh .menu .menu-item-has-children {
-			width: 47% !important;
-		}
-			.navigation.nh .menu .menu-item-has-children:nth-child(3n+3) {
-				margin-right: 2%;
-				border-right: 1px solid rgba( 0, 0, 0, 0.10 );
-			}
-			.navigation.nh .menu .menu-item-has-children:nth-child(even) {
-				margin-right: 0;
-				border-right: none;
-			}
-
-			/* If a menu in the first column is the last one,
-			 * fill the rest of the space to keep preferred alignment
-			 */
-			.navigation.nh .menu .menu-item-has-children:last-child:nth-child(2n+1) {
-				margin-right: 51%;
-			}
 
 /*  Home page  */
 body.home #main {
-	width: 90%;
+	width: 95%;
 	margin: 0 auto !important;
 }
 
-	body.home .widgets {
-		width: auto;
-	}
+/*  Widget areas  */
+.widgets_outer .widgets {
+	width: 95%;
+}
 
 /*  Attachments  */
 #attachment {
@@ -134,7 +112,6 @@ body.home #main {
 	body.attachment .boxed {
 		margin-bottom: 1em;
 	}
-
 
 /*  Elements and templates  */
 blockquote {
@@ -177,14 +154,11 @@ ul.columnlist {
 }
 
 .boxed {
-	padding-right: 15px !important;
-	padding-left: 15px !important;
+	padding: 1.5em 2.5% !important;
 }
-
-.hb {
-	padding: 0;
-	margin-right: -15px !important;
-}
+	h1.boxed {
+		padding: 0.3em 2.5% !important;
+	}
 
 
 /*  WordPress admin bar  */
@@ -211,6 +185,9 @@ body.admin-bar {
 
 			position: static;
 		}
+			.navigation.nd .menu li a {
+				padding: 0.5em 2.5%;
+			}
 			.navigation.nd .menu > li {
 				border: none;
 				border-top: 1px solid rgba( 255, 255, 255, 0.2 );
@@ -258,7 +235,7 @@ body.admin-bar {
 						.navigation.nd .menu li .sub-menu li a {
 							display: block;
 							width: 90%;
-							padding: 0.25em 1em;
+							padding: 0.25em 5%;
 						}
 
 .navigation.nd .menu li { display: none; }
@@ -274,32 +251,34 @@ body.admin-bar {
 	display: block;
 	height: 0;
 	top: 0;
+	right: 2.5%;
 
 	margin-top: -3em;
-	margin-right: -12px;
+	margin-right: -5px;
 
-	padding: 4px 4px 0 0;
+	padding: 4px 0 0 0;
 
 	width: 32px;
 	height: 32px;
 
 	overflow: hidden;
 
-	background: transparent url(images/menu.png) 0 2px no-repeat;
+	background: transparent url(images/menu.png) 50% 50% no-repeat;
 }
 	#navi .expand {
 		display: none;
 
 		position: relative;
-		right: 2px;
+		right: 2.5%;
 		top: 0;
 
 		float: right;
 		z-index: 2000;
 
-		height: 2.5em;
-		width: 2.5em;
+		height: 32px;
+		width: 32px;
 		padding: 0;
+		margin-right: -4px;
 
 		background: transparent url(images/menu_arrow.png) 50% 50% no-repeat;
 	}
@@ -331,7 +310,7 @@ body.admin-bar {
 }
 	#header_outer.scrolled #logo {
 		margin: 0;
-		padding: 0.5em 1.2em;
+		padding: 0.5em 2.5%;
 	}
 		#header_outer.scrolled #logo a {
 			display: none;
@@ -360,7 +339,7 @@ body.admin-bar {
 /*  Featured images  */
 
 .featured {
-	width: 92%;
+	width: 95%;
 	margin: 0 auto;
 }
 

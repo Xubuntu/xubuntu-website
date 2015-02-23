@@ -5,13 +5,14 @@ jQuery( function( ) {
 	jQuery( '#navi .menu > li' ).hover( function( e ) {
 		var current = jQuery( this );
 		var current_sub = current.children( '.sub-menu' );
+		var page_padding = jQuery( '#navi' ).offset( ).left;
 
 		var shift = ( current_sub.outerWidth( ) - current.outerWidth( ) ) / 2;
 		var right_border = current.offset( ).left + current_sub.outerWidth( ) - shift;
 
-		if( right_border > jQuery( window ).outerWidth( ) - 15 ) {
+		if( right_border > jQuery( window ).outerWidth( ) - page_padding ) {
 			// The submenu would overflow in the right side
-			var extra_offset = right_border - jQuery( window ).outerWidth( ) + 15 + shift;
+			var extra_offset = right_border - jQuery( window ).outerWidth( ) + page_padding + shift;
 			current_sub.css( 'left', -extra_offset);
 		} else if( current.offset( ).left - shift < 0 ) {
 			// The submenu would overflow in the left side

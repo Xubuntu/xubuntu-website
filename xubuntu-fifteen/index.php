@@ -20,10 +20,10 @@
 					}
 				?>
 			</div>
-			<?php if( is_blog( ) ) { get_sidebar( 'blog' ); } ?>
+			<?php if( is_blog( ) ) { get_template_part( 'widgets', 'blog' ); } ?>
 		</div>
 	</div>
-	<?php if( is_front_page( ) ) { get_sidebar( 'front' ); } ?>
+	<?php if( is_front_page( ) ) { get_template_part( 'widgets', 'front' ); } ?>
 </div>
 
 <?php get_footer( ); ?>
