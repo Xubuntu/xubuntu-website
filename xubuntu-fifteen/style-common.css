@@ -35,14 +35,7 @@ a {
 		display: block;
 		border: none;
 	}
-		#sidebar ul li a:before {
-			display: inline-block;
-			width: 0.5em;
-			content: "›";
-			font-weight: 300;
-			font-size: 140%;
-			color: #555;
-		}
+
 	#footer a {
 		color: #333;
 		border-bottom: none;
@@ -147,7 +140,23 @@ li { list-style-position: inside; }
 	#main ol li { list-style-type: decimal; margin-left: 1.6em; }
 	#archive-posts ul li { list-style-type: none; margin-left: 0; }
 	#archive-posts ul li .post-time { display: inline-block; width: 25%; margin-right: 5px; }
-	#sidebar ul li { list-style-type: none; }
+	#sidebar ul li {
+		list-style-type: none;
+		margin-left: 1em;
+	}
+		#sidebar ul li:before {
+			display: block;
+			float: left;
+
+			width: 0.7em;
+			margin-left: -0.7em;
+			margin-top: -0.12em;
+			content: "›";
+			font-weight: 300;
+			font-size: 140%;
+			color: #555;
+		}
+
 
 p { }
 
@@ -459,37 +468,22 @@ ul.columnlist {
 	font-weight: 600;
 }
 
-.navigation.nh .menu .external:after {
-	display: block;
-	position: relative;
-	margin-top: -1.5em;
-
-	left: 95%;
-	z-index: -1;
-
-	font-size: 120%;
-	content: "›";
-	color: #999;
-}
-	.navigation.nh .menu .external:hover:after {
-		color: #333;
-		text-decoration: none;
-	}
-
-.navigation.nd .menu .external {
+.navigation .menu .external {
 	padding-right: 0.5em;
 }
-	.navigation.nd .menu .external a:after {
+	.navigation .menu .external a:after {
 		display: inline-block;
 		position: relative;
 		margin-top: -1.5em;
-		left: 5px;
+		left: 0.5em;
 
 		font-size: 120%;
 		content: "›";
 		color: #999;
+	
+		transition: 400ms all;
 	}
-		.navigation.nd .menu .external a:hover:after {
+		.navigation .menu .external a:hover:after {
 			color: #333;
 		}
 

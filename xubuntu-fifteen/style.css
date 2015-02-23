@@ -378,6 +378,9 @@ body.archive #main {
 
 		border-radius: 3px;
 	}
+		.navigation.nd li:first-child .sub-menu {
+			left: -2px;
+		}
 		.navigation.nd li:last-child .sub-menu {
 			left: -50%;
 		}
