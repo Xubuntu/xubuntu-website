@@ -301,7 +301,7 @@ body.admin-bar {
 		width: 2.5em;
 		padding: 0;
 
-		background: transparent url(images/menu_arrow.png) 0 2px no-repeat;
+		background: transparent url(images/menu_arrow.png) 50% 50% no-repeat;
 	}
 		#navi.open .expand {
 			display: block;
@@ -314,8 +314,47 @@ body.admin-bar {
 	}
 
 	#navi .open-sub .expand {
-/*		transform: rotate( -90deg ); */
-		background-image: none;
+		transform: rotate( -90deg );
+		background-size: 65% 65%;
+	}
+
+/*  Menu style when scrolled down  */
+#header_outer.scrolled {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	background-color: #0e82d0;
+	background-image: none;
+	border-top: none;
+}
+	#header_outer.scrolled #logo {
+		margin: 0;
+		padding: 0.5em 1.2em;
+	}
+		#header_outer.scrolled #logo a {
+			display: none;
+		}
+		#header_outer.scrolled #logo:after {
+			font-size: 120%;
+			font-weight: 600;
+
+			padding-right: 30px;
+
+			background: transparent url(images/xubuntu-icon-20.png) 100% 50% no-repeat;
+			content: "Xubuntu";
+		}
+	#header_outer.scrolled #navi {
+		background-color: #0b68a6;
+		width: 100%;
+		position: fixed;
+		left: 0;
+		z-index: 50000;
+	}
+
+	#header_outer.scrolled #navi.closed .menu li {
+		display: none;
 	}
 
 /*  Featured images  */

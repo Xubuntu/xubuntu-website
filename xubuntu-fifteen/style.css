@@ -46,6 +46,7 @@ body.home #main, body.home .widgets {
 }
  	#logo {
 		margin: 1.2em 0;
+		color: #fff;
 	}
 	#opennavi {
 		display: none;
@@ -390,7 +391,6 @@ body.archive #main {
 		}
 
 		/*  Submenu hover  */
-		/*.navigation.nd .menu li.current_page_ancestor .sub-menu, */
 		.navigation.nd .menu li:hover .sub-menu {
 			display: block;
 			z-index: 900;

@@ -26,8 +26,9 @@ jQuery( function( ) {
 	// MOBILE MENU
 
 	// Toggle CSS class on menu opening/closing
+	jQuery( '#navi' ).addClass( 'closed' );
 	jQuery( '#opennavi' ).click( function( e ) {
-		jQuery( '#navi' ).toggleClass( 'open' );
+		jQuery( '#navi' ).toggleClass( 'open closed' );
 		jQuery( '#navi li' ).removeClass( 'current-menu-ancestor-hidden open-sub' );
 		jQuery( '#navi li.current-menu-ancestor' ).addClass( 'open-sub' );
 		e.preventDefault( );
@@ -55,4 +56,19 @@ jQuery( function( ) {
 
 		e.preventDefault( );
 	} );
+
+	// Stick menu to the top when scrolled down
+	xubuntu_sticky_header( );
+
+	jQuery( window ).scroll( function( e ) {
+		xubuntu_sticky_header( );
+	} );
 } );
+
+function xubuntu_sticky_header( ) {
+	if( jQuery( window ).scrollTop( ) > ( jQuery( '#header' ).outerHeight( ) + jQuery( '#navi' ).outerHeight( ) ) ) {
+		jQuery( '#header_outer' ).addClass( 'scrolled' );
+	} else {
+		jQuery( '#header_outer' ).removeClass( 'scrolled' );
+	}
+}
