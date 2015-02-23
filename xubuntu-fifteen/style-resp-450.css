@@ -25,6 +25,20 @@
 		margin: 0 1.5em;
 	}
 
+#footer { }
+	#footer_navi .menu .menu-item-has-children {
+		float: left;
+		clear: none;
+		width: 100% !important;
+
+		margin: 0 !important;
+		border: none !important;
+	}
+		#footer_navi li {
+			padding-right: 0;
+		}
+
+
 /*  Front page
  *
  */

@@ -53,6 +53,7 @@ if( function_exists( 'register_sidebar' ) ) {
  */
 
 register_nav_menu( 'main_navigation', 'Main navigation' );
+register_nav_menu( 'footer_navigation', 'Footer navigation' );
 
 /*  Remove unwanted metadata from <head>
  *

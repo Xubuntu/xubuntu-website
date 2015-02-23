@@ -85,6 +85,19 @@ body {
 		padding: 0;
 	}
 
+/*  Clear all floats and center-align
+ *
+ */
+#main figure[style*="float"],
+.alignleft,
+.alignright,
+.aligncenter {
+	display: block;
+	float: none !important;
+	text-align: center;
+	margin: 0 auto !important;
+}
+
 /*  Home page  */
 body.home #main {
 	width: 95%;
@@ -160,6 +173,18 @@ ul.columnlist {
 		padding: 0.3em 2.5% !important;
 	}
 
+.hb {
+	margin: 0 -2.5% !important;
+	padding-right: 2.5% !important;
+	padding-left: 2.5% !important;
+}
+
+/*  Featured images  */
+.featured {
+	width: 95%;
+	margin: 0 auto;
+}
+
 
 /*  WordPress admin bar  */
 #wpadminbar, #wp-toolbar {
@@ -170,7 +195,10 @@ body.admin-bar {
 	margin-top: -46px !important;
 }
 
-/*  Navigation  */
+/*  NAVIGATION
+ *
+ */
+
 .navigation.nd {
 	border-left: none;
 	margin-bottom: -1px;
@@ -242,10 +270,31 @@ body.admin-bar {
 .navigation.nd .menu li.current-menu-ancestor,
 .navigation.nd .menu li.open { display: block; }
 
+/*  Horizontal navigation  */
+.navigation.nh .menu .menu-item-has-children {
+	width: 47% !important;
+}
+	.navigation.nh .menu .menu-item-has-children:nth-child(3n+3) {
+		margin-right: 2%;
+		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
+	}
+	.navigation.nh .menu .menu-item-has-children:nth-child(even) {
+		margin-right: 0;
+		border-right: none;
+	}
+
+	/* If a menu in the first column is the last one,
+	 * fill the rest of the space to keep preferred alignment
+	 */
+	.navigation.nh .menu .menu-item-has-children:last-child:nth-child(2n+1) {
+		margin-right: 51%;
+		border-right: none;
+	}
+
+/*  JS popup navigation  */
 #navi.open .navigation.nd .menu li.current-menu-ancestor-hidden .sub-menu { display: none; }
 #navi.open .navigation.nd .menu li { display: block; }
 
-/*  JS popup navigation  */
 #opennavi {
 	position: relative;
 	display: block;
@@ -312,10 +361,10 @@ body.admin-bar {
 		margin: 0;
 		padding: 0.5em 2.5%;
 	}
-		#header_outer.scrolled #logo a {
+		#header_outer.scrolled #logo a img{
 			display: none;
 		}
-		#header_outer.scrolled #logo:after {
+		#header_outer.scrolled #logo a:after {
 			font-size: 120%;
 			font-weight: 600;
 
@@ -323,6 +372,8 @@ body.admin-bar {
 
 			background: transparent url(images/xubuntu-icon-20.png) 100% 50% no-repeat;
 			content: "Xubuntu";
+
+			color: #fff;
 		}
 	#header_outer.scrolled #navi {
 		background-color: #0b68a6;
@@ -335,23 +386,3 @@ body.admin-bar {
 	#header_outer.scrolled #navi.closed .menu li {
 		display: none;
 	}
-
-/*  Featured images  */
-
-.featured {
-	width: 95%;
-	margin: 0 auto;
-}
-
-/*  Clear all floats and center-align
- *
- */
-#main figure[style*="float"],
-.alignleft,
-.alignright,
-.aligncenter {
-	display: block;
-	float: none !important;
-	text-align: center;
-	margin: 0 auto !important;
-}

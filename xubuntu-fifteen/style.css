@@ -121,8 +121,30 @@ body.home #main, .widgets_outer .widgets {
 		color: #555;
 	}
 		#footer-widgets {
+			padding-bottom: 1.5em;
 			margin-bottom: 1.5em;
+			border-bottom: 1px dotted #aaa;
 		}
+
+		#footer_navi { }
+			#footer_navi .menu {
+				display: flex;
+			}
+				#footer_navi .menu > li {
+					flex-grow: 1;
+				}
+
+				#footer_navi .menu .sub-menu {
+					font-size: 110%;
+				}
+
+			#footer_navi li {
+				padding-right: 0.5em;
+			}
+			#footer_navi a {
+				line-height: 1.3em;
+				padding: 0.2em 0;
+			}
 
 
 /*  PAGES
@@ -401,3 +423,23 @@ body.archive #main {
 #navi .expand {
 	display: none;
 }
+
+/*  Horizontal navigation
+ *
+ */
+
+.navigation.nh .menu .menu-item-has-children {
+	float: left;
+	width: 18%;
+	margin-right: 2%;
+}
+	.navigation.nh .menu a {
+		width: 100%;
+	}
+	.navigation.nh .menu .menu-item-has-children {
+		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
+	}
+		.navigation.nh .menu .menu-item-has-children:nth-child(1n+5) {
+			margin-right: 0;
+			border-right: none;
+		}
