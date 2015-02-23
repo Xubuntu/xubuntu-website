@@ -257,7 +257,7 @@ body.archive #main {
 
 		border-right: 1px dotted rgba( 0, 0, 0, 0.2 );
 	}
-		body.home .widgets_flex .widget:last-child {
+		.widgets_flex .widget:last-child {
 			border-right: none;
 			margin-right: 0;
 			padding-right: 0;
