@@ -82,7 +82,7 @@ body.home #main, body.home .widgets {
 				}
 
 #content_outer {
-	padding: 3.5em 0 2em 0;
+	padding: 1.5em 0;
 
 	background-color: #eee;
 	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
@@ -355,6 +355,7 @@ body.archive #main {
 	/*  Hovered menu items  */
 	.navigation.nd .menu > li:hover {
 		background-color: rgba( 0, 0, 0, 0.1 );
+		position: relative;
 	}
 		.navigation.nd .menu > li:hover > a {
 			position: relative;
@@ -369,20 +370,24 @@ body.archive #main {
 
 		position: absolute;
 		z-index: 1000;
-		top: 3em;
+		top: 3.2em;
 		left: 0;
 
-		width: 100%;
-		padding: 0.25em 0;
+		width: 200px;
+		padding: 0.5em 0;
 
 		border-radius: 3px;
 	}
+		.navigation.nd li:last-child .sub-menu {
+			left: -50%;
+		}
 		.navigation.nd .sub-menu li {
-			display: inline;
+			display: block;
+			width: 100%;
 		}
 
 		/*  Submenu hover  */
-		.navigation.nd .menu li.current_page_ancestor .sub-menu,
+		/*.navigation.nd .menu li.current_page_ancestor .sub-menu, */
 		.navigation.nd .menu li:hover .sub-menu {
 			display: block;
 			z-index: 900;
@@ -392,20 +397,17 @@ body.archive #main {
 			.navigation.nd .menu > li:hover .sub-menu {
 				z-index: 1000;
 				background-color: #fff;
-				box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+				box-shadow: 0 0 10px rgba( 0, 0, 0, 0.2 );
 			}
 
 		.navigation.nd .sub-menu li a {
-			display: inline;
+			display: block;
 
 			font-size: 110%;
 			color: #555;
-			padding: 0.25em 8px;
+			padding: 0.35em 1em;
 			border: none;
 		}
-			.navigation.nd .sub-menu li:first-child {
-				padding-left: 8px;
-			}
 			.navigation.nd .sub-menu a:hover,
 			.navigation.nd .sub-menu a:active,
 			.navigation.nd .sub-menu a:focus {

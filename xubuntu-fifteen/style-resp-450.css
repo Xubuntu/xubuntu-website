@@ -1,12 +1,8 @@
-body {
-	padding-top: 0.3em;
-}
-
 #header { }
 	#logo {
-		max-width: 100%;
+		max-width: 90%;
 		padding: 0;
-		margin: 0 0 0.5em 0;
+		margin: 0 0 0.5em -8px;
 	}
 
 	#logo img {

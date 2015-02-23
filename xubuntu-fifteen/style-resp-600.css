@@ -13,7 +13,7 @@ body {
 	border-radius: 0;
 }
 	#logo {
-		margin: 1.2em 1.5em;
+		margin: 1.2em 1.2em;
 	}
 	#navi {
 		width: 100%;
@@ -224,6 +224,7 @@ body.admin-bar {
 			.navigation.nd .menu .sub-menu {
 				position: static;
 				border-radius: 0;
+				width: 100%;
 
 				background-color: #fff !important;
 			}
