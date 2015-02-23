@@ -2,11 +2,24 @@ jQuery( function( ) {
 	// DROPDOWN MENU
 
 	// Make sure submenus appear centered related to the main item when possible
-	xubuntu_dropdown_menu_positioning( );
+	jQuery( '#navi .menu > li' ).hover( function( e ) {
+		var current = jQuery( this );
+		var current_sub = current.children( '.sub-menu' );
 
-	// Update positioning on resizing
-	jQuery( window ).resize( function( e ) {
-		xubuntu_dropdown_menu_positioning( );
+		var shift = ( current_sub.outerWidth( ) - current.outerWidth( ) ) / 2;
+		var right_border = current.offset( ).left + current_sub.outerWidth( ) - shift;
+
+		if( right_border > jQuery( window ).outerWidth( ) - 15 ) {
+			// The submenu would overflow in the right side
+			var extra_offset = right_border - jQuery( window ).outerWidth( ) + 15 + shift;
+			current_sub.css( 'left', -extra_offset);
+		} else if( current.offset( ).left - shift < 0 ) {
+			// The submenu would overflow in the left side
+			current_sub.css( 'left', '-2px' );
+		} else {
+			// The submenu will fit the screen when centered
+			current_sub.css( 'left', -shift );
+		}
 	} );
 
 
@@ -43,19 +56,3 @@ jQuery( function( ) {
 		e.preventDefault( );
 	} );
 } );
-
-function xubuntu_dropdown_menu_positioning( ) {
-	jQuery( '#navi .menu > li' ).each( function( e ) {
-		var shift = ( jQuery( this ).children( '.sub-menu' ).outerWidth( ) - jQuery( this ).outerWidth( ) ) / 2;
-		var right_border = jQuery( this ).offset( ).left + jQuery( this ).children( '.sub-menu' ).outerWidth( ) - shift;
-
-		if( right_border > jQuery( window ).outerWidth( ) - 15 ) {
-			// Submenu would overflow, we need to add offset
-			var extra_offset = right_border - jQuery( window ).outerWidth( ) + 15 + shift;
-			jQuery( this ).children( '.sub-menu' ).css( 'left', -extra_offset);
-		} else if( jQuery( this ).offset( ).left - shift > 0 ) {
-			// The submenu will fit the screen
-			jQuery( this ).children( '.sub-menu' ).css( 'left', -shift );
-		}
-	} );
-}
