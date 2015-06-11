@@ -5,10 +5,8 @@
 	<title><?php wp_title( '&laquo;', true, 'right' ); ?><?php bloginfo( 'name' ); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 
-	<meta name="language" content="<?php bloginfo( 'language' ); ?>">
-	<meta name="Author" lang="<?php bloginfo( 'language' ); ?>" content="Pasi Lallinaho" />
-	<meta name="copyright" content="&copy; <?php echo date( 'Y' ); ?> Canonical Ltd." />
 	<meta name="description" content="<?php bloginfo( 'name' ); ?> – <?php bloginfo( 'description' ); ?>" />
+	<meta name="author" content="The Xubuntu community" />
 
 	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png">
 
