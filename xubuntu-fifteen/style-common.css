@@ -287,7 +287,7 @@ p.preface {
 
 	border-top: 0.5em solid rgba( 255, 255, 255, 0.2 );
 
-	font-size: 100% !important; /* overrides extras.css !! */
+	font-size: 100%;
 }
 	.hb + .hb {
 		margin-top: -1.5em;
@@ -326,11 +326,13 @@ p.preface {
 
 	/* Header */
 	.hb h2 {
-		margin-top: 0.4em !important; /* overrides extras.css !! */
+		margin-top: 0.4em;
 	 	margin-bottom: 0.4em;
 
 		color: #fff;
 		color: rgba( 255, 255, 255, 0.9 );
+
+		font-size: 150%;
 	}
 		.hb h2:first-child {
 			margin-top: 0;
