@@ -100,7 +100,7 @@ add_theme_support( 'post-thumbnails' );
 add_action( 'wp_enqueue_scripts', 'xubuntu_scripts' );
 function xubuntu_scripts( ) {
 	if( !is_admin( ) ) {
-		wp_enqueue_script( 'xubuntu-menu', get_template_directory_uri( ) . '/menu.js', 'jquery', '0.1' );
+		wp_enqueue_script( 'xubuntu-menu', get_template_directory_uri( ) . '/menu.js', array( 'jquery' ), '0.1' );
 	}
 }
 
