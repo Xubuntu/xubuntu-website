@@ -439,7 +439,7 @@ body.archive #main {
 	.navigation.nh .menu .menu-item-has-children {
 		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
 	}
-		.navigation.nh .menu .menu-item-has-children:nth-child(1n+5) {
+		.navigation.nh .menu .menu-item-has-children:last-child {
 			margin-right: 0;
 			border-right: none;
 		}

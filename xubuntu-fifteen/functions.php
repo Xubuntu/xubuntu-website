@@ -1,7 +1,5 @@
 <?php
 
-$content_width = 585; /* TODO: Review */
-
 /*  Init admin
  *
  */
