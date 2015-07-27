@@ -104,7 +104,7 @@ body.home #main, .widgets_outer .widgets {
 
 		#main_outer {
 			width: 100%;
-			padding: 25px 0 0 0;
+			padding: 25px 0;
 
 			float: left;
 		}
@@ -171,7 +171,7 @@ body.home #content_outer {
 		border-radius: 0;
 	}
 		body.home #main_outer {
-			padding: 0 0 25px 0;
+			padding-top: 0;
 		}
 			body.home #main {
 				padding: 0;
@@ -270,12 +270,12 @@ body.archive #main {
 	.widgets_flex .widget {
 		float: left;
 
+		box-sizing: border-box;
 		flex-grow: 1;
-		width: 29%;
+		width: 25.1%;
 
-		padding-right: 2%;
-		margin-left: auto;
-		margin-right: 20px;
+		padding-right: 2em;
+		margin-right: 2em;
 
 		border-right: 1px dotted rgba( 0, 0, 0, 0.2 );
 	}
@@ -443,3 +443,39 @@ body.archive #main {
 			margin-right: 0;
 			border-right: none;
 		}
+
+/*  Taxonomy Promotion
+ *  Clones the .button.primary style, see style-common.css
+ */
+
+.taxpromo .more {
+	display: block;
+	margin-top: 1em;
+}
+
+.taxpromo .more a {
+	display: inline-block;
+
+	margin: 0 1em 0.5em 0;
+	padding: 0.5em 0.75em;
+
+	background-color: #fff;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.1 );
+
+	border: none;
+	border-bottom: 2px solid #7cb8f7;
+}
+	.taxpromo .more a:hover, .taxpromo .more a:active, .taxpromo .more a:focus {
+		box-shadow: 0 0 5px rgba( 0, 0, 0, 0.3 );
+		border-bottom: 2px solid #2c82dd;
+	}
+	.taxpromo .more a:after {
+		display: block;
+		float: right;
+
+		content: "›";
+		font-weight: 300;
+		font-size: 140%;
+		margin: -0.1em 0 0 0.5em;
+		color: #555;
+	}

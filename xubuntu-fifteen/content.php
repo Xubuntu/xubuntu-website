@@ -13,10 +13,8 @@
 
 				<?php	if( !is_page( ) ) { ?>
 					<div class="post-meta">
-						<?php /* translators: php strftime() format */ ?>
-						<span class="post-time"><?php print strftime( __( '%B %e, %Y', 'xubuntu' ), get_the_time( 'U' ) ); ?></span>
-						&mdash;
-						<span class="post-cat"><?php the_category( ', ' ); ?></span>
+						<span class="post-time"><?php print strftime( _x( '%B %e, %Y', 'post time format (strftime)', 'xubuntu' ), get_the_time( 'U' ) ); ?></span>
+						<?php the_terms( $post_id, 'category', '&mdash; <span class="post-cat">', ', ', '</span>' ); ?>
 						<?php the_tags( '&mdash; <span class="post-tags">', ', ', '</span>' ); ?>
 					</div>
 				<?php } ?>

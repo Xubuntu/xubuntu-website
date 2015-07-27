@@ -102,8 +102,7 @@ function xubuntu_scripts( ) {
 	}
 }
 
-/*  Add some image sizes
- *  TODO: Review
+/*  Add image sizes
  *
  */
 
