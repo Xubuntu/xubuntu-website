@@ -14,7 +14,7 @@
 						</div>
 						<?php
 					} elseif( is_archive( ) ) {
-						get_template_part( 'content', 'titles' );
+						get_template_part( 'content', 'archive' );
 					} else {
 						get_template_part( 'content', get_post_format( ) );
 					}
