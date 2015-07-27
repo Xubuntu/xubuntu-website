@@ -3,11 +3,30 @@
 		<?php
 			if( is_archive( ) ) {
 				if( is_category( ) ) {
-					print '<h1 class="post-title">' . single_cat_title( 'Archive: ', false ) . '</h1>';
+					echo '<h1 class="post-title">' . single_cat_title( 'Archive: ', false ) . '</h1>';
 				} elseif( is_tag( ) ) {
-					print '<h1 class="post-title">' . single_tag_title( 'Archive: ', false ) . '</h1>';
+					echo '<h1 class="post-title">' . single_tag_title( 'Archive: ', false ) . '</h1>';
+				} elseif( is_tax( 'release' ) ) {
+					$release = get_term_by( 'slug', get_query_var( 'release' ), 'release', OBJECT );
+					$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+
+					list( $year, $month, $day ) = explode( '-', $release_meta['release_date'] );
+					$release_time = gmmktime( 0, 0, 0, $month, $day, $year );
+					list( $year, $month, $day ) = explode( '-', $release_meta['release_eol'] );
+					$eol_time = gmmktime( 0, 0, 1, $month, $day, $year );
+
+					echo '<h1 class="post-title">Xubuntu ' . single_term_title( '', false ) . ', ' . $release_meta['release_codename'] . '</h1>';
+					echo '<dl class="release-info group">';
+					echo '<dt>' . __( 'Release date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
+					echo '<dt>' . __( 'End of Life', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $eol_time ) . '</dd>';
+//					if( $release_meta['release_eol'] >= gmdate( 'Y-m-d' ) ) {
+//						echo '<dt>Support</dt><dd><a href="' . home_url( '/' ) . '">Help & Support</a></dd>';
+//					}
+					echo '</dl>';
+					echo wpautop( $release->description );
+					echo '<h2>' . __( 'Articles', 'xubuntu' ) . '</h2>';
 				} else {
-					print '<h1 class="post-title">' . __( 'Archive', 'xubuntu' ) . '</h1>';
+					echo '<h1 class="post-title">' . __( 'Archive', 'xubuntu' ) . '</h1>';
 				}
 			}
 		?>

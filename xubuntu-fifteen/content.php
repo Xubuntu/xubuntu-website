@@ -15,6 +15,7 @@
 					<div class="post-meta">
 						<span class="post-time"><?php print strftime( _x( '%B %e, %Y', 'post time format (strftime)', 'xubuntu' ), get_the_time( 'U' ) ); ?></span>
 						<?php the_terms( $post_id, 'category', '&mdash; <span class="post-cat">', ', ', '</span>' ); ?>
+						<?php the_terms( $post_id, 'release', '&mdash; <span class="post-release">', ', ', '</span>' ); ?>
 						<?php the_tags( '&mdash; <span class="post-tags">', ', ', '</span>' ); ?>
 					</div>
 				<?php } ?>

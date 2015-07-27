@@ -230,6 +230,31 @@ body.archive #main {
 	color: rgba( 0, 0, 0, 0.5 );
 }
 
+/*  Release archive
+ *
+ */
+
+dl.release-info {
+	margin-bottom: 1em;
+}
+	dl.release-info dt {
+		float: left;
+		clear: both;
+
+		width: 25%;
+		margin-right: 5px;
+
+		font-weight: bold;
+	}
+	dl.release-info dd {
+		float: left;
+	}
+	dl.release-info dd.eol:after {
+		content: "Unsupported";
+		margin-left: 0.5em;
+		color: rgba( 200, 0, 0, 1 );
+	}
+
 /*  Attachments
  *
  */

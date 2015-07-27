@@ -13,6 +13,7 @@ include 'functions-admin.php';
  */
 include 'functions-features.php';
 include 'functions-features-news.php';
+include 'functions-features-releases.php';
 
 /*
  *  Configuration options
