@@ -31,6 +31,7 @@ function release_taxonomy_register( ) {
 			'meta_box_cb' => 'release_taxonomy_meta_box',
 			'show_admin_column' => true,
 			'description' => _x( 'Xubuntu releases', 'taxonomy description', 'xubuntu' ),
+			'query_var' => true
 		)
 	);
 }
@@ -126,7 +127,6 @@ function release_taxonomy_meta_box( ) {
 		echo '<ul>';
 		foreach( $releases as $release ) {
 			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
-//			var_dump( $release );
 			echo '<li>';
 			echo '<label class="selectit">';
 			echo '<input type="checkbox" name="tax_input[release][]" id="release" value="' . $release->slug . '" ' . checked( has_term( $release->term_id, 'release' ), true, false ) . '/>';
@@ -135,6 +135,40 @@ function release_taxonomy_meta_box( ) {
 			echo '</li>';
 		}
 		echo '</ul>';
+	}
+}
+
+/*  Filtering posts by release
+ *
+ */
+
+add_action( 'restrict_manage_posts', 'release_taxonomy_post_filter' );
+
+function release_taxonomy_post_filter( ) {
+	global $typenow;
+	global $wp_query;
+
+	if( 'post' == $typenow ) {
+		wp_dropdown_categories( array(
+			'show_option_all' => _x( 'All releases', 'post filter dropdown', 'xubuntu' ),
+			'taxonomy' => 'release',
+			'name' => 'release',
+			'selected' => $wp_query->query['release'],
+		) );
+    }
+}
+
+add_filter( 'parse_query', 'release_taxonomy_post_filter_execute' );
+
+function release_taxonomy_post_filter_execute( $query ) {
+	global $pagenow;
+	$qv = &$query->query_vars;
+
+	if( 'edit.php' == $pagenow &&
+		isset( $qv['release'] ) &&
+		is_numeric( $qv['release'] ) ) {
+		$term = get_term_by( 'id', $qv['release'], 'release' );
+		$qv['release'] = $term->slug;
 	}
 }
 
@@ -165,7 +199,12 @@ class XubuntuReleasesWidget extends WP_Widget {
 			echo '<ul class="xubuntu_releases group">';
 			foreach( $releases as $release ) {
 				$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
-				echo '<li><a href="' . get_term_link( $release ) . '">' . $release->name . ', ' . $release_meta['release_codename'] . '</a></li>';
+				if( strlen( $release_meta['release_codename'] ) > 0 ) {
+					$codename = ', ' . $release_meta['release_codename'];
+				} else {
+					$codename = '';
+				}
+				echo '<li><a href="' . get_term_link( $release ) . '">' . $release->name . $codename . '</a></li>';
 			}
 			echo '</ul>';
 		}

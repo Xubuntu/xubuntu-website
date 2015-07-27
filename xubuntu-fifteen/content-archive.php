@@ -15,14 +15,26 @@
 					list( $year, $month, $day ) = explode( '-', $release_meta['release_eol'] );
 					$eol_time = gmmktime( 0, 0, 1, $month, $day, $year );
 
-					echo '<h1 class="post-title">Xubuntu ' . single_term_title( '', false ) . ', ' . $release_meta['release_codename'] . '</h1>';
-					echo '<dl class="release-info group">';
-					echo '<dt>' . __( 'Release date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
-					echo '<dt>' . __( 'End of Life', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $eol_time ) . '</dd>';
-//					if( $release_meta['release_eol'] >= gmdate( 'Y-m-d' ) ) {
-//						echo '<dt>Support</dt><dd><a href="' . home_url( '/' ) . '">Help & Support</a></dd>';
-//					}
-					echo '</dl>';
+					if( strlen( $release_meta['release_codename'] ) > 0 ) {
+						$codename = ', ' . $release_meta['release_codename'];
+					} else {
+						$codename = '';
+					}
+
+					echo '<h1 class="post-title">Xubuntu ' . single_term_title( '', false ) . $codename . '</h1>';
+					if( $release_time > 0 || $eol_time > 0 ) {
+						echo '<dl class="release-info group">';
+						if( $release_time > 0 ) {
+							echo '<dt>' . __( 'Release date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
+						}
+						if( $eol_time > 0 ) {
+							echo '<dt>' . __( 'End of Life', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $eol_time ) . '</dd>';
+						}
+//						if( $release_meta['release_eol'] >= gmdate( 'Y-m-d' ) ) {
+//							echo '<dt>Support</dt><dd><a href="' . home_url( '/' ) . '">Help & Support</a></dd>';
+//						}
+						echo '</dl>';
+					}
 					echo wpautop( $release->description );
 					echo '<h2>' . __( 'Articles', 'xubuntu' ) . '</h2>';
 				} else {
