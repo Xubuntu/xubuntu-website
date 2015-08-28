@@ -115,13 +115,7 @@ function release_taxonomy_custom_fields_save( $term_id ) {
 }
 
 function release_taxonomy_meta_box( ) {
-	$releases = get_terms(
-		'release',
-		array(
-			'hide_empty' => false,
-			'order' => DESC
-		)
-	);
+	$releases = release_taxonomy_get_releases_sorted( );
 
 	if( is_array( $releases ) ) {
 		echo '<ul>';
@@ -194,7 +188,8 @@ class XubuntuReleasesWidget extends WP_Widget {
 		if( !empty( $title ) ) {
 			echo $before_title . $title . $after_title;
 		}
-		$releases = get_terms( 'release', array( 'order' => DESC ) );
+		$releases = release_taxonomy_get_releases_sorted( );
+
 		if( is_array( $releases ) ) {
 			echo '<ul class="xubuntu_releases group">';
 			foreach( $releases as $release ) {
@@ -239,5 +234,14 @@ class XubuntuReleasesWidget extends WP_Widget {
 	}
 }
 
+function release_taxonomy_get_releases_sorted( ) {
+	$releases = get_terms( 'release' );
+	usort( $releases, 'release_taxonomy_release_usort_desc' );
+	return $releases;
+}
+
+function release_taxonomy_release_usort_desc( $a, $b ) {
+	return strnatcmp( $b->name, $a->name );
+}
 
 ?>
