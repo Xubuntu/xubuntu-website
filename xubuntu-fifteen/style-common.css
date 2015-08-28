@@ -78,6 +78,8 @@ code {
 figcaption { font-size: 85%; }
 
 h1, h2, h3, h4, h5, h6 {
+	clear: both;
+
 	font-weight: normal;
 	text-align: left;
 	margin: 1.3em 0 0.6em 0;
@@ -527,7 +529,6 @@ ul.columnlist {
  *  Usage: template_featured-gallery.php
  *
  */
-
 .featured {
 	margin-bottom: 2em;
 }
@@ -554,3 +555,42 @@ ul.columnlist {
 		.featured .description h2:first-child {
 			margin-top: 0;
 		}
+
+/*  Information boxes (in two columns)
+ *  Usage: manual
+ *
+ */
+.infoboxes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:
+	space-between;
+}
+	.infoboxes div.box {
+		flex-grow: 1;
+		width: 33.3%;
+		line-height: 1.8em;
+		padding: 1em 1.5em;
+		background-color: #fff;
+		border-top: 0.5em solid rgba( 0, 0, 0, 0.075 );
+	}
+		.infoboxes div.box:nth-child(odd) { margin: 0 1em 2em 0; }
+		.infoboxes div.box:nth-child(even) { margin: 0 0 2em 1em; }
+		.infoboxes h3 { margin-top: 0; }
+
+	h2 + .infoboxes { margin-top: 2em; }
+
+@media screen and (max-width: 800px) {
+	.infoboxes {
+		display: block;
+	}
+	.infoboxes div.box {
+		width: auto;
+		margin: 0 0 1em 0 !important;
+	}
+}
+@media screen and (max-width: 600px) {
+	.infoboxes div.box {
+		padding: 0.7em 1em;
+	}
+}
