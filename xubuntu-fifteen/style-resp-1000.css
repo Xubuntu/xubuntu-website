@@ -26,16 +26,16 @@ body.home #main, .widgets_outer .widget {
 	overflow: hidden;
    flex-wrap: wrap;
 }
-	.navigation.nh .menu .menu-item-has-children {
+	.navigation.nh .menu > li {
 		float: left;
 		width: 31% !important;
 		margin-bottom: 2em;
 	}
-		.navigation.nh .menu .menu-item-has-children:nth-child(1n+5) {
+		.navigation.nh .menu > li:nth-child(1n+5) {
 			margin-right: 2%;
 			border-right: 1px solid rgba( 0, 0, 0, 0.10 );
 		}
-		.navigation.nh .menu .menu-item-has-children:nth-child(3n+3) {
+		.navigation.nh .menu > li:nth-child(3n+3) {
 			margin-right: 0;
 			border-right: none;
 		}
@@ -43,11 +43,11 @@ body.home #main, .widgets_outer .widget {
 		/* If a menu in the first or second column is the last one,
 		 * fill the rest of the space to keep preferred alignment
 		 */
-		.navigation.nh .menu .menu-item-has-children:last-child:nth-child(3n+1) {
+		.navigation.nh .menu > li:last-child:nth-child(3n+1) {
 			margin-right: 71%;
 			border-right: none;
 		}
-		.navigation.nh .menu .menu-item-has-children:last-child:nth-child(3n+2) {
+		.navigation.nh .menu > li:last-child:nth-child(3n+2) {
 			margin-right: 34%;
 			border-right: none;
 		}

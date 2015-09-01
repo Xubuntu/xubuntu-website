@@ -26,7 +26,7 @@
 	}
 
 #footer { }
-	#footer_navi .menu .menu-item-has-children {
+	#footer_navi .menu > li {
 		float: left;
 		clear: none;
 		width: 100% !important;

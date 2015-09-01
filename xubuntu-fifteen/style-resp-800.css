@@ -3,6 +3,10 @@
 #navi {
 	font-size: 92%;
 }
+	.navigation.nd .menu > li > a {
+		padding-left: 0.75em;
+		padding-right: 0.75em;
+	}
 
 #footer {
 	overflow: hidden;

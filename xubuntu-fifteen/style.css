@@ -319,7 +319,7 @@ dl.release-info {
 	display: block;
 	width: 90%;
 }
-	.navigation .menu .menu-item-has-children > a {
+	.navigation .menu > li > a {
 		font-size: 125%;
 		color: #333;
 		border-bottom: none;
@@ -354,7 +354,7 @@ dl.release-info {
 			margin: 0;
 			color: #fff;
 		}
-			.navigation.nd .menu .menu-item-has-children > a {
+			.navigation.nd .menu > li > a {
 				font-size: 115%;
 				font-weight: 600;
 			}
@@ -390,6 +390,8 @@ dl.release-info {
 			position: relative;
 			z-index: 1100;
 			padding-bottom: 1.3em;
+		}
+		.navigation.nd .menu > li.menu-item-has-children:hover > a {
 			background: transparent url(images/arrowup.png) 50% 2.3em no-repeat;
 		}
 
@@ -453,7 +455,7 @@ dl.release-info {
  *
  */
 
-.navigation.nh .menu .menu-item-has-children {
+.navigation.nh .menu > li {
 	float: left;
 	width: 18%;
 	margin-right: 2%;
@@ -461,10 +463,10 @@ dl.release-info {
 	.navigation.nh .menu a {
 		width: 100%;
 	}
-	.navigation.nh .menu .menu-item-has-children {
+	.navigation.nh .menu > li {
 		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
 	}
-		.navigation.nh .menu .menu-item-has-children:last-child {
+		.navigation.nh .menu > li:last-child {
 			margin-right: 0;
 			border-right: none;
 		}

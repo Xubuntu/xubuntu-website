@@ -271,14 +271,14 @@ body.admin-bar {
 .navigation.nd .menu li.open { display: block; }
 
 /*  Horizontal navigation  */
-.navigation.nh .menu .menu-item-has-children {
+.navigation.nh .menu > li {
 	width: 47% !important;
 }
-	.navigation.nh .menu .menu-item-has-children:nth-child(3n+3) {
+	.navigation.nh .menu > li:nth-child(3n+3) {
 		margin-right: 2%;
 		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
 	}
-	.navigation.nh .menu .menu-item-has-children:nth-child(even) {
+	.navigation.nh .menu > li:nth-child(even) {
 		margin-right: 0;
 		border-right: none;
 	}
