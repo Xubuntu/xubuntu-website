@@ -316,7 +316,7 @@ body.admin-bar {
 
 	background: transparent url(images/menu.png) 50% 50% no-repeat;
 }
-	#navi .expand {
+	#navi li.menu-item-has-children .expand {
 		display: none;
 
 		position: relative;
@@ -333,7 +333,7 @@ body.admin-bar {
 
 		background: transparent url(images/menu_arrow.png) 50% 50% no-repeat;
 	}
-		#navi.open .expand {
+		#navi.open li.menu-item-has-children .expand {
 			display: block;
 			transition: 200ms transform;
 		}
@@ -343,7 +343,7 @@ body.admin-bar {
 		padding: 0;
 	}
 
-	#navi .open-sub .expand {
+	#navi .open-sub li.menu-item-has-children .expand {
 		transform: rotate( -90deg );
 		background-size: 65% 65%;
 	}
@@ -361,7 +361,7 @@ body.admin-bar {
 }
 	#header_outer.scrolled #logo {
 		margin: 0;
-		padding: 0.5em 1.5em;
+		padding: 0.5em 2.5%;
 	}
 		#header_outer.scrolled #logo a img {
 			display: none;

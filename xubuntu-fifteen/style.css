@@ -2,7 +2,7 @@
  *  Theme Name: Xubuntu Fifteen
  *  Description: A theme built for the Xubuntu website at xubuntu.org.
  *  Author: Pasi Lallinaho
- *  Version: 15.02.23
+ *  Version: 15.09.01 (r82)
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -466,6 +466,9 @@ dl.release-info {
 	.navigation.nh .menu > li {
 		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
 	}
+		.navigation.nh .menu .sub-menu {
+			margin-bottom: 0;
+		}
 		.navigation.nh .menu > li:last-child {
 			margin-right: 0;
 			border-right: none;

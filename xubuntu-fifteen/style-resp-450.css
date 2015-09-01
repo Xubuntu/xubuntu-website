@@ -101,12 +101,16 @@ figure {
 	}
 
 #opennavi,
-#navi .expand {
+#navi li.menu-item-has-children .expand {
 	right: 2.5%;
 }
 	#opennavi {
 		margin-right: -3px;
 	}
+
+#footer_navi .menu > li {
+	margin-bottom: 1.5em !important;
+}
 
 .hb {
 	margin-right: -2.5% !important;
