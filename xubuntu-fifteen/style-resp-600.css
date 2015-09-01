@@ -13,7 +13,7 @@ body {
 	border-radius: 0;
 }
 	#logo {
-		margin: 1.2em 2.5%;
+		margin: 1.2em 1.5em;
 	}
 	#navi {
 		width: 100%;
@@ -214,7 +214,7 @@ body.admin-bar {
 			position: static;
 		}
 			.navigation.nd .menu li a {
-				padding: 0.5em 2.5%;
+				padding: 0.5em 1.5em;
 			}
 			.navigation.nd .menu > li {
 				border: none;
@@ -223,6 +223,9 @@ body.admin-bar {
 			}
 				.navigation.nd .menu > li:hover > a {
 					padding-bottom: 0.5em;
+					background: none;
+				}
+				.navigation.nd .menu > li.menu-item-has-children:hover > a {
 					background: none;
 				}
 
@@ -262,8 +265,7 @@ body.admin-bar {
 						}
 						.navigation.nd .menu li .sub-menu li a {
 							display: block;
-							width: 90%;
-							padding: 0.25em 5%;
+							padding: 0.25em 1.5em;
 						}
 
 .navigation.nd .menu li { display: none; }
@@ -300,10 +302,10 @@ body.admin-bar {
 	display: block;
 	height: 0;
 	top: 0;
-	right: 2.5%;
+	right: 1.5em;
 
 	margin-top: -3em;
-	margin-right: -5px;
+	margin-right: -2px; /* Helps line this up with the arrows */
 
 	padding: 4px 0 0 0;
 
@@ -318,7 +320,7 @@ body.admin-bar {
 		display: none;
 
 		position: relative;
-		right: 2.5%;
+		right: 1.5em;
 		top: 0;
 
 		float: right;
@@ -359,9 +361,9 @@ body.admin-bar {
 }
 	#header_outer.scrolled #logo {
 		margin: 0;
-		padding: 0.5em 2.5%;
+		padding: 0.5em 1.5em;
 	}
-		#header_outer.scrolled #logo a img{
+		#header_outer.scrolled #logo a img {
 			display: none;
 		}
 		#header_outer.scrolled #logo a:after {
