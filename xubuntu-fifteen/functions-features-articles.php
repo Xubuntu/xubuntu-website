@@ -74,7 +74,6 @@ class XubuntuArticlesWidget extends WP_Widget {
 			<textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo $description; ?></textarea>
 		</p>
 		<p>
-			<?php echo $instance['categories']; ?>
 			<label for="<?php echo $this->get_field_id( 'categories' ); ?>"><?php _e( 'Categories', 'xubuntu' ); ?><br />
 				<select class="widefat" multiple="multiple" id="<?php echo $this->get_field_id( 'categories' ); ?>" name="<?php echo $this->get_field_name( 'categories' ); ?>[]" style="margin-top: 0.2em; height: 6.5em;">
 					<?php
