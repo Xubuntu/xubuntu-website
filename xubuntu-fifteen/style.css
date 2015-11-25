@@ -2,7 +2,7 @@
  *  Theme Name: Xubuntu Fifteen
  *  Description: A theme built for the Xubuntu website at xubuntu.org.
  *  Author: Pasi Lallinaho
- *  Version: 15.09.01 (r83)
+ *  Version: 15.11.25
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -26,7 +26,7 @@ body {
 
 #content, #header, #footer,
 #navi, #content_gallery,
-body.home #main, .widgets_outer .widgets {
+body.home #main, .widgets_inner {
 	width: 90%;
 	margin: 0 auto;
 
@@ -48,12 +48,25 @@ body.home #main, .widgets_outer .widgets {
 		margin: 1.2em 0;
 		color: #fff;
 	}
+	#quick {
+		display: none;
+
+		padding: 0.5em 40px 0.5em 2.5%;
+
+		background-color: rgba( 0, 110, 184, 0.75 );
+		border-top: 1px solid rgba( 255, 255, 255, 0.2 );
+	}
+		#quick a {
+			color: #fff;
+			margin-right: 1em;
+			font-weight: 600;
+
+			white-space: nowrap;
+		}
 	#opennavi {
 		display: none;
 
 		float: right;
-		height: 24px;
-		width: 24px;
 
 		position: relative;
 		top: 1px;
@@ -125,25 +138,8 @@ body.home #main, .widgets_outer .widgets {
 			margin-bottom: 1.5em;
 			border-bottom: 1px dotted #aaa;
 		}
-
-		#footer_navi { }
-			#footer_navi .menu {
-				display: flex;
-			}
-				#footer_navi .menu > li {
-					flex-grow: 1;
-				}
-
-				#footer_navi .menu .sub-menu {
-					font-size: 110%;
-				}
-
-			#footer_navi li {
-				padding-right: 0.5em;
-			}
-			#footer_navi a {
-				line-height: 1.3em;
-				padding: 0.2em 0;
+			#footer_navi .menu .sub-menu {
+				font-size: 110%;
 			}
 
 
@@ -178,13 +174,18 @@ body.home #content_outer {
 			}
 
 	body.home .widgets_outer {
-		padding: 2em 0;
+		padding: 1em 0;
 		margin-bottom: 1em;
 	}
 		body.home .widgets_outer#front,
 		body.home .widgets_outer#front-3 {
+			padding: 2em 0;
 			background-color: #fff;
 			box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+		}
+
+		body.home .widgets_outer:last-child {
+			padding-bottom: 2em;
 		}
 
 /*  Blog
@@ -294,20 +295,24 @@ dl.release-info {
 }
 	.widgets_flex .widget {
 		float: left;
+		width: 25.1%;
 
 		box-sizing: border-box;
 		flex-grow: 1;
-		width: 25.1%;
 
-		padding-right: 2em;
-		margin-right: 2em;
+		padding: 0 1.5em;
 
 		border-right: 1px dotted rgba( 0, 0, 0, 0.2 );
 	}
+		.widgets_flex .widget:first-child {
+			padding-left: 0;
+		}
 		.widgets_flex .widget:last-child {
 			border-right: none;
-			margin-right: 0;
 			padding-right: 0;
+		}
+		.widgets_flex .widget p:last-child {
+			margin-bottom: 0;
 		}
 
 
@@ -455,57 +460,33 @@ dl.release-info {
  *
  */
 
-.navigation.nh .menu > li {
-	float: left;
-	width: 18%;
-	margin-right: 2%;
+.navigation.nh .menu {
+	display: flex;
 }
-	.navigation.nh .menu a {
-		width: 100%;
-	}
 	.navigation.nh .menu > li {
-		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
+		float: left;
+		width: 15%;
+
+		box-sizing: border-box;
+		flex-grow: 1;
+
+		padding: 0 1.5em;
 	}
-		.navigation.nh .menu .sub-menu {
-			margin-bottom: 0;
+		.navigation.nh .menu a {
+			width: 100%;
+			line-height: 1.3em;
+			padding: 0.2em 0;
 		}
-		.navigation.nh .menu > li:last-child {
-			margin-right: 0;
-			border-right: none;
+		.navigation.nh .menu > li {
+			border-right: 1px solid rgba( 0, 0, 0, 0.10 );
 		}
-
-/*  Taxonomy Promotion
- *  Clones the .button.primary style, see style-common.css
- */
-
-.taxpromo .more {
-	display: block;
-	margin-top: 1em;
-}
-
-.taxpromo .more a {
-	display: inline-block;
-
-	margin: 0 1em 0.5em 0;
-	padding: 0.5em 0.75em;
-
-	background-color: #fff;
-	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.1 );
-
-	border: none;
-	border-bottom: 2px solid #7cb8f7;
-}
-	.taxpromo .more a:hover, .taxpromo .more a:active, .taxpromo .more a:focus {
-		box-shadow: 0 0 5px rgba( 0, 0, 0, 0.3 );
-		border-bottom: 2px solid #2c82dd;
-	}
-	.taxpromo .more a:after {
-		display: block;
-		float: right;
-
-		content: "›";
-		font-weight: 300;
-		font-size: 140%;
-		margin: -0.1em 0 0 0.5em;
-		color: #555;
-	}
+			.navigation.nh .menu .sub-menu {
+				margin-bottom: 0;
+			}
+			.navigation.nh .menu > li:first-child {
+				padding-left: 0;
+			}
+			.navigation.nh .menu > li:last-child {
+				padding-right: 0;
+				border-right: none;
+			}

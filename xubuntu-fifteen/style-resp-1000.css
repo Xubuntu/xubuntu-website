@@ -2,7 +2,7 @@
 
 #content, #header, #footer,
 #navi, #content_gallery,
-body.home #main, .widgets_outer .widget {
+body.home #main, .widgets_inner {
 	min-width: 0;
 }
 
@@ -31,12 +31,10 @@ body.home #main, .widgets_outer .widget {
 		width: 31% !important;
 		margin-bottom: 2em;
 	}
-		.navigation.nh .menu > li:nth-child(1n+5) {
-			margin-right: 2%;
-			border-right: 1px solid rgba( 0, 0, 0, 0.10 );
+		.navigation.nh .menu > li:nth-child(3n+1) {
+			padding-left: 0;
 		}
 		.navigation.nh .menu > li:nth-child(3n+3) {
-			margin-right: 0;
 			border-right: none;
 		}
 
@@ -44,10 +42,8 @@ body.home #main, .widgets_outer .widget {
 		 * fill the rest of the space to keep preferred alignment
 		 */
 		.navigation.nh .menu > li:last-child:nth-child(3n+1) {
-			margin-right: 71%;
-			border-right: none;
+			margin-right: 66.6%;
 		}
 		.navigation.nh .menu > li:last-child:nth-child(3n+2) {
-			margin-right: 34%;
-			border-right: none;
+			margin-right: 33.3%;
 		}

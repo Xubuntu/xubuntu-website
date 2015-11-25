@@ -1,7 +1,7 @@
 jQuery( function( ) {
 	// DROPDOWN MENU
 
-	// Make sure submenus appear centered related to the main item when possible
+	// Make sure submenus do not overlap window area
 	jQuery( '#navi .menu > li' ).hover( function( e ) {
 		var current = jQuery( this );
 		var current_sub = current.children( '.sub-menu' );
@@ -19,12 +19,16 @@ jQuery( function( ) {
 			current_sub.css( 'left', '-2px' );
 		} else {
 			// The submenu will fit the screen when centered
-			current_sub.css( 'left', -shift );
+			// Commenting this line keeps menus left-aligned
+			//current_sub.css( 'left', -shift );
 		}
 	} );
 
 
 	// MOBILE MENU
+
+	// Create a quick access menu from the most important menu items
+	xubuntu_quick_access_menu( );
 
 	// Toggle CSS class on menu opening/closing
 	jQuery( '#navi' ).addClass( 'closed' );
@@ -68,6 +72,23 @@ jQuery( function( ) {
 
 function xubuntu_sticky_header( ) {
 	if( jQuery( window ).scrollTop( ) > ( jQuery( '#header' ).outerHeight( ) + jQuery( '#navi' ).outerHeight( ) ) ) {
+		jQuery( '#header_outer' ).addClass( 'scrolled' );
+	} else {
+		jQuery( '#header_outer' ).removeClass( 'scrolled' );
+	}
+}
+
+function xubuntu_quick_access_menu( ) {
+	quick_access = jQuery( '<div/>' );
+	quick_access.attr( 'id', 'quick' );
+
+	jQuery( '#navi .quick a' ).clone( ).appendTo( quick_access );
+	quick_access.find( 'a' ).after( ' ' );
+	quick_access.appendTo( jQuery( '#header' ) );
+}
+
+function xubuntu_scrolled( ) {
+	if( jQuery( window ).width( ) < 600 ) {
 		jQuery( '#header_outer' ).addClass( 'scrolled' );
 	} else {
 		jQuery( '#header_outer' ).removeClass( 'scrolled' );

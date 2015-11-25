@@ -13,7 +13,7 @@ body {
 	border-radius: 0;
 }
 	#logo {
-		margin: 1.2em 1.5em;
+		margin: 1.2em 2.5%;
 	}
 	#navi {
 		width: 100%;
@@ -174,9 +174,10 @@ ul.columnlist {
 	}
 
 .hb {
-	margin: 0 -2.5% !important;
+	margin: 0 -2.5% 1em -2.5% !important;
 	padding-right: 2.5% !important;
 	padding-left: 2.5% !important;
+	padding-bottom: 5px !important;
 }
 
 /*  Featured images  */
@@ -214,7 +215,7 @@ body.admin-bar {
 			position: static;
 		}
 			.navigation.nd .menu li a {
-				padding: 0.5em 1.5em;
+				padding: 0.5em 2.5%;
 			}
 			.navigation.nd .menu > li {
 				border: none;
@@ -265,7 +266,7 @@ body.admin-bar {
 						}
 						.navigation.nd .menu li .sub-menu li a {
 							display: block;
-							padding: 0.25em 1.5em;
+							padding: 0.25em 5%;
 						}
 
 .navigation.nd .menu li { display: none; }
@@ -274,53 +275,56 @@ body.admin-bar {
 
 /*  Horizontal navigation  */
 .navigation.nh .menu > li {
-	width: 47% !important;
+	width: 34% !important;
 }
-	.navigation.nh .menu > li:nth-child(3n+3) {
-		margin-right: 2%;
-		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
+	.navigation.nh .menu > li:nth-child(odd) {
+		padding-left: 0;
+		border-right: 1px solid rgba( 0, 0, 0, 0.10 ) !important;
 	}
 	.navigation.nh .menu > li:nth-child(even) {
-		margin-right: 0;
+		padding-left: 1.5em;
 		border-right: none;
 	}
 
 	/* If a menu in the first column is the last one,
 	 * fill the rest of the space to keep preferred alignment
 	 */
-	.navigation.nh .menu .menu-item-has-children:last-child:nth-child(2n+1) {
-		margin-right: 51%;
-		border-right: none;
+	.navigation.nh .menu > li:last-child:nth-child(3n+1),
+	.navigation.nh .menu > li:last-child:nth-child(3n+2) {
+		margin-right: 0;
 	}
 
 /*  JS popup navigation  */
+#quick {
+	display: block;
+}
+
 #navi.open .navigation.nd .menu li.current-menu-ancestor-hidden .sub-menu { display: none; }
 #navi.open .navigation.nd .menu li { display: block; }
+#navi.open .navigation.nd .menu > li > a { font-size: 110%; }
 
 #opennavi {
 	position: relative;
 	display: block;
 	height: 0;
 	top: 0;
-	right: 1.5em;
+	right: 2.5%;
 
-	margin-top: -3em;
-	margin-right: -2px; /* Helps line this up with the arrows */
+	margin: -2.8em -0.3em 0 0;
 
-	padding: 4px 0 0 0;
-
-	width: 32px;
-	height: 32px;
-
+	width: 2.8em;
+	height: 2.8em;
+	
 	overflow: hidden;
 
 	background: transparent url(images/menu.png) 50% 50% no-repeat;
+	background-color: rgba( 0, 0, 0, 0.2 );
 }
 	#navi li.menu-item-has-children .expand {
 		display: none;
 
 		position: relative;
-		right: 1.5em;
+		right: 2.5%;
 		top: 0;
 
 		float: right;
@@ -349,14 +353,15 @@ body.admin-bar {
 	}
 
 /*  Menu style when scrolled down  */
+#header_outer {
+	background-image: none !important;
+}
 #header_outer.scrolled {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 
-	background-color: #0e82d0;
-	background-image: none;
 	border-top: none;
 }
 	#header_outer.scrolled #logo {

@@ -1,6 +1,6 @@
 #content, #header, #footer,
 #navi, #content_gallery,
-body.home #main, .widgets_outer .widgets {
+body.home #main, .widgets_inner {
 	width: 95%;
 }
 

@@ -476,31 +476,6 @@ ul.columnlist {
 	font-weight: 600;
 }
 
-.navigation .menu .external {
-	padding-right: 0.5em;
-}
-	.navigation .menu .external a:after {
-		display: inline-block;
-		position: relative;
-		margin-top: -1.5em;
-		left: 0.5em;
-
-		font-size: 120%;
-		content: "›";
-		color: #999;
-	
-		transition: 400ms all;
-	}
-		.navigation .menu .external a:hover:after {
-			color: #333;
-		}
-
-		@media screen and (max-width: 600px) {
-			.navigation.nd .menu .external {
-				padding-right: 0;
-			}
-		}
-
 /*  Boxed content
  *  Usage: template_blank.php, TinyMCE, (template_gallery.php)
  *

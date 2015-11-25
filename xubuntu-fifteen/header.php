@@ -42,7 +42,7 @@
 	</div>
 	<div id="navi_outer">
 		<div id="navi">
-			<a id="opennavi" href="#fbnavi" title="<?php _e( 'Click to open Menu', 'xubuntu' ); ?>"></a>
+			<a id="opennavi" href="#footer_navi" title="<?php _e( 'Click to see more', 'xubuntu' ); ?>"></a>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'main_navigation',
