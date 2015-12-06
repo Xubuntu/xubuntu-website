@@ -29,7 +29,7 @@ jQuery( function( ) {
 
 	// Toggle CSS class on menu opening/closing
 	jQuery( '#navi' ).addClass( 'closed' );
-	jQuery( '#opennavi' ).click( function( e ) {
+	jQuery( '.navi_open_button' ).click( function( e ) {
 		jQuery( '#navi' ).toggleClass( 'open closed' );
 		jQuery( '#navi li' ).removeClass( 'current-menu-ancestor-hidden open-sub' );
 		jQuery( '#navi li.current-menu-ancestor' ).addClass( 'open-sub' );

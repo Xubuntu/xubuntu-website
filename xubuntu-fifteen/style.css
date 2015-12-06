@@ -77,6 +77,14 @@ body.home #main, .widgets_inner {
 
 			font-size: 90%;
 		}
+			#navi_quick .navi_open_button {
+				font-size: 120%;
+				display: block;
+				border: none;
+				height: 100%;
+				padding: 0 0 0.5em 0;
+				color: rgba( 255, 255, 255, 0.5 );
+			}
 			#navi_quick li {
 				display: inline;
 			}

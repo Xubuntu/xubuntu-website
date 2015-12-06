@@ -92,4 +92,14 @@ function xubuntu_head( ) {
 	print '<link rel="alternate" type="application/rss+xml" title="' . get_bloginfo( 'name' ) . '" href="' . get_bloginfo( 'rss2_url' ) . '" />' . "\n";
 }
 
+/*  Fallback for the quick menu when no menu is found  */
+
+function xubuntu_quick_menu_fallback( ) {
+	echo '<div id="navi_quick" class="fallback">';
+	echo '<a class="navi_open_button" href="#footer_navi">';
+	_e( 'Click to open menu', 'xubuntu' );
+	echo '</a>';
+	echo '</div>';
+}
+
 ?>

@@ -42,13 +42,13 @@
 	</div>
 	<div id="navi_outer">
 		<div id="navi">
-			<a id="opennavi" href="#footer_navi" title="<?php _e( 'Click to see more', 'xubuntu' ); ?>"></a>
+			<a id="opennavi" class="navi_open_button" href="#footer_navi" title="<?php _e( 'Click to see more', 'xubuntu' ); ?>"></a>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'quick_navigation',
 					'container_id' => 'navi_quick',
 					'container_class' => 'group navigation nq',
-					'fallback_cb' => false
+					'fallback_cb' => 'xubuntu_quick_menu_fallback'
 				) );
 			?>
 			<?php
