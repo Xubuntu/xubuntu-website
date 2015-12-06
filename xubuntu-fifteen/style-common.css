@@ -500,7 +500,31 @@ ul.columnlist {
 			margin-bottom: 0;
 		}
 
-/*  Featured image alignment
+/*  Featured image
+ *  Usage: content.php
+ *
+ */
+.post-thumbnail {
+	float: right;
+	margin: -1em 0 2em 2em;
+
+	max-width: 400px;
+	height: auto;
+}
+	body.home .post-thumbnail {
+		margin-top: 0;
+	}
+	/* Adjust the inline header on the front page to allow the floating image */
+	body.home .post-post h1 {
+		display: inline;
+	}
+		body.home .post-post h1:after {
+			display: block;
+			content: "";
+			margin-bottom: 1em;
+		}
+
+/*  Featured image alignment in a gallery
  *  Usage: template_featured-gallery.php
  *
  */

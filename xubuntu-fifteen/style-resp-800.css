@@ -74,6 +74,10 @@ body.archive #main {
  *
  */
 
+.post-thumbnail {
+	max-width: 50%;
+}
+
 .featured {
 	margin-bottom: 0.5em;
 }

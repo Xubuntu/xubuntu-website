@@ -1,7 +1,7 @@
 <?php
 
 /*  Add image sizes
- *  TODO: Review
+ *  TODO: Review – are these used, and where, and can/should we drop some?
  *
  */
 
@@ -9,7 +9,7 @@ add_image_size( 'xubuntu_full', 1400 );
 add_image_size( 'xubuntu_split_to_2', 700 );
 add_image_size( 'xubuntu_split_to_3', 467 );
 add_image_size( 'xubuntu_split_to_4', 350 );
-add_image_size( 'xubuntu_news', 467, 90, true );
+add_image_size( 'xubuntu_news', 467, 90, true ); /* ? */
 
 add_filter( 'image_size_names_choose', 'xubuntu_image_sizes' );
 function xubuntu_image_sizes( $sizes ) {
@@ -34,6 +34,7 @@ function xubuntu_upload_mime( $mimes = array( ) ) {
 }
 
 /*  Filter post counts for archive pages
+ *  Always show all posts
  *
  */
 

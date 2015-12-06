@@ -182,6 +182,18 @@ ul.columnlist {
 }
 
 /*  Featured images  */
+.post-thumbnail {
+	display: block !important;
+	max-width: 100%;
+	width: 100%;
+	margin: 0 0 1em 0;
+	text-align: center;
+}
+	.post-thumbnail img {
+		max-height: 120px;
+		width: auto;
+	}
+
 .featured {
 	width: 95%;
 	margin: 0 auto;
