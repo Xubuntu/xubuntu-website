@@ -44,6 +44,7 @@ function xubuntu_widgets_init( ) {
 
 register_nav_menu( 'main_navigation', 'Main navigation' );
 register_nav_menu( 'footer_navigation', 'Footer navigation' );
+register_nav_menu( 'quick_navigation', 'Quick navigation for mobile' );
 
 /*  Register scripts
  *

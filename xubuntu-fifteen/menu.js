@@ -27,9 +27,6 @@ jQuery( function( ) {
 
 	// MOBILE MENU
 
-	// Create a quick access menu from the most important menu items
-	xubuntu_quick_access_menu( );
-
 	// Toggle CSS class on menu opening/closing
 	jQuery( '#navi' ).addClass( 'closed' );
 	jQuery( '#opennavi' ).click( function( e ) {
@@ -76,15 +73,6 @@ function xubuntu_sticky_header( ) {
 	} else {
 		jQuery( '#header_outer' ).removeClass( 'scrolled' );
 	}
-}
-
-function xubuntu_quick_access_menu( ) {
-	quick_access = jQuery( '<div/>' );
-	quick_access.attr( 'id', 'quick' );
-
-	jQuery( '#navi .quick a' ).clone( ).appendTo( quick_access );
-	quick_access.find( 'a' ).after( ' ' );
-	quick_access.appendTo( jQuery( '#header' ) );
 }
 
 function xubuntu_scrolled( ) {

@@ -2,7 +2,7 @@
  *  Theme Name: Xubuntu Fifteen
  *  Description: A theme built for the Xubuntu website at xubuntu.org.
  *  Author: Pasi Lallinaho
- *  Version: 15.11.25
+ *  Version: 15.12.06
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -48,33 +48,6 @@ body.home #main, .widgets_inner {
 		margin: 1.2em 0;
 		color: #fff;
 	}
-	#quick {
-		display: none;
-
-		padding: 0.5em 40px 0.5em 2.5%;
-
-		background-color: rgba( 0, 110, 184, 0.75 );
-		border-top: 1px solid rgba( 255, 255, 255, 0.2 );
-	}
-		#quick a {
-			color: #fff;
-			margin-right: 1em;
-			font-weight: 600;
-
-			white-space: nowrap;
-		}
-	#opennavi {
-		display: none;
-
-		float: right;
-
-		position: relative;
-		top: 1px;
-		right: 1em;
-		z-index: 3000;
-
-		border: none;
-	}
 	#navi_outer {
 		font-size: 90%;
 		background-color: rgba( 0, 0, 0, 0.2 );
@@ -94,6 +67,40 @@ body.home #main, .widgets_inner {
 					background-color: transparent;
 					box-shadow: none;
 				}
+		#navi_quick {
+			display: none;
+
+			padding: 0.5em 40px 0em 2.5%;
+
+			background-color: rgba( 0, 0, 0, 0.2 );
+			border-top: 1px solid rgba( 255, 255, 255, 0.2 );
+
+			font-size: 90%;
+		}
+			#navi_quick li {
+				display: inline;
+			}
+			#navi_quick a {
+				color: #fff;
+				margin-right: 1em;
+				font-weight: 600;
+
+				white-space: nowrap;
+				display: inline;
+			}
+		#opennavi {
+			display: none;
+
+			float: right;
+
+			position: relative;
+			top: 1px;
+			right: 1em;
+			z-index: 3000;
+
+			border: none;
+		}
+
 
 #content_outer {
 	padding: 1.5em 0;

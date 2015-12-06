@@ -45,7 +45,16 @@
 			<a id="opennavi" href="#footer_navi" title="<?php _e( 'Click to see more', 'xubuntu' ); ?>"></a>
 			<?php
 				wp_nav_menu( array(
+					'theme_location' => 'quick_navigation',
+					'container_id' => 'navi_quick',
+					'container_class' => 'group navigation nq',
+					'fallback_cb' => false
+				) );
+			?>
+			<?php
+				wp_nav_menu( array(
 					'theme_location' => 'main_navigation',
+					'container_id' => 'navi_main',
 					'container_class' => 'group navigation nd',
 					'fallback_cb' => false
 				) );
