@@ -235,7 +235,7 @@ class XubuntuReleasesWidget extends WP_Widget {
 }
 
 function release_taxonomy_get_releases_sorted( ) {
-	$releases = get_terms( 'release' );
+	$releases = get_terms( 'release', array( 'hide_empty' => false ) );
 	usort( $releases, 'release_taxonomy_release_usort_desc' );
 	return $releases;
 }
