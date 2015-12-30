@@ -36,6 +36,13 @@ blockquote {
 		margin-top: 0;
 	}
 
+h2 {
+	/* Imitate the style in the content area */
+	border-top: 1px dotted #ccc;
+	padding-top: 0.5em;
+}
+
+
 li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
 	ul li {
 		list-style-type: none;
