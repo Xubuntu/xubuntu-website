@@ -9,6 +9,7 @@ add_action( 'admin_init', 'xubuntu_admin_init' );
 function xubuntu_admin_init( ) {
 	add_editor_style( 'style-common.css' );
 	add_editor_style( 'style-editor.css' );
+	add_editor_style( 'font-open-sans.css' );
 
 	wp_enqueue_style( 'style-admin', get_template_directory_uri( ) . '/style-admin.css' );
 }
