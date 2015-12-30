@@ -7,27 +7,9 @@
 
 	<meta name="description" content="<?php bloginfo( 'name' ); ?> – <?php bloginfo( 'description' ); ?>" />
 	<meta name="author" content="The Xubuntu community" />
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1" />
 
 	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png">
-
-	<!-- Eric Meyer: CSS reset | http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ -->
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/reset.css" media="all" />
-	<!-- Steve Matteson: Open Sans | http://www.google.com/fonts/specimen/Open+Sans -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,600' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style.css" media="all" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-common.css" media="all" />
-
-	<!-- Responsive stylesheets -->
-	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-resp-1200.css" media="only screen and (max-width:1200px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-resp-1000.css" media="only screen and (max-width:1000px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-resp-800.css" media="only screen and (max-width:800px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-resp-600.css" media="only screen and (max-width:600px)" />
-	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style-resp-450.css" media="only screen and (max-width:450px)" />
-
-	<!-- Extra stylesheets -->
-	<link rel="stylesheet" href="http://static.xubuntu.org/www/extras.css" media="all" />
 
 	<?php wp_head( ); ?>
 </head>
