@@ -19,7 +19,7 @@
 <div id="header_outer">
 	<div id="header">
 		<div id="logo">
-			<a href="<?php home_url( '/' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" /></a>
+			<a href="<?php echo home_url( '/' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" /></a>
 		</div>
 	</div>
 	<div id="navi_outer">
