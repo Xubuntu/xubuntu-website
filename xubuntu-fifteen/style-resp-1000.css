@@ -1,13 +1,9 @@
 /*  For screen sizes less than 1000px wide  */
 
-#content, #header, #footer,
+#content, #header, #header_art, #footer,
 #navi, #content_gallery,
 body.home #main, .widgets_inner {
 	min-width: 0;
-}
-
-#logo {
-	margin: 1.2em 0;
 }
 
 /*  Templates  */

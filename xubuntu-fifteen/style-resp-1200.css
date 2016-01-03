@@ -1,4 +1,4 @@
-#content, #header, #footer,
+#content, #header, #header_art, #footer,
 #navi, #content_gallery,
 body.home #main, .widgets_inner {
 	width: 95%;

@@ -17,6 +17,7 @@
 <body id="xubuntu" <?php echo body_class( ); ?>>
 
 <div id="header_outer">
+	<div id="header_art"></div>
 	<div id="header">
 		<div id="logo">
 			<a href="<?php echo home_url( '/' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" /></a>
