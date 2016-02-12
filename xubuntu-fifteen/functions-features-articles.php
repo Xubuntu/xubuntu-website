@@ -39,7 +39,7 @@ class XubuntuArticlesWidget extends WP_Widget {
 		if( !empty( $title ) ) {
 			echo $before_title . $title . $after_title;
 		}
-		echo '<p>' . $instance['description'] . '</p>';
+		echo wpautop( $instance['description'] );
 		echo $after_widget;
 	}
 
