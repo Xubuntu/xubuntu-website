@@ -42,8 +42,6 @@
 		}
 		echo wpautop( $release->description );
 		echo '<h2>' . __( 'Articles', 'xubuntu' ) . '</h2>';
-	} elseif( is_search( ) ) {
-		echo '<h1 class="post-title">' . sprintf( __( 'Search results for "%s"', 'xubuntu' ), $_GET['s'] ) . '</h1>';
 	} else {
 		echo '<h1 class="post-title">' . __( 'Archive', 'xubuntu' ) . '</h1>';
 	}
@@ -60,10 +58,3 @@
 		<?php } ?>
 	</ul>
 </div>
-
-<?php
-	if( is_search( ) ) {
-		echo '<h2>' . __( 'Search again?', 'xubuntu' ) . '</h2>';
-		get_search_form( );
-	}
-?>

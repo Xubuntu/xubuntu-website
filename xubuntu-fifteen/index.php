@@ -6,8 +6,10 @@
 		<div id="main_outer" class="group">
 			<div id="main">
 				<?php
-					if( have_posts( ) && !is_404( ) ) {
-						if( is_archive( ) || is_search( ) ) {
+					if( is_search( ) ) {
+						get_template_part( 'content', 'search' );
+					} elseif( have_posts( ) && !is_404( ) ) {
+						if( is_archive( ) ) {
 							get_template_part( 'content', 'archive' );
 						} else {
 							get_template_part( 'content', get_post_format( ) );
