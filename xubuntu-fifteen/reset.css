@@ -63,5 +63,6 @@ table {
 	visibility: hidden;
 }
 
-.hidden { display: none; }
+.hidden,
+.screen-reader-text { display: none; }
 .small { font-size: 85%; }
