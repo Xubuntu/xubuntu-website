@@ -255,7 +255,8 @@ body.home #content_outer {
 
 body.single-post #main,
 body.blog #main,
-body.archive #main {
+body.archive #main,
+body.search #main {
 	float: left;
 	width: 60%;
 

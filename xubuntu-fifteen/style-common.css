@@ -97,7 +97,10 @@ h1 {
 }
 	h1.post-title { margin-bottom: 0; }
 	h1.post-title a { border-bottom: none; color: #1c50a1; }
-	body.archive h1.post-title { margin-bottom: 0.5em; }
+	body.archive h1.post-title,
+	body.search h1.post-title {
+		margin-bottom: 0.5em;
+	}
 
 h2 { font-size: 160%; }
 	.post-post h2,
