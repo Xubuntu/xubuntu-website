@@ -1,8 +1,16 @@
 <?php
 	if( is_category( ) ) {
 		echo '<h1 class="post-title">' . single_cat_title( 'Archive: ', false ) . '</h1>';
+		if( category_description( ) ) {
+			echo category_description( );
+			echo '<h2>' . __( 'Articles', 'xubuntu' ) . '</h2>';
+		}
 	} elseif( is_tag( ) ) {
 		echo '<h1 class="post-title">' . single_tag_title( 'Archive: ', false ) . '</h1>';
+		if( tag_description( ) ) {
+			echo tag_description( );
+			echo '<h2>' . __( 'Articles', 'xubuntu' ) . '</h2>';
+		}
 	} elseif( is_tax( 'release' ) ) {
 		$release = get_term_by( 'slug', get_query_var( 'release' ), 'release', OBJECT );
 		$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
