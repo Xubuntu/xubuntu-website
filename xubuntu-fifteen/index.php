@@ -6,17 +6,19 @@
 		<div id="main_outer" class="group">
 			<div id="main">
 				<?php
-					if( is_404( ) ) {
+					if( have_posts( ) && !is_404( ) ) {
+						if( is_archive( ) ) {
+							get_template_part( 'content', 'archive' );
+						} else {
+							get_template_part( 'content', get_post_format( ) );
+						}
+					} else {
 						?>
 						<h1 class="post-title"><?php _e( 'Page Not Found', 'xubuntu' ); ?></h1>
 						<div class="post-post">
 							<p><?php _e( 'I\'m sorry, but you\'re looking for something that is not here.', 'xubuntu' ); ?></p>
 						</div>
 						<?php
-					} elseif( is_archive( ) ) {
-						get_template_part( 'content', 'archive' );
-					} else {
-						get_template_part( 'content', get_post_format( ) );
 					}
 				?>
 			</div>

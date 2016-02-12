@@ -57,28 +57,28 @@ class XubuntuArticlesWidget extends WP_Widget {
 
 	/** @see WP_Widget::form */
 	function form( $instance ) {
-		$title = esc_attr( $instance['title'] );
-		$description = esc_attr( $instance['description'] );
-		$categories = explode( ',', $instance['categories'] );
+		if( isset( $instance['title'] ) ) { $title = esc_attr( $instance['title'] ); }
+		if( isset( $instance['description'] ) ) { $description = esc_attr( $instance['description'] ); }
+		if( isset( $instance['categories'] ) ) { $categories = explode( ',', $instance['categories'] ); }
 
-		$buttontext = esc_attr( $instance['buttontext'] );
+		if( isset( $instance['buttontext'] ) ) { $buttontext = esc_attr( $instance['buttontext'] ); }
 		if( strlen( $buttontext ) == 0 ) { $buttontext = __( 'Read more', 'xubuntu' ); }
 
 		?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'xubuntu' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php if( isset( $title ) ) { echo $title; } ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description', 'xubuntu' ); ?></label>
-			<textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo $description; ?></textarea>
+			<textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php if( isset( $description ) ) { echo $description; } ?></textarea>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'categories' ); ?>"><?php _e( 'Categories', 'xubuntu' ); ?><br />
 				<select class="widefat" multiple="multiple" id="<?php echo $this->get_field_id( 'categories' ); ?>" name="<?php echo $this->get_field_name( 'categories' ); ?>[]" style="margin-top: 0.2em; height: 6.5em;">
 					<?php
 						foreach( get_terms( 'category' ) as $term ) {
-							if( in_array( $term->term_id, $categories ) ) { $sel = true; } else { $sel = false; }
+							if( is_array( $categories ) && in_array( $term->term_id, $categories ) ) { $sel = true; } else { $sel = false; }
 							print '<option value="' . $term->term_id . '"' . selected( $sel, true, false ) . '>' . $term->name . '</option>';
 						}
 					?>
@@ -87,7 +87,7 @@ class XubuntuArticlesWidget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'buttontext' ); ?>"><?php _e( 'Button text', 'xubuntu' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'buttontext' ); ?>" name="<?php echo $this->get_field_name( 'buttontext' ); ?>" type="text" value="<?php echo $buttontext; ?>" />
+			<input class="widefat" id="<?php echo $this->get_field_id( 'buttontext' ); ?>" name="<?php echo $this->get_field_name( 'buttontext' ); ?>" type="text" value="<?php if( isset( $buttontext ) ) { echo $buttontext; } ?>" />
 		</p>
 		<?php 
 	}
