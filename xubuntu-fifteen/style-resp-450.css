@@ -131,10 +131,13 @@ figure {
 	}
 
 .hb {
-	margin: 0 -2.5% !important;
-	padding-right: 2.5% !important;
-	padding-left: 2.5% !important;
+	border-left: none;
+	border-top-width: 0.4em;
+	border-top-style: solid;
+
+	padding: 5px 15px;
 }
+	.hb > :first-child { margin-top: 5px; }
 
 ul.columnlist {
 	-moz-column-gap: 0;

@@ -62,13 +62,13 @@ function xubuntu_tinymceinit( $init_array ) {
 			'wrapper' => true
 		),
 		array(
-			'title' => 'Code (block)',
+			'title' => 'Code: Block',
 			'inline' => 'code',
 			'classes' => 'block',
 			'wrapper' => true
 		),
 		array(
-			'title' => 'Code (inline)',
+			'title' => 'Code: Inline',
 			'inline' => 'code'
 		),
 		array(
@@ -81,49 +81,42 @@ function xubuntu_tinymceinit( $init_array ) {
 	if( current_user_can( 'publish_posts' ) && $current->post_type == 'page' ) {
 		$style_formats_2 = array(
 			array(
-				'title' => 'Highlight styles'
-			),
-			array(
-				'title' => 'Black highlight',
+				'title' => 'Highlight: Generic/White',
 				'block' => 'div',
 				'wrapper' => true,
-				'classes' => 'hb black'
+				'classes' => 'hb white',
 			),
 			array(
-				'title' => 'Blue highlight',
+				'title' => 'Highlight: New/Fresh/Green',
 				'block' => 'div',
 				'wrapper' => true,
-				'classes' => 'hb blue'
+				'classes' => 'hb green',
 			),
 			array(
-				'title' => 'Green highlight',
+				'title' => 'Highlight: Important/Warning/Red',
 				'block' => 'div',
 				'wrapper' => true,
-				'classes' => 'hb green'
+				'classes' => 'hb red',
 			),
 			array(
-				'title' => 'Pink highlight',
+				'title' => 'Highlight: Blue c',
 				'block' => 'div',
 				'wrapper' => true,
-				'classes' => 'hb pink'
+				'classes' => 'hb blue',
 			),
 			array(
-				'title' => 'White highlight',
+				'title' => 'Highlight: Pink',
 				'block' => 'div',
 				'wrapper' => true,
-				'classes' => 'hb white darkheading'
-			),
-
-			array(
-				'title' => 'Other styles'
+				'classes' => 'hb pink',
 			),
 			array(
-				'title' => 'Button (primary)',
+				'title' => 'Button: Primary/Blue',
 				'selector' => 'a',
 				'classes' => 'button primary'
 			),
 			array(
-				'title' => 'Button (regular)',
+				'title' => 'Button: Regular',
 				'selector' => 'a',
 				'classes' => 'button'
 			),

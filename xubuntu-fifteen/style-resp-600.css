@@ -180,10 +180,7 @@ ul.columnlist {
 	}
 
 .hb {
-	margin: 0 -2.5% 1em -2.5% !important;
-	padding-right: 2.5% !important;
-	padding-left: 2.5% !important;
-	padding-bottom: 5px !important;
+	padding: 5px 20px;
 }
 
 /*  Featured images  */

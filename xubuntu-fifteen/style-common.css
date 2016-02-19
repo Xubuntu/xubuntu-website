@@ -109,7 +109,6 @@ h2 { font-size: 160%; }
 		padding-top: 0.5em;
 	}
 	.post-post h2:first-child,
-	.post-post .hb + h2,
 	.post-post .hb h2 {
 		border-top: none; padding-top: 0;
 	}
@@ -278,137 +277,74 @@ p.preface {
 	border-bottom: 1px solid #d2d2d2;
 }
 
-
 /*  Section highlighting
  *  Usage: TinyMCE
  *
  */
+
 .hb {
-	margin: 1em -35px 1em -35px;
-	padding: 1em 35px 1em 35px;
+	margin: 2em 0;
+	padding: 10px 25px 10px 25px;
 
-	color: #222;
-	color: rgba( 0, 0, 0, 0.8 );
+	background-color: #fff;
+	color: #333;
 
-	border-top: 0.5em solid rgba( 255, 255, 255, 0.2 );
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.1 );
+	border-color: rgba( 0, 0, 0, 0.1 );
+	border-left-width: 10px;
+	border-left-style: solid;
 
-	font-size: 100%;
+	line-height: 1.4em;
 }
-	.hb + .hb {
-		margin-top: -1.5em;
-		border-top: none;
-	}
-
-	.hb + h2,
-	.hb + * > h2 {
-		border-top: none;
-	}
-
-	/* Links */
-	.hb a {
-		color: #fafafa;
-		color: rgba( 255, 255, 255, 0.9 );
-	}
-		.hb a:hover,
-		.hb a:active,
-		.hb a:focus {
-			border-bottom: 1px solid #eee;
-			border-bottom: 1px solid rgba( 255, 255, 255, 0.9 );
+	.hb > :first-child { margin-top: 10px; }
+	.hb > :last-child { margin-bottom: 10px; }
+		.hb p:first-child:last-child {
+			margin: 2px 0;
 		}
 
-	/* Code blocks */
-	.hb.black code { background-color: #0a0a0a; }
- 	.hb.blue code { background-color: #295d94; }
-	.hb.green code { background-color: #5b8c33; }
-	.hb.pink code { background-color: #b45e82; }
-
-	.hb.blue code,
-	.hb.green code,
-	.hb.pink code {
-		color: #eee;
-		color: rgba( 255, 255, 255, 0.9 );
-	}
-
-	/* Header */
-	.hb h2 {
-		margin-top: 0.4em;
-	 	margin-bottom: 0.4em;
-
-		color: #fff;
-		color: rgba( 255, 255, 255, 0.9 );
-
-		font-size: 150%;
-	}
-		.hb h2:first-child {
-			margin-top: 0;
-		}
-
-	/* Images */
-	.hb .alignright,
-	.hb .alignleft {
-		margin-top: 2em;
-	}
-		.hb .alignright img,
-		.hb .alignleft img {
-			border-bottom: 7px solid rgba( 255, 255, 255, 0.5 );
-		}
-
-	.hb .wp-caption-text {
-		background-color: #fafafa;
-		background-color: rgba( 255, 255, 255, 0.5 );
-		color: #111;
-		color: rgba( 0, 0, 0, 0.8 );
-		font-size: 80%;
-	}
-
-	/* Colors */
-	.hb.black {
-		background-color: #222;
-		background-color: rgba( 0, 0, 0, 0.9 );
-		color: #fafafa;
-		color: rgba( 255, 255, 255, 0.8 );
-	}
-		.hb.black a {
-			color: #286db6;
-			color: rgba( 44, 130, 221, 0.8 );
-		}
 	.hb.blue {
-		background-color: #2f6cad;
-		background-color: rgba( 0, 77, 158, 0.8 );
-		color: #fafafa;
-		color: rgba( 255, 255, 255, 0.8 );
+		border-color: rgba( 0, 77, 158, 1 );
 	}
-	.hb.green {
-		background-color: #6ba43c;
-		background-color: rgba( 74, 145, 15, 0.8 );
-	}
-	.hb.pink {
-		background-color: #d36e99;	
-		background-color: rgba( 204, 78, 131, 0.8 );
-	}
-	.hb.white {
-		background-color: #fff;
-		background-color: rgba( 255, 255, 255, 0.95 );
-		border-top: 0.5em solid rgba( 0, 0, 0, 0.03 );
-	}
-		.hb.white a {
-			color: #286db6;
-			color: rgba( 44, 130, 221, 0.85 );
+		.hb.blue a,
+		.hb.blue h2 {
+			color: rgba( 0, 77, 158, 0.8 );
 		}
-			.hb.white a:hover,
-			.hb.white a:active,
-			.hb.white a:focus {
-				border-bottom: 1px solid #111;
-				border-bottom: 1px solid rgba( 0, 0, 0, 0.9 );
+			.hb.blue a:hover, .hb.blue a:active, .hb.blue a:focus {
+				color: rgba( 0, 77, 158, 1 );
 			}
-		.hb.white h2 {
-			color: #4c4c4c;
-			color: rgba( 0, 0, 0, 0.7 );
-		}
-		.hb.white + .hb {
-			border-top: 0.5em solid rgba( 255, 255, 255, 0.2 );
-		}
 
+	.hb.green {
+		border-color: rgba( 74, 145, 15, 0.9 );
+	}
+		.hb.green a,
+		.hb.green h2 {
+			color: rgba( 74, 145, 15, 0.8 );
+		}
+			.hb.green a:hover, .hb.green a:active, .hb.green a:focus {
+				color: rgba( 74, 145, 15, 1 );
+			}
+
+	.hb.pink {
+		border-color: rgba( 204, 78, 131, 1 );
+	}
+		.hb.pink a,
+		.hb.pink h2 {
+			color: rgba( 204, 78, 131, 0.8 );
+		}
+			.hb.pink a:hover, .hb.pink a:active, .hb.pink a:focus {
+				color: rgba( 204, 78, 131, 1 );
+			}
+
+	.hb.red {
+		border-color: rgba( 200, 40, 5, 0.9 );
+	}
+		.hb.red a,
+		.hb.red h2 {
+			color: rgba( 200, 40, 5, 0.8 );
+		}
+			.hb.red a:hover, .hb.red a:active, .hb.red a:focus {
+				color: rgba( 200, 40, 5, 1 );
+			}
 
 /*  Button styles
  *  Usage: TinyMCE, manual
