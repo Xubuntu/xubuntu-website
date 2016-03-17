@@ -293,6 +293,11 @@ body.search #main {
 	color: #333;
 	margin: 1.5em 0;
 }
+	.post-post img,
+	.post-post figure {
+		max-width: 100%;
+		height: auto;
+	}
 
 .post-meta, .post-meta a {
 	color: #ccc;
@@ -495,7 +500,7 @@ dl.release-info {
 			left: -2px;
 		}
 		.navigation.nd li:last-child .sub-menu {
-/*			left: -50%; */
+			left: 0;
 		}
 		.navigation.nd .sub-menu li {
 			display: block;
