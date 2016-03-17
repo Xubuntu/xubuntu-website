@@ -103,11 +103,16 @@ h1 {
 	}
 
 h2 { font-size: 160%; }
+	.post-excerpt h2,
+	.post-list h2,
 	.post-post h2,
 	#sidebar h2 {
 		border-top: 1px dotted #ccc;
 		padding-top: 0.5em;
 	}
+		.post-excerpt + .post-excerpt h2 {
+			margin-top: 0;
+		}
 	.post-post h2:first-child,
 	.post-post .hb h2 {
 		border-top: none; padding-top: 0;
@@ -128,10 +133,12 @@ hr {
 li { list-style-position: inside; }
 	#main li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
 	#main ul li { list-style-type: disc; }
+	#main .post-list ul li,
 	#main .post-post ul li {
 		list-style-type: none;
 		margin-left: 1em;
 	}
+		#main .post-list ul li:before,
 		#main .post-post ul li:before {
 			display: block;
 			float: left;
@@ -281,7 +288,6 @@ p.preface {
  *  Usage: TinyMCE
  *
  */
-
 .hb {
 	margin: 2em 0;
 	padding: 10px 25px 10px 25px;
@@ -347,7 +353,7 @@ p.preface {
 			}
 
 /*  Button styles
- *  Usage: TinyMCE, manual
+ *  Usage: TinyMCE, manual, content.php, widget
  *
  */
 
@@ -391,6 +397,10 @@ a.button {
 	a.button.clean:after {
 		margin: 0;
 		content: "";
+	}
+	.post-pagination a.button.forward {
+		float: right;
+		margin-right: 0;
 	}
 
 /*  List in columns
@@ -493,42 +503,3 @@ ul.columnlist {
 		.featured .description h2:first-child {
 			margin-top: 0;
 		}
-
-/*  Information boxes (in two columns)
- *  Usage: manual
- *
- */
-.infoboxes {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content:
-	space-between;
-}
-	.infoboxes div.box {
-		flex-grow: 1;
-		width: 33.3%;
-		line-height: 1.8em;
-		padding: 1em 1.5em;
-		background-color: #fff;
-		border-top: 0.5em solid rgba( 0, 0, 0, 0.075 );
-	}
-		.infoboxes div.box:nth-child(odd) { margin: 0 1em 2em 0; }
-		.infoboxes div.box:nth-child(even) { margin: 0 0 2em 1em; }
-		.infoboxes h3 { margin-top: 0; }
-
-	h2 + .infoboxes { margin-top: 2em; }
-
-@media screen and (max-width: 800px) {
-	.infoboxes {
-		display: block;
-	}
-	.infoboxes div.box {
-		width: auto;
-		margin: 0 0 1em 0 !important;
-	}
-}
-@media screen and (max-width: 600px) {
-	.infoboxes div.box {
-		padding: 0.7em 1em;
-	}
-}

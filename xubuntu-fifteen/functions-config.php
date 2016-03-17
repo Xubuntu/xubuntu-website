@@ -41,9 +41,14 @@ function xubuntu_upload_mime( $mimes = array( ) ) {
 add_action( 'pre_get_posts', 'xubuntu_articles_filters' );
 
 function xubuntu_articles_filters( $query ) {
-	if( is_archive( ) && $query->is_main_query( ) ) {
+	if( ( is_archive( ) && $query->is_main_query( ) ) || is_search( ) ) {
 		/* Archive pages */
 		$query->set( 'posts_per_page', -1 );
+		return;
+	}
+	if( is_home( ) && $query->is_main_query( ) ) {
+		/* Blog home page */
+		$query->set( 'posts_per_page', 5 );
 		return;
 	}
 }

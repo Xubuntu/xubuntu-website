@@ -273,6 +273,21 @@ body.search #main {
 		margin: -1.5em 35px 0 35px;
 	}
 
+/*  Blog front and paging  */
+
+#main .post + .post,
+.post-pagination {
+	margin-top: 2em;
+	padding-top: 1.25em;
+	border-top: 1px dotted rgba( 28, 80, 161, 0.5 );
+}
+.post-pagination {
+	margin-bottom: 0;
+	font-size: 90%;
+	border-top-color: rgba( 0, 0, 0, 0.5 );
+}
+
+
 /*  Post styles  */
 .post-post {
 	color: #333;
@@ -480,7 +495,7 @@ dl.release-info {
 			left: -2px;
 		}
 		.navigation.nd li:last-child .sub-menu {
-			left: -50%;
+/*			left: -50%; */
 		}
 		.navigation.nd .sub-menu li {
 			display: block;

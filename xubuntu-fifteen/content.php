@@ -28,3 +28,13 @@
 		</div>
 	</div>
 <?php } ?>
+<?php if( is_home( ) && ( get_next_posts_page_link( ) || get_previous_posts_page_link( ) ) ) { ?>
+	<p class="post-pagination">
+		<?php if( get_next_posts_link( ) ) { ?>
+			<a class="button back" href="<?php echo get_next_posts_page_link( ); ?>"><?php _e( 'Older posts' ); ?></a>
+		<?php } ?>
+		<?php if( get_previous_posts_link( ) ) { ?>
+			<a class="button forward" href="<?php echo get_previous_posts_page_link( ); ?>"><?php _e( 'Newer posts' ); ?></a>
+		<?php } ?>
+	</p>
+<?php } ?>
