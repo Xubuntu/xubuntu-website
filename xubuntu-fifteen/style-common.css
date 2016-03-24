@@ -247,13 +247,16 @@ div.gallery figure {
 	/* The CSS3 way */
 	div.gallery-columns-2 figure:nth-child(odd) { width: 49%; margin-right: 1%; }
 	div.gallery-columns-2 figure:nth-child(even) { width: 49%; margin-left: 1%; margin-right: 0; }
+	div.gallery-columns-2 figure:nth-child(odd) { clear: left; }
 
 	div.gallery-columns-3 figure:nth-child(1n+1) { width: 32%; margin-left: 0; margin-right: 0; }
 	div.gallery-columns-3 figure:nth-child(3n+2) { margin-left: 2%; margin-right: 2%; }
+	div.gallery-columns-3 figure:nth-child(3n+4) { clear: left; }
 
 	div.gallery-columns-4 figure:nth-child(1n+1) { width: 23.5%; margin-right: 0; }
 	div.gallery-columns-4 figure:nth-child(4n+2) { margin-left: 2%; margin-right: 1%; }
 	div.gallery-columns-4 figure:nth-child(4n+3) { margin-left: 1%; margin-right: 2%; }
+	div.gallery-columns-4 figure:nth-child(4n+5) { clear: left; }
 
 div.gallery figure img {
 	max-width: 100%;
