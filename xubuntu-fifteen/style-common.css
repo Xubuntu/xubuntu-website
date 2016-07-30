@@ -363,7 +363,7 @@ p.preface {
 a.button {
 	display: inline-block;
 
-	margin: 0 1em 0.5em 0;
+	margin: 0 0.5em 0.5em 0;
 	padding: 0.5em 0.75em;
 
 	background-color: #fff;
@@ -506,3 +506,22 @@ ul.columnlist {
 		.featured .description h2:first-child {
 			margin-top: 0;
 		}
+
+/*  Release list styling
+ *  Usage: content-*.php
+ *
+ */
+
+.releases .nobullet::before {
+	content: " " !important;
+}
+.releases .show-eol {
+	color: rgba( 0, 0, 0, 0.5 );
+	margin-left: -1em;
+}
+.releases .eol a::before {
+	content: "EOL";
+	font-size: 90%;
+	margin-right: 0.5em;
+	color: rgba( 0, 0, 0, 0.5 );
+}
