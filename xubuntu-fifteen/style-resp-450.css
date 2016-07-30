@@ -22,11 +22,11 @@ body {
 
 #content { }
 	#main {
-		padding: 0 2.5% !important;
+		padding: 1em 2.5% 0 2.5% !important;
 		font-size: 90%;
 	}
 	#sidebar {
-		margin: 0 1.5em;
+
 	}
 
 #footer { }
