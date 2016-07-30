@@ -124,6 +124,7 @@ function release_taxonomy_meta_box( ) {
 			echo '<li>';
 			echo '<label class="selectit">';
 			echo '<input type="checkbox" name="tax_input[release][]" id="release" value="' . $release->slug . '" ' . checked( has_term( $release->term_id, 'release' ), true, false ) . '/>';
+			// TODO: EOL release handling?
 			echo ' <strong>' . $release->name . '</strong> &nbsp;' . $release_meta['release_codename'];
 			echo '</label>';
 			echo '</li>';
@@ -182,7 +183,9 @@ class XubuntuReleasesWidget extends WP_Widget {
 	/** @see WP_Widget::widget */
 	function widget( $args, $instance ) {
 		extract( $args );
-		$title = apply_filters( 'widget_title', $instance['title'] );
+		if( $instance['title'] ) {
+			$title = apply_filters( 'widget_title', $instance['title'] );
+		}
 
 		echo $before_widget;
 		if( !empty( $title ) ) {
@@ -191,15 +194,21 @@ class XubuntuReleasesWidget extends WP_Widget {
 		$releases = release_taxonomy_get_releases_sorted( );
 
 		if( is_array( $releases ) ) {
-			echo '<ul class="xubuntu_releases group">';
+			echo '<ul class="releases group">';
 			foreach( $releases as $release ) {
 				$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
 				if( strlen( $release_meta['release_codename'] ) > 0 ) {
-					$codename = ', ' . $release_meta['release_codename'];
-				} else {
-					$codename = '';
+					$release->name .= ', ' . $release_meta['release_codename'];
 				}
-				echo '<li><a href="' . get_term_link( $release ) . '">' . $release->name . $codename . '</a></li>';
+				if( $release->release_is_eol == 1 ) {
+					if( !isset( $first_eol ) ) {
+						echo '<li class="nobullet show-on-js"><a class="show-eol" href="#show-eol">Show EOL releases</a></li>';
+						$first_eol = true;
+					}
+					echo '<li class="eol"><a href="' . get_term_link( $release ) . '">' . $release->name . '</a></li>';
+				} else {
+					echo '<li><a href="' . get_term_link( $release ) . '">' . $release->name . '</a></li>';
+				}
 			}
 			echo '</ul>';
 		}
@@ -211,7 +220,7 @@ class XubuntuReleasesWidget extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['description'] = $new_instance['description'];
+//		$instance['description'] = $new_instance['description'];
 
 		return $instance;
 	}
@@ -226,22 +235,45 @@ class XubuntuReleasesWidget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'xubuntu' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
-		<p>
+<!--		<p>
 			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description', 'xubuntu' ); ?></label>
 			<textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo $description; ?></textarea>
-		</p>
+		</p>-->
 		<?php 
 	}
 }
 
 function release_taxonomy_get_releases_sorted( ) {
 	$releases = get_terms( 'release', array( 'hide_empty' => false ) );
-	usort( $releases, 'release_taxonomy_release_usort_desc' );
+	$date_now = new DateTime( 'now' );
+
+	foreach( $releases as $release_id => $release ) {
+		$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+
+		if( isset( $release_meta['release_eol'] ) ) {
+			$date_eol = new DateTime( $release_meta['release_eol'] );
+			if( $date_eol->format( 'Ymd' ) <= $date_now->format( 'Ymd' ) ) {
+				$releases[$release_id]->release_is_eol = 1;
+			} else {
+				$releases[$release_id]->release_is_eol = 0;
+			}
+		} else {
+			$releases[$release_id]->release_is_eol = 0;
+		}
+	}
+
+	usort( $releases, 'release_taxonomy_release_usort' );
 	return $releases;
 }
 
-function release_taxonomy_release_usort_desc( $a, $b ) {
-	return strnatcmp( $b->name, $a->name );
+function release_taxonomy_release_usort( $a, $b ) {
+	$eolcmp = strnatcmp( $a->release_is_eol, $b->release_is_eol );
+
+	if( $eolcmp != 0 ) {
+		return $eolcmp;
+	} else {
+		return strnatcmp( $b->name, $a->name );
+	}
 }
 
 ?>
