@@ -15,10 +15,14 @@
 		$release = get_term_by( 'slug', get_query_var( 'release' ), 'release', OBJECT );
 		$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
 
-		list( $year, $month, $day ) = explode( '-', $release_meta['release_date'] );
-		$release_time = gmmktime( 0, 0, 0, $month, $day, $year );
-		list( $year, $month, $day ) = explode( '-', $release_meta['release_eol'] );
-		$eol_time = gmmktime( 0, 0, 1, $month, $day, $year );
+		if( isset( $release_meta['release_date'] ) && $release_meta['release_date'] > 0 ) {
+			list( $year, $month, $day ) = explode( '-', $release_meta['release_date'] );
+			$release_time = gmmktime( 0, 0, 0, $month, $day, $year );
+		}
+		if( isset( $release_meta['release_eol'] ) && $release_meta['release_eol'] > 0 ) {
+			list( $year, $month, $day ) = explode( '-', $release_meta['release_eol'] );
+			$eol_time = gmmktime( 0, 0, 1, $month, $day, $year );
+		}
 
 		if( strlen( $release_meta['release_codename'] ) > 0 ) {
 			$codename = ', ' . $release_meta['release_codename'];
@@ -27,12 +31,12 @@
 		}
 
 		echo '<h1 class="post-title">Xubuntu ' . single_term_title( '', false ) . $codename . '</h1>';
-		if( $release_time > 0 || $eol_time > 0 ) {
+		if( isset( $release_time ) || isset( $eol_time ) ) {
 			echo '<dl class="release-info group">';
-			if( $release_time > 0 ) {
+			if( isset( $release_time ) ) {
 				echo '<dt>' . __( 'Release date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
 			}
-			if( $eol_time > 0 ) {
+			if( isset( $eol_time ) ) {
 				echo '<dt>' . __( 'End of Life', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $eol_time ) . '</dd>';
 			}
 //			if( $release_meta['release_eol'] >= gmdate( 'Y-m-d' ) ) {
