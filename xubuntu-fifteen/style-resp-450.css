@@ -20,7 +20,7 @@ body {
 		display: none;
 	}
 
-#main_outer { }
+#content { }
 	#main {
 		padding: 0 2.5% !important;
 		font-size: 90%;

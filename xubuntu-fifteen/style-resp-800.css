@@ -28,21 +28,12 @@ body.home .alignleft {
 
 body.single-post #main,
 body.blog #main,
-body.archive #main {
-	float: none;
-	width: auto;
-	margin: 0;
-	padding: 0 1.5em;
-}
-
-#sidebar_outer {
+body.archive #main,
+#sidebar {
 	float: none;
 	width: 100%;
-	margin: 0 auto;
+	padding: 1.25em 1.75em;
 }
-	#sidebar {
-		margin: 0 1.5em;
-	}
 
 /*  Widget areas 
  *

@@ -18,9 +18,6 @@ body {
 		#header_art {
 			display: none;
 		}
-	#logo {
-		margin: 0 2.5%;
-	}
 	#navi {
 		width: 100%;
 		font-size: 100%;
@@ -54,15 +51,8 @@ body {
 			#content.air .gallery + .boxed {
 				margin-top: 1.5em;
 			}
-
-	#main_outer {
-		max-width: 100% !important;
-		padding: 1.5em 0 0 0;
-	}
 		#main {
-			width: auto;
-			margin: 0 !important;
-			padding: 0 2.5%;
+			padding: 1em 2.5% !important;
 		}
 		
 			#main .post-post {
@@ -82,14 +72,9 @@ body {
 				margin-right: 0;
 			}
 
-#footer_outer {
-	border-top: none;
+#footer {
 	padding: 0 2.5%;
-	margin-top: 1.5em;
 }
-	#footer {
-		padding: 0;
-	}
 
 /*  Clear all floats and center-align
  *
@@ -107,7 +92,6 @@ body {
 /*  Home page  */
 body.home #main {
 	width: 95%;
-	margin: 0 auto !important;
 }
 
 /*  Widget areas  */

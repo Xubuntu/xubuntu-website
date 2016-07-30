@@ -24,9 +24,9 @@ body {
  *
  */
 
-#content, #header, #header_art, #footer,
-#navi, #content_gallery,
-body.home #main, .widgets_inner {
+#content, #header, #header_art, #footer, #navi,
+#content_gallery,
+.widgets_inner {
 	width: 90%;
 	margin: 0 auto;
 
@@ -164,7 +164,7 @@ body.home #main, .widgets_inner {
 }
 	#content {
 		font-size: 110%;
-		padding-bottom: 2em;
+		padding: 1.5em 0;
 
 		background-color: #fafafa;
 		border-radius: 4px;
@@ -176,32 +176,35 @@ body.home #main, .widgets_inner {
 			box-shadow: none;
 		}
 
-		#main_outer {
+		#main {
+			box-sizing: border-box;
 			width: 100%;
-			padding: 25px 0;
-
 			float: left;
+
+			padding: 25px 30px;
 		}
-			#main {
-				padding: 0 35px;
+			body.home #main {
+				float: none;
+				width: 90%;
+				margin: 0 auto 25px auto;
 			}
 
-#footer_outer {
+#footer {
+	box-sizing: border-box;
+
 	margin-top: 1em;
+	padding: 2px;
+	font-size: 80%;
+	color: #555;
 }
-	#footer {
-		padding: 2px;
-		font-size: 80%;
-		color: #555;
+	#footer_widgets {
+		padding-bottom: 1.5em;
+		margin-bottom: 1.5em;
+		border-bottom: 1px dotted #aaa;
 	}
-		#footer_widgets {
-			padding-bottom: 1.5em;
-			margin-bottom: 1.5em;
-			border-bottom: 1px dotted #aaa;
+		#footer_navi .menu .sub-menu {
+			font-size: 110%;
 		}
-			#footer_navi .menu .sub-menu {
-				font-size: 110%;
-			}
 
 
 /*  PAGES
@@ -227,12 +230,9 @@ body.home #content_outer {
 		padding: 1.5em 0 0 0;
 		border-radius: 0;
 	}
-		body.home #main_outer {
-			padding-top: 0;
+		body.home #main {
+			padding: 0;
 		}
-			body.home #main {
-				padding: 0;
-			}
 
 	body.home .widgets_outer {
 		padding: 1em 0;
@@ -258,20 +258,17 @@ body.blog #main,
 body.archive #main,
 body.search #main {
 	float: left;
-	width: 60%;
-
-	padding: 0;
-	margin-left: 35px;
+	width: 65%;
 }
 
-#sidebar_outer {
+#sidebar {
 	float: right;
+	box-sizing: border-box;
 	width: 35%;
+
+	font-size: 90%;
+	padding: 0 30px;
 }
-	#sidebar {
-		font-size: 90%;
-		margin: -1.5em 35px 0 35px;
-	}
 
 /*  Blog front and paging  */
 
@@ -291,13 +288,16 @@ body.search #main {
 /*  Post styles  */
 .post-post {
 	color: #333;
-	margin: 1.5em 0;
+	margin: 1.5em 0 0.5em 0;
 }
 	.post-post img,
 	.post-post figure {
 		max-width: 100%;
 		height: auto;
 	}
+		.post-post > :last-child {
+			margin-bottom: 0;
+		}
 
 .post-meta, .post-meta a {
 	color: #ccc;
