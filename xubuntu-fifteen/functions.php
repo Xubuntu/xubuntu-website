@@ -45,9 +45,6 @@ function xubuntu_styles( ) {
 	wp_enqueue_style( 'xubuntu-style-resp-800', get_stylesheet_directory_uri( ) . '/style-resp-800.css', array( 'xubuntu-style', 'xubuntu-style-common', 'xubuntu-style-resp-1000' ), false, 'only screen and (max-width:800px)' );
 	wp_enqueue_style( 'xubuntu-style-resp-600', get_stylesheet_directory_uri( ) . '/style-resp-600.css', array( 'xubuntu-style', 'xubuntu-style-common', 'xubuntu-style-resp-800' ), false, 'only screen and (max-width:600px)' );
 	wp_enqueue_style( 'xubuntu-style-resp-450', get_stylesheet_directory_uri( ) . '/style-resp-450.css', array( 'xubuntu-style', 'xubuntu-style-common', 'xubuntu-style-resp-600' ), false, 'only screen and (max-width:450px)' );
-
-	// Extra stylesheets from static.xubuntu.org
-	wp_enqueue_style( 'xubuntu-style-extras', 'http://static.xubuntu.org/www/extras.css', array( 'xubuntu-style', 'xubuntu-style-common' ) );
 }
 
 /*  Check if the current page is a blog page
