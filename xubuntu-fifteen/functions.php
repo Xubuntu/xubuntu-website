@@ -14,6 +14,7 @@ include 'functions-admin.php';
 include 'functions-features.php';
 include 'functions-features-articles.php';
 include 'functions-features-releases.php';
+include 'functions-features-release-links.php';
 
 /*
  *  Configuration options

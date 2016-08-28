@@ -51,11 +51,14 @@ register_nav_menu( 'quick_navigation', 'Quick navigation for mobile' );
  */
 
 add_action( 'wp_enqueue_scripts', 'xubuntu_scripts' );
+add_action( 'admin_enqueue_scripts', 'xubuntu_scripts' );
+
 function xubuntu_scripts( ) {
 	if( !is_admin( ) ) {
-		wp_enqueue_script( 'xubuntu-script', get_template_directory_uri( ) . '/script.js', array( 'jquery' ), '2' );
 		wp_enqueue_script( 'xubuntu-script-menu', get_template_directory_uri( ) . '/script-menu.js', array( 'jquery' ), '2' );
 	}
+
+	wp_enqueue_script( 'xubuntu-script-releases', get_template_directory_uri( ) . '/script-releases.js', array( 'jquery' ), '2' );
 }
 
 /*  Enable theme support

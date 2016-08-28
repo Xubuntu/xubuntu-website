@@ -1,11 +1,20 @@
 <?php
 
+/*
+ *  Register the release taxonomy
+ *
+ */
+
 add_action( 'init', 'release_taxonomy_register' );
 
 function release_taxonomy_register( ) {
 	register_taxonomy(
 		'release',
-		'post',
+		array(
+			'post',
+			'attachment',
+			'release_link' /* see functions-features-release-links.php */
+		),
 		array(
 			'label' => _x( 'Releases', 'taxonomy label', 'xubuntu' ),
 			'labels' => array(
@@ -37,7 +46,7 @@ function release_taxonomy_register( ) {
 }
 
 /*
- *  Custom fields for 'releases'
+ *  Register custom fields
  *
  */
 
@@ -83,8 +92,12 @@ function release_taxonomy_custom_fields_edit( $tax ) {
 function release_taxonomy_custom_fields_add( $tax ) {
 	global $taxonomy_release_fields;
 
-	$term_id = $tax->term_id;
-	$term_meta = get_option( 'taxonomy_term_' . $term_id );
+	if( isset( $tax->term_id ) ) {
+		$term_id = $tax->term_id;
+		$term_meta = get_option( 'taxonomy_term_' . $term_id );
+	} else {
+		$term_meta = get_option( 'taxonomy_term_0' );
+	}
 
 	foreach( $taxonomy_release_fields as $id => $field ) {
 		echo '<div class="form-field">';
@@ -96,6 +109,11 @@ function release_taxonomy_custom_fields_add( $tax ) {
 		echo '</div>';
 	}
 }
+
+/*
+ *  Handle saving custom fields
+ *
+ */
 
 add_action( 'edited_release', 'release_taxonomy_custom_fields_save', 10, 2 );
 add_action( 'created_release', 'release_taxonomy_custom_fields_save', 10, 2 );
@@ -114,17 +132,27 @@ function release_taxonomy_custom_fields_save( $term_id ) {
 	}  
 }
 
+/*
+ *  Add a custom meta box
+ *
+ */
+
 function release_taxonomy_meta_box( ) {
 	$releases = release_taxonomy_get_releases_sorted( );
 
 	if( is_array( $releases ) ) {
-		echo '<ul>';
+		$class = '';
+		echo '<ul class="releases">';
 		foreach( $releases as $release ) {
 			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
-			echo '<li>';
+			if( $class != 'eol' && $release->release_is_eol == 1 ) {
+				echo '<li class="nobullet show-on-js"><a class="show-eol" href="#show-eol">Show EOL releases</a></li>';
+				$class = 'eol';
+			}
+
+			echo '<li class="' . $class . '">';
 			echo '<label class="selectit">';
 			echo '<input type="checkbox" name="tax_input[release][]" id="release" value="' . $release->slug . '" ' . checked( has_term( $release->term_id, 'release' ), true, false ) . '/>';
-			// TODO: EOL release handling?
 			echo ' <strong>' . $release->name . '</strong> &nbsp;' . $release_meta['release_codename'];
 			echo '</label>';
 			echo '</li>';
@@ -133,7 +161,8 @@ function release_taxonomy_meta_box( ) {
 	}
 }
 
-/*  Filtering posts by release
+/*
+ *  Enable filtering posts by release
  *
  */
 
@@ -145,7 +174,7 @@ function release_taxonomy_post_filter( ) {
 
 	if( 'post' == $typenow ) {
 		wp_dropdown_categories( array(
-			'show_option_all' => _x( 'All releases', 'post filter dropdown', 'xubuntu' ),
+			'show_option_all' => _x( 'All releases', 'filter dropdown', 'xubuntu' ),
 			'taxonomy' => 'release',
 			'name' => 'release',
 			'selected' => $wp_query->query['release'],
@@ -167,7 +196,8 @@ function release_taxonomy_post_filter_execute( $query ) {
 	}
 }
 
-/*  Releases widget
+/*
+ *  Widget for showing releases
  *  
  */
 
@@ -220,7 +250,6 @@ class XubuntuReleasesWidget extends WP_Widget {
 		$instance = $old_instance;
 
 		$instance['title'] = strip_tags( $new_instance['title'] );
-//		$instance['description'] = $new_instance['description'];
 
 		return $instance;
 	}
@@ -235,13 +264,14 @@ class XubuntuReleasesWidget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'xubuntu' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
-<!--		<p>
-			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description', 'xubuntu' ); ?></label>
-			<textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo $description; ?></textarea>
-		</p>-->
 		<?php 
 	}
 }
+
+/*
+ *  Custom sort for the releases (EOL releases last)
+ *
+ */
 
 function release_taxonomy_get_releases_sorted( ) {
 	$releases = get_terms( 'release', array( 'hide_empty' => false ) );

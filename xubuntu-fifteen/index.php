@@ -8,7 +8,11 @@
 					get_template_part( 'content', 'search' );
 				} elseif( have_posts( ) && !is_404( ) ) {
 					if( is_archive( ) ) {
-						get_template_part( 'content', 'archive' );
+						if( has_term( '', 'release' ) ) {
+							get_template_part( 'content', 'release' );
+						} else {
+							get_template_part( 'content', 'archive' );
+						}
 					} else {
 						get_template_part( 'content', get_post_format( ) );
 					}

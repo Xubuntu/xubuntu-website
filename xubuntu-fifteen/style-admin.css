@@ -2,3 +2,10 @@
 	width: 5em;
 }
 
+body.post-type-release_link #post-body-content,
+body.post-type-release_link #save-action,
+body.post-type-release_link #preview-action,
+body.post-type-release_link .misc-pub-post-status,
+body.post-type-release_link .misc-pub-visibility {
+	display: none;
+}

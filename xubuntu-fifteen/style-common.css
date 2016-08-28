@@ -133,11 +133,13 @@ hr {
 li { list-style-position: inside; }
 	#main li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
 	#main ul li { list-style-type: disc; }
+	#main ul.link-list li,
 	#main .post-list ul li,
 	#main .post-post ul li {
 		list-style-type: none;
 		margin-left: 1em;
 	}
+		#main ul.link-list li:before,
 		#main .post-list ul li:before,
 		#main .post-post ul li:before {
 			display: block;

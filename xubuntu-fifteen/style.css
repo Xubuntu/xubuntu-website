@@ -2,7 +2,7 @@
  *  Theme Name: Xubuntu Fifteen
  *  Description: A theme built for the Xubuntu website at xubuntu.org.
  *  Author: Pasi Lallinaho
- *  Version: 2016-aug (r113)
+ *  Version: 2016-aug (r114)
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -164,7 +164,7 @@ body {
 }
 	#content {
 		font-size: 110%;
-		padding: 1.5em 0;
+		padding: 0;
 
 		background-color: #fafafa;
 		border-radius: 4px;
