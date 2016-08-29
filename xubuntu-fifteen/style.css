@@ -2,7 +2,7 @@
  *  Theme Name: Xubuntu Fifteen
  *  Description: A theme built for the Xubuntu website at xubuntu.org.
  *  Author: Pasi Lallinaho
- *  Version: 2016-aug (r115)
+ *  Version: 2016-aug (r116)
  *  Author URI: http://open.knome.fi/
  *  Theme URI: https://xubuntu.org/
  *
@@ -267,8 +267,22 @@ body.search #main {
 	width: 35%;
 
 	font-size: 90%;
-	padding: 0 30px;
+	padding: 0 30px 2em 30px;
 }
+	#sidebar .search-form {
+		display: flex;
+	}
+		#sidebar .search-form label {
+			/* Search input box */
+			flex: 3;
+			margin-right: 0.5em;
+		}
+			#sidebar .search-form label input {
+				width: 100%;
+			}
+		#sidebar .search-form .search-submit {
+			flex: 1;
+		}
 
 /*  Blog front and paging  */
 
@@ -396,6 +410,31 @@ dl.release-info {
 		.widgets_flex .widget p:last-child {
 			margin-bottom: 0;
 		}
+
+/*  Tagclouds  */
+
+.tagcloud a {
+	display: block;
+	font-size: 100% !important;
+	margin-left: 1em;
+	margin-bottom: 0.2em;
+}
+	.tagcloud a {
+		border-bottom: none !important;
+	}
+	.tagcloud a::before {
+		/* Imitates the list style */
+		display: block;
+		float: left;
+
+		width: 0.7em;
+		margin-left: -0.7em;
+		margin-top: -0.12em;
+		content: "›";
+		font-weight: 300;
+		font-size: 140%;
+		color: #555;
+	}
 
 
 /*  NAVIGATION

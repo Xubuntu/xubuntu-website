@@ -69,7 +69,7 @@ function xubuntu_scripts( ) {
 
 add_action( 'after_setup_theme', 'xubuntu_after_setup_theme' );
 function xubuntu_after_setup_theme( ) {
-	add_theme_support( 'html5', array( 'gallery', 'caption' ) );
+	add_theme_support( 'html5', array( 'gallery', 'caption', 'search-form' ) );
 	add_theme_support( 'post-thumbnails' );
 }
 

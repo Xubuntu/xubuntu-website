@@ -41,7 +41,7 @@ function xubuntu_upload_mime( $mimes = array( ) ) {
 add_action( 'pre_get_posts', 'xubuntu_articles_filters' );
 
 function xubuntu_articles_filters( $query ) {
-	if( ( is_archive( ) && $query->is_main_query( ) ) || is_search( ) ) {
+	if( ( is_archive( ) && $query->is_main_query( ) ) || ( is_search( ) && $query->is_main_query( ) ) ) {
 		/* Archive pages */
 		$query->set( 'posts_per_page', -1 );
 		return;
