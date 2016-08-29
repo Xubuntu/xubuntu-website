@@ -6,13 +6,11 @@
 			<?php
 				if( is_search( ) ) {
 					get_template_part( 'content', 'search' );
+				} elseif( is_tax( 'release' ) ) {
+					get_template_part( 'content', 'release' );
 				} elseif( have_posts( ) && !is_404( ) ) {
 					if( is_archive( ) ) {
-						if( has_term( '', 'release' ) ) {
-							get_template_part( 'content', 'release' );
-						} else {
-							get_template_part( 'content', 'archive' );
-						}
+						get_template_part( 'content', 'archive' );
 					} else {
 						get_template_part( 'content', get_post_format( ) );
 					}

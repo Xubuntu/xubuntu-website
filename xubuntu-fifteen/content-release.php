@@ -35,6 +35,7 @@
 <?php
 	$official_links = get_posts( array(
 		'post_type' => 'release_link',
+		'posts_per_page' => -1,
 		'tax_query' => array( array(
 			'taxonomy' => 'release',
 			'field' => 'term_id',
@@ -51,6 +52,8 @@
 				'value' => 'official-expiring'
 			),
 		),
+		'orderby' => 'title',
+		'order' => 'ASC'
 	) );
 
 	if( is_array( $official_links ) && count( $official_links ) > 0 ) {
@@ -94,6 +97,7 @@
 <?php
 	$press_links = get_posts( array(
 		'post_type' => 'release_link',
+		'posts_per_page' => -1,
 		'tax_query' => array( array(
 			'taxonomy' => 'release',
 			'field' => 'term_id',
@@ -103,6 +107,8 @@
 			'key' => 'link_type',
 			'value' => 'press'
 		) ),
+		'orderby' => 'title',
+		'order' => 'ASC'
 	) );
 
 	if( is_array( $press_links ) && count( $press_links ) > 0 ) {
@@ -134,6 +140,7 @@
 <?php
 	$attachments = get_posts( array(
 		'post_type' => 'attachment',
+		'posts_per_page' => -1,
 		'tax_query' => array( array(
 			'taxonomy' => 'release',
 			'field' => 'term_id',
@@ -141,14 +148,16 @@
 		) ),
 	) );
 
+	$release_gallery = array( );
+
 	foreach( $attachments as $attachment ) {
-		$gallery[] = $attachment->ID;
+		$release_gallery[] = $attachment->ID;
 	}
 
-	if( is_array( $gallery ) ) {
-		$gallery_ids = implode( ',', $gallery );
+	if( count( $release_gallery ) > 0 ) {
+		$gallery_ids = implode( ',', $release_gallery );
 
 		echo '<h2>' . __( 'Screenshots', 'xubuntu' ) . '</h2>';
-		echo do_shortcode( '[gallery size="xubuntu_split_to_3" ids="' . $gallery_ids . '"]' );
+		echo do_shortcode( '[gallery size="xubuntu_split_to_3" link="file" ids="' . $gallery_ids . '"]' );
 	}
 ?>

@@ -6,4 +6,7 @@ jQuery( function( ) {
 		jQuery( this ).hide( );
 		jQuery( '.releases .eol' ).fadeIn( );
 	} );
+
+	/* Admin */
+	jQuery( '.releases .eol input:checked' ).closest( '.eol' ).show( );
 } );

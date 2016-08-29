@@ -40,7 +40,8 @@ function release_taxonomy_register( ) {
 			'meta_box_cb' => 'release_taxonomy_meta_box',
 			'show_admin_column' => true,
 			'description' => _x( 'Xubuntu releases', 'taxonomy description', 'xubuntu' ),
-			'query_var' => true
+			'query_var' => true,
+			'rewrite' => array( 'with_front' => false ),
 		)
 	);
 }
