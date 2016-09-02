@@ -6,7 +6,7 @@
  *  Author: Pasi Lallinaho
  *  Author URI: http://open.knome.fi/
  *
- *  Version: 2016-sept (r117)
+ *  Version: 2016-sept (r118)
  *
  */
 
@@ -63,9 +63,9 @@ header {
 		height: 150px;
 
 		top: -150px;
-		left: -50px;
+		left: -35px;
 		margin-bottom: -150px;
-		padding: 0 50px;
+		padding: 0 35px;
 
 		background: transparent url(images/header.png) 0 50% no-repeat;
 	}
