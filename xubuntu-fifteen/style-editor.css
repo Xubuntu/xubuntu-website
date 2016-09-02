@@ -1,18 +1,10 @@
 body {
 	font-size: small;
-	font-family: "Open Sans", sans-serif !important;
+	font-family: 'Open Sans', sans-serif !important;
 	line-height: 1.5em;
 
 	background-color: #fafafa;
 	color: #3c3c3c;
-}
-
-.group:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
 }
 
 /*  Elements
@@ -90,11 +82,6 @@ dt.gallery-icon img {
 .wpview-type-gallery .gallery {
 	/* Make sure the gallery in editor doesn't have scrollbars */
 	overflow: visible !important;
-}
-
-div.boxed {
-	/* Use less padding for editor */
-	padding: 15px !important;
 }
 
 

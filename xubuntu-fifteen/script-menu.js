@@ -17,10 +17,6 @@ jQuery( function( ) {
 		} else if( current.offset( ).left - shift < 0 ) {
 			// The submenu would overflow in the left side
 			current_sub.css( 'left', '-2px' );
-		} else {
-			// The submenu will fit the screen when centered
-			// Commenting this line keeps menus left-aligned
-			//current_sub.css( 'left', -shift );
 		}
 	} );
 
@@ -68,17 +64,9 @@ jQuery( function( ) {
 } );
 
 function xubuntu_sticky_header( ) {
-	if( jQuery( window ).scrollTop( ) > ( jQuery( '#header' ).outerHeight( ) + jQuery( '#navi' ).outerHeight( ) ) ) {
-		jQuery( '#header_outer' ).addClass( 'scrolled' );
+	if( jQuery( window ).scrollTop( ) > ( jQuery( '#logo' ).outerHeight( ) + jQuery( '#navi' ).outerHeight( ) ) ) {
+		jQuery( 'header' ).addClass( 'scrolled' );
 	} else {
-		jQuery( '#header_outer' ).removeClass( 'scrolled' );
-	}
-}
-
-function xubuntu_scrolled( ) {
-	if( jQuery( window ).width( ) < 600 ) {
-		jQuery( '#header_outer' ).addClass( 'scrolled' );
-	} else {
-		jQuery( '#header_outer' ).removeClass( 'scrolled' );
+		jQuery( 'header' ).removeClass( 'scrolled' );
 	}
 }

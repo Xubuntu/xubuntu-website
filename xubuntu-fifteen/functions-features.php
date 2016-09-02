@@ -26,6 +26,17 @@ function xubuntu_widgets_init( ) {
 			'before_title' => '<h2>',
 			'after_title' => '</h2>'
 		) );
+
+		/* Widgets for release pages */
+		register_sidebar( array(
+			'name' => 'Release page widgets',
+			'id' => 'release_widgets',
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h2>',
+			'after_title' => '</h2>'
+		) );
+
 		/* Footer */
 		register_sidebars( 2, array(
 			'name' => 'Footer %d',

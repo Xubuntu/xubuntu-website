@@ -1,7 +1,7 @@
-<div id="footer">
+<footer>
 	<?php get_template_part( 'widgets', 'footer' ); ?>
 	<?php wp_footer( ); ?>
-</div>
+</footer>
 
 </body>
 </html>

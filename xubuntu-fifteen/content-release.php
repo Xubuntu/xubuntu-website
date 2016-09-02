@@ -11,17 +11,14 @@
 		$eol_time = gmmktime( 0, 0, 1, $month, $day, $year );
 	}
 
-	if( strlen( $release_meta['release_codename'] ) > 0 ) {
-		$codename = ', ' . $release_meta['release_codename'];
-	} else {
-		$codename = '';
-	}
-
-	echo '<h1 class="post-title">Xubuntu ' . single_term_title( '', false ) . $codename . '</h1>';
-	if( isset( $release_time ) || isset( $eol_time ) ) {
+	echo '<h1 class="post-title">Xubuntu ' . single_term_title( '', false ) . '</h1>';
+	if( strlen( $release_meta['release_codename'] ) > 0 || isset( $release_time ) || isset( $eol_time ) ) {
 		echo '<dl class="release-info group">';
+		if( strlen( $release_meta['release_codename'] ) > 0 ) {
+			echo '<dt>' . __( 'Codename', 'xubuntu' ) . '</dt><dd>' . $release_meta['release_codename'] . '</dd>';
+		}
 		if( isset( $release_time ) ) {
-			echo '<dt>' . __( 'Release date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
+			echo '<dt>' . __( 'Release Date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
 		}
 		if( isset( $eol_time ) ) {
 			echo '<dt>' . __( 'End of Life', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $eol_time ) . '</dd>';
@@ -33,35 +30,14 @@
 ?>
 
 <?php
-	$official_links = get_posts( array(
-		'post_type' => 'release_link',
-		'posts_per_page' => -1,
-		'tax_query' => array( array(
-			'taxonomy' => 'release',
-			'field' => 'term_id',
-			'terms' => $release->term_id
-		) ),
-		'meta_query' => array(
-			'relation' => 'OR',
-			array(
-				'key' => 'link_type',
-				'value' => 'official'
-			),
-			array(
-				'key' => 'link_type',
-				'value' => 'official-expiring'
-			),
-		),
-		'orderby' => 'title',
-		'order' => 'ASC'
-	) );
+	$official_links = release_link_list( array( 'official', 'official-expiring' ), $release->term_id );
 
-	if( is_array( $official_links ) && count( $official_links ) > 0 ) {
-		$otuput_links = array( );
+	if( $official_links ) {
+		$output_links = array( );
 
 		foreach( $official_links as $official_link ) {
 			$meta = get_post_meta( $official_link->ID );
-			if( $meta['link_type'][0] == 'official-expiring' && time( ) <= $eol_time ) {
+			if( ( $meta['link_type'][0] == 'official-expiring' && time( ) <= $eol_time ) || $meta['link_type'][0] == 'official' ) {
 				$output_links[] = '<li><strong><a href="' . $meta['link_url'][0] . '">' . $official_link->post_title . '</a></strong></li>';
 			}
 		}
@@ -79,61 +55,24 @@
 
 <?php if( have_posts( ) ) { ?>
 	<h2><?php _e( 'Articles', 'xubuntu' ); ?></h2>
-	<div id="archive-posts">
-		<ul>
-			<?php while( have_posts( ) ) { ?>
-				<?php the_post( ); ?>
-				<?php if( get_post_type( ) == 'post' ) { ?>
-					<li class="post-title">
-						<span class="post-time"><?php print strftime( __( '%B %e, %Y', 'xubuntu' ), get_the_time( 'U' ) ); ?></span>
-						<b><a href="<?php the_permalink( ); ?>" rel="bookmark" title="<?php the_title( ); ?>"><?php the_title( ); ?></a></b>
-					</li>
-				<?php } ?>
+	<ul class="posts-list">
+		<?php while( have_posts( ) ) { ?>
+			<?php the_post( ); ?>
+			<?php if( get_post_type( ) == 'post' ) { ?>
+				<li class="post-title">
+					<span class="post-time"><?php print strftime( __( '%B %e, %Y', 'xubuntu' ), get_the_time( 'U' ) ); ?></span>
+					<b><a href="<?php the_permalink( ); ?>" rel="bookmark" title="<?php the_title( ); ?>"><?php the_title( ); ?></a></b>
+				</li>
 			<?php } ?>
-		</ul>
-	</div>
+		<?php } ?>
+	</ul>
 <?php } ?>
 
 <?php
-	$press_links = get_posts( array(
-		'post_type' => 'release_link',
-		'posts_per_page' => -1,
-		'tax_query' => array( array(
-			'taxonomy' => 'release',
-			'field' => 'term_id',
-			'terms' => $release->term_id
-		) ),
-		'meta_query' => array( array(
-			'key' => 'link_type',
-			'value' => 'press'
-		) ),
-		'orderby' => 'title',
-		'order' => 'ASC'
-	) );
-
-	if( is_array( $press_links ) && count( $press_links ) > 0 ) {
+	$press_links = release_link_list( 'press', $release->term_id );
+	if( $press_links ) {
 		echo '<h2>' . __( 'In the Press', 'xubuntu' ) . '</h2>';
-		echo '<ul class="link-list">';
-		foreach( $press_links as $press_link ) {
-			$meta = get_post_meta( $press_link->ID );
-			echo '<li>';
-			echo '<strong><a href="' . $meta['link_url'][0] . '">' . $press_link->post_title . '</a></strong>';
-			if( ( isset( $meta['author_name'][0] ) && strlen( $meta['author_name'][0] ) > 0 ) || ( isset( $meta['author_site'][0] ) && strlen( $meta['author_site'][0] ) > 0 ) ) {
-				echo ' by ';
-			}
-			if( isset( $meta['author_name'][0] ) && strlen( $meta['author_name'][0] ) > 0 ) {
-				echo $meta['author_name'][0] . ' of ';
-			}
-			if( isset( $meta['author_site'][0] ) && strlen( $meta['author_site'][0] ) > 0 ) {
-				if( isset( $meta['author_url'][0] ) && strlen( $meta['author_url'][0] ) > 0 ) {
-					echo '<a href="' . $meta['author_url'][0] . '">' . $meta['author_site'][0] . '</a>';
-				} else {
-					echo $meta['author_site'][0];
-				}
-			}
-			echo '</li>';
-		}
-		echo '</ul>';
+		release_link_press_output( $press_links );
 	}
 ?>
 

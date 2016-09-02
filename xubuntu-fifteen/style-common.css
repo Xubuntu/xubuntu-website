@@ -1,4 +1,5 @@
-/*  SELECTION
+/*
+ *  Selection style
  *
  */
 
@@ -7,7 +8,8 @@
 	color: #fff;
 }
 
-/*  ELEMENTS
+/*
+ *  Elements
  *
  */
 
@@ -26,24 +28,23 @@ a {
 	a:active,
 	a:focus {
 		color: #13385e;
-		border-bottom: 1px solid #3c3c3c;
 	}
-	#header a {
-		border-bottom: none;
-	}
-	#sidebar ul li a {
+		main a:hover,
+		main a:active,
+		main a:focus {
+			border-bottom: 1px solid #3c3c3c;
+		}
+	aside ul li a {
 		display: block;
-		border: none;
 	}
 
-	#footer a {
+	footer a {
 		color: #333;
-		border-bottom: none;
 		transition: none;
 	}
-		#footer a:hover,
-		#footer a:active,
-		#footer a:focus {
+		footer a:hover,
+		footer a:active,
+		footer a:focus {
 			color: #2c82dd;
 			text-decoration: underline;
 		}
@@ -106,7 +107,7 @@ h2 { font-size: 160%; }
 	.post-excerpt h2,
 	.post-list h2,
 	.post-post h2,
-	#sidebar h2 {
+	aside h2 {
 		border-top: 1px dotted #ccc;
 		padding-top: 0.5em;
 	}
@@ -130,18 +131,30 @@ hr {
 	border-bottom: 1px solid #dadada;
 }
 
+main img {
+	max-width: 100%;
+	height: auto;
+
+	border-radius: 3px;
+	box-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.2 );
+}
+	main img.plain {
+		border-radius: 0;
+		box-shadow: none;
+	}
+
 li { list-style-position: inside; }
-	#main li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
-	#main ul li { list-style-type: disc; }
-	#main ul.link-list li,
-	#main .post-list ul li,
-	#main .post-post ul li {
+	main li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
+	main ul li { list-style-type: disc; }
+	main ul.link-list li,
+	main .post-list ul li,
+	main .post-post ul li {
 		list-style-type: none;
 		margin-left: 1em;
 	}
-		#main ul.link-list li:before,
-		#main .post-list ul li:before,
-		#main .post-post ul li:before {
+		main ul.link-list li:before,
+		main .post-list ul li:before,
+		main .post-post ul li:before {
 			display: block;
 			float: left;
 
@@ -153,14 +166,12 @@ li { list-style-position: inside; }
 			font-size: 140%;
 			color: #555;
 		}
-	#main ol li { list-style-type: decimal; margin-left: 1.6em; }
-	#archive-posts ul li { list-style-type: none; margin-left: 0; }
-	#archive-posts ul li .post-time { display: inline-block; width: 25%; margin-right: 5px; }
-	#sidebar ul li {
+	main ol li { list-style-type: decimal; margin-left: 1.6em; }
+	aside ul li {
 		list-style-type: none;
 		margin-left: 1em;
 	}
-		#sidebar ul li:before {
+		aside ul li:before {
 			display: block;
 			float: left;
 
@@ -172,42 +183,55 @@ li { list-style-position: inside; }
 			font-size: 140%;
 			color: #555;
 		}
-
-
-p { }
 
 table {
 	width: 100%;
 }
-table td {
-	border: 1px solid #ccc;
-	background-color: #f6f6f6;
-	padding: 3px;
-}
-table th {
-	text-align: left;
-}
+	table td {
+		border: 1px solid #ccc;
+		background-color: #f6f6f6;
+		padding: 3px;
+	}
+	table th {
+		text-align: left;
+	}
 
-/*  TEMPLATES
+/*
+ *  Templates
  *
  */
 
-/*  Aligned images
- *  Usage: TinyMCE
- *
- */
+/*  Aligned images  (TinyMCE)  */
 
-.alignright { float: right; margin: 0 0 0 20px; }
-.alignleft { float: left; margin: 0 20px 0 0; }
-
-.alignright a, .alignleft a, .aligncenter a {
-	border-bottom: none;
+.alignright,
+.alignleft {
+	max-width: 310px;
+	height: auto;
 }
+	.alignleft img,
+	.alignright img {
+		max-width: 300px;
+		height: auto;
+	}
 
-img.alignright, img.alignleft, img.aligncenter,
-.alignright img, .alignleft img, .aligncenter img {
-	border-radius: 3px;
-}
+	.alignright {
+		float: right;
+		margin: 0 0 0 2em;
+	}
+
+	.alignleft {
+		float: left;
+		margin: 0 2em 0 0;
+	}
+
+	.aligncenter {
+		display: block;
+		margin: 0 auto;
+	}
+
+		.alignright a, .alignleft a, .aligncenter a {
+			border-bottom: none !important;
+		}
 
 .wp-caption-text {
 	text-align: center;
@@ -215,15 +239,8 @@ img.alignright, img.alignleft, img.aligncenter,
 	padding-bottom: 0.3em;
 }
 
-.aligncenter {
-	display: block;
-	margin: 0 auto;
-}
+/*  Gallery styling  (WordPress)  */
 
-/*  Gallery styling
- *  Usage: WordPress
- *
- */
 div.gallery {
 	width: 100%;
 }
@@ -260,39 +277,60 @@ div.gallery figure {
 	div.gallery-columns-4 figure:nth-child(4n+3) { margin-left: 1%; margin-right: 2%; }
 	div.gallery-columns-4 figure:nth-child(4n+5) { clear: left; }
 
-div.gallery figure img {
-	max-width: 100%;
-	height: auto;
-
-	border-radius: 3px;
-	box-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.2 );
-}
-
 div.gallery a {
 	border-bottom: none;
 }
 
-/*  Preface
- *  Usage: manual
- *
- */
-p.preface {
-	margin: 2em 0;
-	padding: 1.5em 0;
+/*  Link buttons  (TinyMCE, manual, content.php)  */
 
-	word-spacing: 0.2em;
-	line-height: 1.8em;
+a.button {
+	display: inline-block;
 
-	font-size: 90%;
-	font-weight: 600;
-	border-top: 1px solid #d2d2d2;
-	border-bottom: 1px solid #d2d2d2;
+	margin: 0 0.5em 0.5em 0;
+	padding: 0.5em 0.75em;
+
+	background-color: #fff;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.1 );
+
+	border: none;
+	border-bottom: 2px solid #ccc;
 }
+	a.button:hover, a.button:active, a.button:focus {
+		box-shadow: 0 0 5px rgba( 0, 0, 0, 0.3 );
+		border-bottom: 2px solid #999;
+	}
+	a.button:after {
+		display: block;
+		float: right;
 
-/*  Section highlighting
- *  Usage: TinyMCE
- *
- */
+		content: "›";
+		font-weight: 300;
+		font-size: 140%;
+		margin: -0.1em 0 0 0.5em;
+		color: #555;
+	}
+	a.button.primary {
+		border-bottom: 2px solid #7cb8f7;
+	}
+		a.button.primary:hover, a.button.primary:active, a.button.primary:focus {
+			border-bottom: 2px solid #2c82dd;
+		}
+	a.button.back:after {
+		float: left;
+		content: "‹";
+		margin: -0.1em 0.5em 0 0;
+	}
+	a.button.clean:after {
+		margin: 0;
+		content: "";
+	}
+	.post-pagination a.button.forward {
+		float: right;
+		margin-right: 0;
+	}
+
+/*  Section highlighting  (TinyMCE)  */
+
 .hb {
 	margin: 2em 0;
 	padding: 10px 25px 10px 25px;
@@ -357,61 +395,10 @@ p.preface {
 				color: rgba( 200, 40, 5, 1 );
 			}
 
-/*  Button styles
- *  Usage: TinyMCE, manual, content.php, widget
- *
- */
 
-a.button {
-	display: inline-block;
 
-	margin: 0 0.5em 0.5em 0;
-	padding: 0.5em 0.75em;
+/*  List in columns  (TinyMCE)  */
 
-	background-color: #fff;
-	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.1 );
-
-	border: none;
-	border-bottom: 2px solid #ccc;
-}
-	a.button:hover, a.button:active, a.button:focus {
-		box-shadow: 0 0 5px rgba( 0, 0, 0, 0.3 );
-		border-bottom: 2px solid #999;
-	}
-	a.button:after {
-		display: block;
-		float: right;
-
-		content: "›";
-		font-weight: 300;
-		font-size: 140%;
-		margin: -0.1em 0 0 0.5em;
-		color: #555;
-	}
-	a.button.primary {
-		border-bottom: 2px solid #7cb8f7;
-	}
-		a.button.primary:hover, a.button.primary:active, a.button.primary:focus {
-			border-bottom: 2px solid #2c82dd;
-		}
-	a.button.back:after {
-		float: left;
-		content: "‹";
-		margin: -0.1em 0.5em 0 0;
-	}
-	a.button.clean:after {
-		margin: 0;
-		content: "";
-	}
-	.post-pagination a.button.forward {
-		float: right;
-		margin-right: 0;
-	}
-
-/*  List in columns
- *  Usage: TinyMCE
- *
- */
 ul.columnlist {
 	-moz-column-gap: 1em;
 	-webkit-column-gap: 1em;
@@ -422,108 +409,22 @@ ul.columnlist {
 	column-count: 3;
 }
 
-/*  Classes for menus
- *  Usage: manual
- *
- */
-.menu .strong {
-	font-weight: 600;
-}
-
-/*  Boxed content
- *  Usage: template_blank.php, TinyMCE, (template_gallery.php)
- *
- */
-.boxed {
-	margin-bottom: 1em;
-
-	background-color: #fff;
-	border-radius: 3px;
-	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.05 );
-}
-	.boxed h2 {
-		margin-top: 0;
-	}
-	h1.boxed {
-		padding: 0.3em 35px;
-	}
-	div.boxed {
-		padding: 35px;
-	}
-		div.boxed *:last-child {
-			margin-bottom: 0;
-		}
-
-/*  Featured image
- *  Usage: content.php
- *
- */
-.post-thumbnail {
-	float: right;
-	margin: -1em 0 2em 2em;
-
-	max-width: 400px;
-	height: auto;
-}
-	body.home .post-thumbnail {
-		margin-top: 0;
-	}
-	/* Adjust the inline header on the front page to allow the floating image */
-	body.home .post-post h1 {
-		display: inline;
-	}
-		body.home .post-post h1:after {
-			display: block;
-			content: "";
-			margin-bottom: 1em;
-		}
-
-/*  Featured image alignment in a gallery
- *  Usage: template_featured-gallery.php
- *
- */
-.featured {
-	margin-bottom: 2em;
-}
-
-	.featured .image {
-		float: left;
-
-		width: 50%;
-	}
-		.featured .image img {
-			max-width: 100%;
-			float: right;
-			height: auto;
-
-			border-radius: 3px;
-			box-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.2 );
-		}
-
-	.featured .description {
-		float: right;
-		width: 45%;
-	}
-
-		.featured .description h2:first-child {
-			margin-top: 0;
-		}
-
-/*  Release list styling
- *  Usage: content-*.php
+/*
+ *  DEPRECATED
  *
  */
 
-.releases .nobullet::before {
-	content: " " !important;
-}
-.releases .show-eol {
-	color: rgba( 0, 0, 0, 0.5 );
-	margin-left: -1em;
-}
-.releases .eol a::before {
-	content: "EOL";
+/*  Preface  (manual)  */
+
+p.preface {
+	margin: 2em 0;
+	padding: 1.5em 0;
+
+	word-spacing: 0.2em;
+	line-height: 1.8em;
+
 	font-size: 90%;
-	margin-right: 0.5em;
-	color: rgba( 0, 0, 0, 0.5 );
+	font-weight: 600;
+	border-top: 1px solid #d2d2d2;
+	border-bottom: 1px solid #d2d2d2;
 }

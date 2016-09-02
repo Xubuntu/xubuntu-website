@@ -1,73 +1,83 @@
-/*  For screen sizes less than 800px wide  */
+/*
+ *  Header
+ *
+ */
 
 #navi {
-	font-size: 92%;
+	font-size: 82%;
 }
-	.navigation.nd .menu > li > a {
-		padding-left: 0.75em;
-		padding-right: 0.75em;
+
+/*
+ *  Main content area
+ *
+ */
+
+#content {
+	display: block;
+}
+	#content aside {
+		margin-top: 2em;
+		margin-left: 0;
 	}
 
-#footer {
+/*
+ *  Footer
+ *
+ */
+
+footer {
 	overflow: hidden;
 }
 
-/*  Front page 
+/*
+ *  Navigation
  *
  */
 
-body.home .alignright,
-body.home .alignleft {
-	max-width: 310px;
-	height: auto;
+.navigation.nd .menu > li > a {
+	padding-left: 0.75em;
+	padding-right: 0.75em;
 }
 
-/*  Blog pages
+/*
+ *  Widget areas 
  *
  */
 
-body.single-post #main,
-body.blog #main,
-body.archive #main,
-#sidebar {
-	float: none;
-	width: 100%;
-	padding: 1.25em 1.75em;
+.widgets_flex .widgets {
+	display: block;
 }
+	.widgets_flex .widget {
+		width: 100% !important;
+		margin: 0 !important;
+		border: none !important;
+		padding: 1.5em 0 !important;
 
-/*  Widget areas 
- *
- */
-	.widgets_flex .widgets {
-		display: block;
+		border-bottom: 1px dotted rgba( 0, 0, 0, 0.2 ) !important;
 	}
-		.widgets_flex .widget {
-			width: 100% !important;
-			margin: 0 !important;
-			border: none !important;
- 			padding: 1.5em 0 !important;
-
-			border-bottom: 1px dotted rgba( 0, 0, 0, 0.2 ) !important;
+		.widgets_flex .widget :last-child {
+			margin-bottom: 0;
 		}
-			.widgets_flex .widget :last-child {
-				margin-bottom: 0;
-			}
-			.widgets_flex .widget:first-child {
-				padding-top: 0 !important;
-			}
-			.widgets_flex .widget:last-child {
-				border-bottom: none !important;
-				padding-bottom: 0 !important;
-			}
+		.widgets_flex .widget:first-child {
+			padding-top: 0 !important;
+		}
+		.widgets_flex .widget:last-child {
+			border-bottom: none !important;
+			padding-bottom: 0 !important;
+		}
 
-
-/*  Featured images
+/*
+ *  Templates
  *
  */
+
+/*  Featured image  */
 
 .post-thumbnail {
 	max-width: 50%;
 }
+
+/*  Featured image in a gallery  */
 
 .featured {
 	margin-bottom: 0.5em;

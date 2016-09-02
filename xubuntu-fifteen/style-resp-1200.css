@@ -1,25 +1,11 @@
-#content, #header, #header_art, #footer,
-#navi, #content_gallery,
-body.home #main, .widgets_inner {
+/*
+ *  Content width
+ *
+ */
+
+header #logo, header nav, header::after,
+#content,
+body.home main, .widgets_front .widgets,
+footer {
 	width: 95%;
-}
-
-/*  Front page  */
-body.home .alignright,
-body.home .alignleft {
-	max-width: 100%;
-	height: auto;
-}
-
-/*  Templates  */
-.alignright,
-.alignleft {
-	max-width: 310px;
-	height: auto;
-}
-
-.alignright img,
-.alignleft img {
-	max-width: 300px;
-	height: auto;
 }

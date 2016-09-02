@@ -1,23 +1,9 @@
-/*  For screen sizes less than 1000px wide  */
+/*
+ *  Navigation
+ *
+ */
 
-#content, #header, #header_art, #footer,
-#navi, #content_gallery,
-body.home #main, .widgets_inner {
-	min-width: 0;
-}
-
-/*  Templates  */
-#archive-posts span.post-time,
-#archive-posts a {
-	display: block;
-	width: 100% !important;
-}
-
-#archive-posts span.post-time {
-	color: #777;
-}
-
-/*  Horizontal navigation  */
+/*  Navigation, horizontal  */
 .navigation.nh .menu {
 	overflow: hidden;
    flex-wrap: wrap;
@@ -43,3 +29,20 @@ body.home #main, .widgets_inner {
 		.navigation.nh .menu > li:last-child:nth-child(3n+2) {
 			margin-right: 33.3%;
 		}
+
+/*
+ *  Templates
+ *
+ */
+
+/*  Post lists  */
+
+.posts-list span.post-time,
+.posts-list a {
+	display: block;
+	width: 100% !important;
+}
+
+.posts-list span.post-time {
+	color: #777;
+}

@@ -16,14 +16,12 @@
 	}
 ?>
  
-<div id="archive-posts">
-	<ul>
-		<?php while( have_posts( ) ) { ?>
-			<?php the_post( ); ?>
-			<li class="post-title">
-				<span class="post-time"><?php print strftime( __( '%B %e, %Y', 'xubuntu' ), get_the_time( 'U' ) ); ?></span>
-				<b><a href="<?php the_permalink( ); ?>" rel="bookmark" title="<?php the_title( ); ?>"><?php the_title( ); ?></a></b>
-			</li>
-		<?php } ?>
-	</ul>
-</div>
+<ul class="posts-list">
+	<?php while( have_posts( ) ) { ?>
+		<?php the_post( ); ?>
+		<li class="post-title">
+			<span class="post-time"><?php print strftime( __( '%B %e, %Y', 'xubuntu' ), get_the_time( 'U' ) ); ?></span>
+			<b><a href="<?php the_permalink( ); ?>" rel="bookmark" title="<?php the_title( ); ?>"><?php the_title( ); ?></a></b>
+		</li>
+	<?php } ?>
+</ul>

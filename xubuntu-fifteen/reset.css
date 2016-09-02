@@ -50,8 +50,10 @@ table {
 	border-spacing: 0;
 }
 
-/*  Self-clearing float
- *  (and other little tweaks)
+/*
+ *  Self-clearing float
+ *  Tony Aslett, 2004-05-08
+ *  http://csscreator.com/attributes/containedfloat.php
  *
  */
 
@@ -61,7 +63,22 @@ table {
 	height: 0;
 	clear: both;
 	visibility: hidden;
+	font-size: 0;
 }
+
+/*
+ *  Border box model everywhere
+ *  Pasi Lallinaho, 2016-04-09
+ *
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+/*
+ *
+ */
 
 .hidden,
 .screen-reader-text { display: none; }

@@ -9,39 +9,37 @@
 	<meta name="author" content="The Xubuntu community" />
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1" />
 
-	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png">
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri( ); ?>/images/xubuntu-icon-16.png">
 
 	<?php wp_head( ); ?>
 </head>
 
 <body id="xubuntu" <?php echo body_class( ); ?>>
 
-<div id="header_outer">
-	<div id="header_art"></div>
-	<div id="header">
-		<div id="logo">
-			<a href="<?php echo home_url( '/' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" /></a>
-		</div>
+<header>
+	<div id="logo">
+		<a href="<?php echo home_url( '/' ); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" /></a>
 	</div>
-	<div id="navi_outer">
-		<div id="navi">
-			<a id="opennavi" class="navi_open_button" href="#footer_navi" title="<?php _e( 'Click to see more', 'xubuntu' ); ?>"></a>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'quick_navigation',
-					'container_id' => 'navi_quick',
-					'container_class' => 'group navigation nq',
-					'fallback_cb' => 'xubuntu_quick_menu_fallback'
-				) );
-			?>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'main_navigation',
-					'container_id' => 'navi_main',
-					'container_class' => 'group navigation nd',
-					'fallback_cb' => false
-				) );
-			?>
-		</div>
+
+	<div id="navi">
+		<a id="opennavi" class="navi_open_button" href="#footer_navi" title="<?php _e( 'Click to see more', 'xubuntu' ); ?>"></a>
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'quick_navigation',
+				'container' => 'nav',
+				'container_id' => 'navi_quick',
+				'container_class' => 'group navigation nq',
+				'fallback_cb' => 'xubuntu_quick_menu_fallback'
+			) );
+		?>
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'main_navigation',
+				'container' => 'nav',
+				'container_id' => 'navi_main',
+				'container_class' => 'group navigation nd',
+				'fallback_cb' => false
+			) );
+		?>
 	</div>
-</div>
+</header>

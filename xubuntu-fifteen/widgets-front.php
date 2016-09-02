@@ -4,7 +4,7 @@
 
 		foreach( $widget_areas as $area ) {
 			if( is_active_sidebar( $area ) ) {
-				?><div id="<?php echo $area; ?>" class="widgets_outer widgets_flex"><div class="widgets_inner"><div class="widgets group"><?php dynamic_sidebar( $area ); ?></div></div></div><?php
+				?><div id="<?php echo $area; ?>" class="widgets_front widgets_outer widgets_flex"><div class="widgets group"><?php dynamic_sidebar( $area ); ?></div></div><?php
 			}
 		}
 	}

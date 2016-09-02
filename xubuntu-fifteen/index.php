@@ -1,13 +1,15 @@
 <?php get_header( ); ?>
 
-<div id="content_outer">
-	<div id="content" class="group">
-		<div id="main" class="group">
+<section id="middle" class="group">
+	<section id="content" class="group">
+		<main id="main" class="group">
 			<?php
 				if( is_search( ) ) {
 					get_template_part( 'content', 'search' );
 				} elseif( is_tax( 'release' ) ) {
 					get_template_part( 'content', 'release' );
+				} elseif( is_attachment( ) ) {
+					get_template_part( 'content', 'attachment' );
 				} elseif( have_posts( ) && !is_404( ) ) {
 					if( is_archive( ) ) {
 						get_template_part( 'content', 'archive' );
@@ -23,10 +25,16 @@
 					<?php
 				}
 			?>
-		</div>
-		<?php if( is_blog( ) || is_search( ) ) { get_template_part( 'widgets', 'blog' ); } ?>
-	</div>
+		</main>
+		<?php
+			if( is_tax( 'release' ) ) {
+				get_template_part( 'widgets', 'release' );
+			} elseif( is_blog( ) || is_search( ) ) {
+				get_template_part( 'widgets', 'blog' );
+			}
+		?>
+	</section>
 	<?php if( is_front_page( ) ) { get_template_part( 'widgets', 'front' ); } ?>
-</div>
+</section>
 
 <?php get_footer( ); ?>

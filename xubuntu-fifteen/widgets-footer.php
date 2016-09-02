@@ -6,6 +6,7 @@
 
 		wp_nav_menu( array(
 			'theme_location' => 'footer_navigation',
+			'container' => 'nav',
 			'container_id' => 'footer_navi',
 			'container_class' => 'group navigation nh',
 			'fallback_cb' => false
