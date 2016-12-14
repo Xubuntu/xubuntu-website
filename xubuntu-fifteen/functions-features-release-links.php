@@ -181,32 +181,35 @@ function release_link_list( $link_type = 'press', $term = null ) {
 
 /*
  *  Add a function to output press links
+ *  Used by: content-release.php !
  *
  */
 
 function release_link_press_output( $press_links = array( ) ) {
 	if( count( $press_links ) > 0 ) {
-		echo '<ul class="link-list">';
+		$out = '<ul class="link-list">';
 		foreach( $press_links as $press_link ) {
 			$meta = get_post_meta( $press_link->ID );
-			echo '<li>';
-			echo '<strong><a href="' . $meta['link_url'][0] . '">' . $press_link->post_title . '</a></strong>';
+			$out .= '<li>';
+			$out .= '<strong><a href="' . $meta['link_url'][0] . '">' . $press_link->post_title . '</a></strong>';
 			if( ( isset( $meta['author_name'][0] ) && strlen( $meta['author_name'][0] ) > 0 ) || ( isset( $meta['author_site'][0] ) && strlen( $meta['author_site'][0] ) > 0 ) ) {
-				echo ' by ';
+				$out .= ' by ';
 			}
 			if( isset( $meta['author_name'][0] ) && strlen( $meta['author_name'][0] ) > 0 ) {
-				echo $meta['author_name'][0] . ' of ';
+				$out .= $meta['author_name'][0] . ' of ';
 			}
 			if( isset( $meta['author_site'][0] ) && strlen( $meta['author_site'][0] ) > 0 ) {
 				if( isset( $meta['author_url'][0] ) && strlen( $meta['author_url'][0] ) > 0 ) {
-					echo '<a href="' . $meta['author_url'][0] . '">' . $meta['author_site'][0] . '</a>';
+					$out .= '<a href="' . $meta['author_url'][0] . '">' . $meta['author_site'][0] . '</a>';
 				} else {
-					echo $meta['author_site'][0];
+					$out .= $meta['author_site'][0];
 				}
 			}
-			echo '</li>';
+			$out .= '</li>';
 		}
-		echo '</ul>';
+		$out .= '</ul>';
+
+		return $out;
 	}
 }
 
@@ -226,15 +229,31 @@ function release_link_shortcode_press( $atts ) {
 		'press'
 	);
 
+	$args = array( );
+
 	if( strlen( $atts['release'] ) > 0 ) {
-		$links = release_link_list( 'press', $atts['release'] );
-	} else {
-		$links = release_link_list( 'press' );
+		$single_release = get_term_by( 'slug', $atts['release'], 'release' );
+		$args['include'] = $single_release->term_id;
 	}
 
-	print_r( $links );
+	$releases = get_terms( 'release', $args );
+	$navi = '';
+	$links_out = '';
+
+	foreach( $releases as $release ) {
+		$links = release_link_list( 'press', $release->term_id );
+		if( count( $links ) > 0 ) {
+			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+			$navi .= '<a class="button" href="#' . $release->slug . '">' . $release->name . '</a>';
+			$links_out .= '<h2 id="' . $release->slug . '">' . $release->name . ' (' . $release_meta['release_codename'] . ')</h2>' . release_link_press_output( $links );
+		}
+	}
+
+	if( count( $releases ) > 1 ) {
+		return '<p>' . $navi . '</p>' . $links_out;
+	} else {
+		return $links_out;
+	}
 }
-
-
 
 ?>

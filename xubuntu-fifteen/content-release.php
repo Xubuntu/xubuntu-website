@@ -72,7 +72,7 @@
 	$press_links = release_link_list( 'press', $release->term_id );
 	if( $press_links ) {
 		echo '<h2>' . __( 'In the Press', 'xubuntu' ) . '</h2>';
-		release_link_press_output( $press_links );
+		echo release_link_press_output( $press_links );
 	}
 ?>
 
