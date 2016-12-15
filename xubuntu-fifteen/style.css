@@ -6,7 +6,7 @@
  *  Author: Pasi Lallinaho
  *  Author URI: http://open.knome.fi/
  *
- *  Version: 2016-sept (r118)
+ *  Version: 2016-dec (r120)
  *
  */
 
@@ -541,6 +541,32 @@ dl.release-info {
 	margin-right: 0.5em;
 	color: rgba( 0, 0, 0, 0.5 );
 }
+
+/*  Mirror lists  (code)  */
+
+.mirrors .main {
+	font-weight: 600;
+}
+
+.mirrors .mirror-lp-url {
+	display: none;
+	margin-right: 1em;
+	float: right;
+}
+	.mirrors.expanded .mirror-lp-url {
+		display: inline-block;
+	}
+	.mirrors .mirror-lp-url a {
+		font-size: 80%;
+		color: rgba( 0, 0, 0, 0.5 );
+	}
+
+.mirrors .nobullet a {
+	font-size: 90%;
+}
+	.mirrors .nobullet::before {
+		content: " " !important;
+	}
 
 /*  Search form  */
 

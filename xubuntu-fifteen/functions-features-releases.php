@@ -58,12 +58,29 @@ $taxonomy_release_fields = array(
 	),
 	'release_date' => array(
 		'label' => __( 'Release Date', 'xubuntu' ),
-		'type' => 'date'
+		'type' => 'date',
+		'description' => __( 'Date in YYYY-MM-DD format.', 'xubuntu' )
 	),
 	'release_eol' => array(
 		'label' => __( 'Release End of Life', 'xubuntu' ),
-		'type' => 'date'
-	)
+		'type' => 'date',
+		'description' => __( 'Date in YYYY-MM-DD format.', 'xubuntu' )
+	),
+	'release_torrent_32bit' => array(
+		'label' => __( 'Torrent download link (32-bit)', 'xubuntu' ),
+		'type' => 'url',
+		'description' => __( 'The download link for the 32-bit image; for LTS, always use the latest point release link. Will be hidden after the release goes EOL.', 'xubuntu' )
+	),
+	'release_torrent_64bit' => array(
+		'label' => __( 'Torrent download link (64-bit)', 'xubuntu' ),
+		'type' => 'url',
+		'description' => __( 'The download link for the 64-bit image; for LTS, always use the latest point release link. Will be hidden after the release goes EOL.', 'xubuntu' )
+	),
+	'release_documentation_link' => array(
+		'label' => __( 'Online Documentation', 'xubuntu' ),
+		'type' => 'url',
+		'description' => __( 'URL for the online documentation for the release. Will be hidden after the release goes EOL.', 'xubuntu' )
+	),
 );
 
 add_action( 'release_edit_form_fields', 'release_taxonomy_custom_fields_edit', 10, 2 );
@@ -81,9 +98,13 @@ function release_taxonomy_custom_fields_edit( $tax ) {
 		echo '<label for="' . $id . '">' . $field['label'] . '</label>';
 		echo '</th>';
 		echo '<td>';
-		echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . $term_meta[$id] . '" type="' . $field['type'] . '" />';
-		if( 'date' == $field['type'] ) {
-			echo '<p class="description">Date in YYYY-MM-DD format.</p>';
+		if( isset( $term_meta[$id] ) ) {
+			echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . $term_meta[$id] . '" type="' . $field['type'] . '" />';
+		} else {
+			echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="" type="' . $field['type'] . '" />';
+		}
+		if( isset( $field['description'] ) ) {
+			echo '<p class="description">' . $field['description'] . '</p>';
 		}
 		echo '</td>';
 		echo '</tr>';
@@ -130,7 +151,7 @@ function release_taxonomy_custom_fields_save( $term_id ) {
 		}  
 
 		update_option( 'taxonomy_term_' . $term_id, $term_meta );
-	}  
+	}
 }
 
 /*
@@ -147,7 +168,7 @@ function release_taxonomy_meta_box( ) {
 		foreach( $releases as $release ) {
 			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
 			if( $class != 'eol' && $release->release_is_eol == 1 ) {
-				echo '<li class="nobullet show-on-js"><a class="show-eol" href="#show-eol">Show EOL releases</a></li>';
+				echo '<li class="nobullet show-on-js"><a class="show-eol" href="#show-eol">' . __( 'Show EOL releases', 'xubuntu' ) . '</a></li>';
 				$class = 'eol';
 			}
 
@@ -293,11 +314,11 @@ function release_taxonomy_get_releases_sorted( ) {
 		}
 	}
 
-	usort( $releases, 'release_taxonomy_release_usort' );
+	usort( $releases, 'release_taxonomy_release_usort_eol_last' );
 	return $releases;
 }
 
-function release_taxonomy_release_usort( $a, $b ) {
+function release_taxonomy_release_usort_eol_last( $a, $b ) {
 	$eolcmp = strnatcmp( $a->release_is_eol, $b->release_is_eol );
 
 	if( $eolcmp != 0 ) {
@@ -306,5 +327,77 @@ function release_taxonomy_release_usort( $a, $b ) {
 		return strnatcmp( $b->name, $a->name );
 	}
 }
+
+function release_taxonomy_release_usort( $a, $b ) {
+	return strnatcmp( $b->name, $a->name );
+}
+
+/*
+ *  Add a shortcode to print the torrent link buttons
+ *
+ */
+
+add_shortcode( 'torrents', 'release_torrent_links' );
+
+function release_torrent_links( $atts ) {
+	$atts = shortcode_atts(
+		array(
+			'release' => false,
+		),
+		$atts,
+		'torrents'
+	);
+
+	if( strlen( $atts['release'] ) < 1 ) {
+		return;
+	}
+
+	$release = get_term_by( 'slug', $atts['release'], 'release' );
+	$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+	$out = '';
+
+	if( isset( $release_meta['release_torrent_64bit'] ) ) {
+		$out .= '<a class="button primary" href="' . $release_meta['release_torrent_64bit'] . '">' . _x( '<strong>64-bit</strong> systems', 'torrent download link', 'xubuntu' ) . '</a>';
+	}
+	if( isset( $release_meta['release_torrent_32bit'] ) ) {
+		$out .= '<a class="button" href="' . $release_meta['release_torrent_32bit'] . '">' . __( '<strong>32-bit</strong> systems', 'torrent download link', 'xubuntu' ) . '</a>';
+	}
+
+	if( strlen( $out ) > 0 ) {
+		return '<p>' . $out . '</p>';
+	}
+}
+
+/*
+ *  Add a shortcode to list all online documentation links for released, non-EOL releases
+ *
+ */
+
+add_shortcode( 'documentation_links', 'release_documentation_links' );
+
+function release_documentation_links( $atts ) {
+	$releases = release_taxonomy_get_releases_sorted( );
+
+	if( is_array( $releases ) ) {
+		$date_now = new DateTime( 'now' );
+		$out = '<ul>';
+		foreach( $releases as $release ) {
+			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+			$date_release = new DateTime( $release_meta['release_date'] );
+
+			if( strlen( $release_meta['release_codename'] ) > 0 ) {
+				$release->name .= ' (' . $release_meta['release_codename'] . ')';
+			}
+			if( $release->release_is_eol == 0 && $date_release->format( 'Ymd' ) <= $date_now->format( 'Ymd' ) ) {
+				$date_eol = new DateTime( $release_meta['release_eol'] );
+				$out .= '<li><strong><a href="' . $release_meta['release_documentation_link'] . '">Xubuntu ' . $release->name . '</a></strong>, supported until ' . $date_eol->format( 'F Y' ) . '</li>';
+			}
+		}
+		$out .= '</ul>';
+
+		return $out;
+	}
+}
+
 
 ?>

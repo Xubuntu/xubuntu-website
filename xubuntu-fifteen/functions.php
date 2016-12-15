@@ -15,6 +15,7 @@ include 'functions-features.php';
 include 'functions-features-articles.php';
 include 'functions-features-releases.php';
 include 'functions-features-release-links.php';
+include 'functions-features-release-mirrors.php';
 
 /*
  *  Configuration options

@@ -1,58 +1,71 @@
 <?php
+	//  Get release information
 	$release = get_term_by( 'slug', get_query_var( 'release' ), 'release', OBJECT );
 	$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
 
+	//  Get release timestamp
 	if( isset( $release_meta['release_date'] ) && $release_meta['release_date'] > 0 ) {
 		list( $year, $month, $day ) = explode( '-', $release_meta['release_date'] );
 		$release_time = gmmktime( 0, 0, 0, $month, $day, $year );
 	}
+	//  Get EOL timestamp
 	if( isset( $release_meta['release_eol'] ) && $release_meta['release_eol'] > 0 ) {
 		list( $year, $month, $day ) = explode( '-', $release_meta['release_eol'] );
 		$eol_time = gmmktime( 0, 0, 1, $month, $day, $year );
 	}
+?>
 
-	echo '<h1 class="post-title">Xubuntu ' . single_term_title( '', false ) . '</h1>';
-	if( strlen( $release_meta['release_codename'] ) > 0 || isset( $release_time ) || isset( $eol_time ) ) {
-		echo '<dl class="release-info group">';
-		if( strlen( $release_meta['release_codename'] ) > 0 ) {
-			echo '<dt>' . __( 'Codename', 'xubuntu' ) . '</dt><dd>' . $release_meta['release_codename'] . '</dd>';
-		}
-		if( isset( $release_time ) ) {
-			echo '<dt>' . __( 'Release Date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
-		}
-		if( isset( $eol_time ) ) {
-			echo '<dt>' . __( 'End of Life', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $eol_time ) . '</dd>';
-		}
-		echo '</dl>';
+<h1 class="post-title">Xubuntu <?php echo single_term_title( '', false ); ?></h1>
+<?php echo wpautop( $release->description ); ?>
+
+<?php
+	//  Release information
+	$info = '';
+	if( strlen( $release_meta['release_codename'] ) > 0 ) {
+		$info .= '<dt>' . __( 'Codename', 'xubuntu' ) . '</dt><dd>' . $release_meta['release_codename'] . '</dd>';
+	}
+	if( isset( $release_time ) ) {
+		$info .= '<dt>' . __( 'Release Date', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $release_time ) . '</dd>';
+	}
+	if( isset( $eol_time ) ) {
+		$info .= '<dt>' . __( 'End of Life', 'xubuntu' ) . '</dt><dd>' . gmdate( 'F j, Y', $eol_time ) . '</dd>';
 	}
 
-	echo wpautop( $release->description );
+	//  Release links
+	if( isset( $release_meta['release_torrent_64bit'] ) ) {
+		$info_links[] = '<strong><a href="' . $release_meta['release_torrent_64bit'] . '">' . __( 'Torrent download for 64-bit systems', 'xubuntu' ) . '</a></strong>';
+	}
+	if( isset( $release_meta['release_torrent_32bit'] ) ) {
+		$info_links[] = '<strong><a href="' . $release_meta['release_torrent_32bit'] . '">' . __( 'Torrent download for 32-bit systems', 'xubuntu' ) . '</a></strong>';
+	}
+	if( isset( $release_meta['release_documentation_link'] ) ) {
+		$info_links[] = '<a href="' . $release_meta['release_documentation_link'] . '">' . __( 'Online Documentation', 'xubuntu' ) . '</a>';
+	}
+	if( isset( $info_links ) ) {
+		$info .= '<dt>' . __( 'Release Links', 'xubuntu' ) . '</dt><dd>' . implode( $info_links, '<br />' ) . '</dd>';
+	}
+
+	if( strlen( $info ) > 0 ) {
+		echo '<dl class="release-info group">';
+		echo $info;
+		echo '</dl>';
+	}
 ?>
 
 <?php
-	$official_links = release_link_list( array( 'official', 'official-expiring' ), $release->term_id );
-
-	if( $official_links ) {
-		$output_links = array( );
-
-		foreach( $official_links as $official_link ) {
-			$meta = get_post_meta( $official_link->ID );
-			if( ( $meta['link_type'][0] == 'official-expiring' && time( ) <= $eol_time ) || $meta['link_type'][0] == 'official' ) {
-				$output_links[] = '<li><strong><a href="' . $meta['link_url'][0] . '">' . $official_link->post_title . '</a></strong></li>';
+	//  Direct download links
+	if( $eol_time > time( ) ) {
+		if( shortcode_exists( 'mirrors' ) )  {
+			$mirrors = do_shortcode( '[mirrors release=' . $release->name . ']' );
+			if( isset( $mirrors ) ) {
+				echo '<h2>' . __( 'Direct Downloads', 'xubuntu' ) . '</h2>';
+				echo $mirrors;
 			}
-		}
-	
-		if( count( $output_links ) > 0 ) {
-			echo '<h2>' . __( 'Official Links', 'xubuntu' ) . '</h2>';
-			echo '<ul class="link-list">';
-			foreach( $output_links as $link ) {
-				echo $link;
-			}
-			echo '</ul>';
 		}
 	}
 ?>
 
+<?php //  Articles  ?>
 <?php if( have_posts( ) ) { ?>
 	<h2><?php _e( 'Articles', 'xubuntu' ); ?></h2>
 	<ul class="posts-list">
@@ -69,6 +82,7 @@
 <?php } ?>
 
 <?php
+	//  Press links
 	$press_links = release_link_list( 'press', $release->term_id );
 	if( $press_links ) {
 		echo '<h2>' . __( 'In the Press', 'xubuntu' ) . '</h2>';
@@ -77,6 +91,7 @@
 ?>
 
 <?php
+	//  Attachments, usually screenshots
 	$attachments = get_posts( array(
 		'post_type' => 'attachment',
 		'posts_per_page' => -1,

@@ -49,7 +49,6 @@ function release_link_add_meta_boxes( ) {
 	add_meta_box( 'release_link_type', _x( 'Link Type', 'meta box title', 'xubuntu' ), 'release_link_meta_box_link_type', 'release_link', 'normal', 'high' );	
 	add_meta_box( 'release_link_link', _x( 'Link', 'meta box title', 'xubuntu' ), 'release_link_meta_box_link', 'release_link', 'normal', 'high' );
 	add_meta_box( 'release_link_author', _x( 'Author', 'meta box title', 'xubuntu' ), 'release_link_meta_box_author', 'release_link', 'normal' );
-
 }
 
 function release_link_meta_box_link_type( $post, $box ) {
@@ -74,7 +73,6 @@ function release_link_meta_box_link( $post, $box ) {
 
 	echo '<p><input type="text" class="widefat" name="link_title" placeholder="' . _x( 'Review of the latest Xubuntu release – awesome!', 'placeholder text', 'xubuntu' ) . '" value="' . $link_title . '" /></p>';
 	echo '<p><input type="text" class="widefat" name="link_url" placeholder="' . _x( 'http://example.com/xubuntu-review/', 'placeholder text', 'xubuntu' ) . '" value="' . $link_url . '" /></p>';
-	echo '</label></p>';
 }
 
 function release_link_meta_box_author( $post, $box ) {
@@ -237,6 +235,7 @@ function release_link_shortcode_press( $atts ) {
 	}
 
 	$releases = get_terms( 'release', $args );
+	usort( $releases, 'release_taxonomy_release_usort' );
 	$navi = '';
 	$links_out = '';
 
@@ -245,7 +244,11 @@ function release_link_shortcode_press( $atts ) {
 		if( count( $links ) > 0 ) {
 			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
 			$navi .= '<a class="button" href="#' . $release->slug . '">' . $release->name . '</a>';
-			$links_out .= '<h2 id="' . $release->slug . '">' . $release->name . ' (' . $release_meta['release_codename'] . ')</h2>' . release_link_press_output( $links );
+			$links_out .= '<h2 id="' . $release->slug . '">' . $release->name;
+			if( strlen( $release_meta['release_codename'] ) > 0 ) {
+				$links_out .= ' (' . $release_meta['release_codename'] . ')';
+			}
+			$links_out .= '</h2>' . release_link_press_output( $links );
 		}
 	}
 

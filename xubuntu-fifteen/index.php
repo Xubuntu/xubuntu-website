@@ -10,6 +10,8 @@
 					get_template_part( 'content', 'release' );
 				} elseif( is_attachment( ) ) {
 					get_template_part( 'content', 'attachment' );
+				} elseif( is_page_template( 'template-releases-landing.php' ) ) {
+					get_template_part( 'content', 'releases-landing' );
 				} elseif( have_posts( ) && !is_404( ) ) {
 					if( is_archive( ) ) {
 						get_template_part( 'content', 'archive' );
@@ -27,7 +29,7 @@
 			?>
 		</main>
 		<?php
-			if( is_tax( 'release' ) ) {
+			if( is_tax( 'release' ) || is_page_template( 'template-releases-landing.php' ) ) {
 				get_template_part( 'widgets', 'release' );
 			} elseif( is_blog( ) || is_search( ) ) {
 				get_template_part( 'widgets', 'blog' );
