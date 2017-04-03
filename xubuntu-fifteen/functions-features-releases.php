@@ -89,8 +89,9 @@ add_action( 'release_add_form_fields', 'release_taxonomy_custom_fields_add', 10,
 function release_taxonomy_custom_fields_edit( $tax ) {
 	global $taxonomy_release_fields;
 
-	$term_id = $tax->term_id;
-	$term_meta = get_option( 'taxonomy_term_' . $term_id );
+	if( isset( $tax->term_id ) ) {
+		$term_meta = get_option( 'taxonomy_term_' . $tax->term_id );
+	}
 
 	foreach( $taxonomy_release_fields as $id => $field ) {
 		echo '<tr class="form-field">';
@@ -98,11 +99,7 @@ function release_taxonomy_custom_fields_edit( $tax ) {
 		echo '<label for="' . $id . '">' . $field['label'] . '</label>';
 		echo '</th>';
 		echo '<td>';
-		if( isset( $term_meta[$id] ) ) {
-			echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . $term_meta[$id] . '" type="' . $field['type'] . '" />';
-		} else {
-			echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="" type="' . $field['type'] . '" />';
-		}
+		echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . ( !isset( $term_meta ) ?: $term_meta[$id] ) . '" type="' . $field['type'] . '" />';
 		if( isset( $field['description'] ) ) {
 			echo '<p class="description">' . $field['description'] . '</p>';
 		}
@@ -115,16 +112,13 @@ function release_taxonomy_custom_fields_add( $tax ) {
 	global $taxonomy_release_fields;
 
 	if( isset( $tax->term_id ) ) {
-		$term_id = $tax->term_id;
-		$term_meta = get_option( 'taxonomy_term_' . $term_id );
-	} else {
-		$term_meta = get_option( 'taxonomy_term_0' );
+		$term_meta = get_option( 'taxonomy_term_' . $tax->term_id );
 	}
 
 	foreach( $taxonomy_release_fields as $id => $field ) {
 		echo '<div class="form-field">';
 		echo '<label for="' . $id . '">' . $field['label'] . '</label>';
-		echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . $term_meta[$id] . '" type="' . $field['type'] . '" />';
+		echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . ( !isset( $term_meta ) ?: $term_meta[$id] ) . '" type="' . $field['type'] . '" />';
 		if( 'date' == $field['type'] ) {
 			echo '<p>Date in YYYY-MM-DD format.</p>';
 		}
@@ -134,6 +128,7 @@ function release_taxonomy_custom_fields_add( $tax ) {
 
 /*
  *  Handle saving custom fields
+ *  TODO: Are nonces needed here?
  *
  */
 

@@ -52,7 +52,10 @@ function release_link_add_meta_boxes( ) {
 }
 
 function release_link_meta_box_link_type( $post, $box ) {
-	$link_type = get_post_meta( $post->ID, 'link_type', true );
+	if( $post ) {
+		$link_type = get_post_meta( $post->ID, 'link_type', true );
+		wp_nonce_field( 'edit_release_link_meta_' . $post->ID, 'edit_release_link_meta_' . $post->ID );
+	}
 
 	$link_types = array(
 		'press' => __( 'In the Press', 'xubuntu' ),
@@ -107,23 +110,25 @@ add_action( 'save_post_release_link', 'release_link_save_post' );
 function release_link_save_post( $post_id ) {
 	global $wpdb;
 
-	$fields_to_save = array(
-		'link_type',
-		'link_title',
-		'link_url',
-		'author_site',
-		'author_name',
-		'author_url'
-	);
+	if( !empty( $_POST ) && check_admin_referer( 'edit_release_link_meta_' . $post_id, 'edit_release_link_meta_' . $post_id ) ) {
+		$fields_to_save = array(
+			'link_type',
+			'link_title',
+			'link_url',
+			'author_site',
+			'author_name',
+			'author_url'
+		);
 
-	foreach( $fields_to_save as $field ) {
-		if( isset( $_POST[$field] ) ) {
-			update_post_meta( $post_id, $field, sanitize_text_field( $_POST[$field] ) );
+		foreach( $fields_to_save as $field ) {
+			if( isset( $_POST[$field] ) ) {
+				update_post_meta( $post_id, $field, sanitize_text_field( $_POST[$field] ) );
+			}
 		}
-	}
 
-	if( isset( $_POST['link_title'] ) ) {
-		$wpdb->update( $wpdb->posts, array( 'post_title' => $_POST['link_title'] ), array( 'ID' => $post_id ) );
+		if( isset( $_POST['link_title'] ) ) {
+			$wpdb->update( $wpdb->posts, array( 'post_title' => $_POST['link_title'] ), array( 'ID' => $post_id ) );
+		}
 	}
 }
 
