@@ -118,8 +118,6 @@ function release_taxonomy_custom_fields_edit( $tax ) {
 		echo '</td>';
 		echo '</tr>';
 	}
-
-	print_r( $term_meta );
 }
 
 function release_taxonomy_custom_fields_add( $tax ) {
