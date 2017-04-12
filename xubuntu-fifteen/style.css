@@ -553,7 +553,7 @@ dl.release-info {
 	margin-right: 1em;
 	float: right;
 }
-	.mirrors.nojs .mirror-lp-url,
+	body.no-js .mirrors .mirror-lp-url,
 	.mirrors.expanded .mirror-lp-url {
 		display: inline-block;
 	}

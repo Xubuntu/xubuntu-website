@@ -32,17 +32,19 @@
 	}
 
 	//  Release links
-	if( isset( $release_meta['release_torrent_64bit'] ) ) {
-		$info_links[] = '<strong><a href="' . $release_meta['release_torrent_64bit'] . '">' . __( 'Torrent download for 64-bit systems', 'xubuntu' ) . '</a></strong>';
-	}
-	if( isset( $release_meta['release_torrent_32bit'] ) ) {
-		$info_links[] = '<strong><a href="' . $release_meta['release_torrent_32bit'] . '">' . __( 'Torrent download for 32-bit systems', 'xubuntu' ) . '</a></strong>';
-	}
-	if( isset( $release_meta['release_documentation_link'] ) ) {
-		$info_links[] = '<a href="' . $release_meta['release_documentation_link'] . '">' . __( 'Online Documentation', 'xubuntu' ) . '</a>';
-	}
-	if( isset( $info_links ) ) {
-		$info .= '<dt>' . __( 'Release Links', 'xubuntu' ) . '</dt><dd>' . implode( $info_links, '<br />' ) . '</dd>';
+	if( $release_time < time( ) && $release_meta['release_released'] == 1 ) {
+		if( isset( $release_meta['release_torrent_64bit'] ) && strlen( $release_meta['release_torrent_64bit'] ) > 0 ) {
+			$info_links[] = '<strong><a href="' . $release_meta['release_torrent_64bit'] . '">' . __( 'Torrent download for 64-bit systems', 'xubuntu' ) . '</a></strong>';
+		}
+		if( isset( $release_meta['release_torrent_32bit'] ) && strlen( $release_meta['release_torrent_32bit'] ) > 0 ) {
+			$info_links[] = '<strong><a href="' . $release_meta['release_torrent_32bit'] . '">' . __( 'Torrent download for 32-bit systems', 'xubuntu' ) . '</a></strong>';
+		}
+		if( isset( $release_meta['release_documentation_link'] ) && strlen( $release_meta['release_documentation_link'] ) > 0 ) {
+			$info_links[] = '<a href="' . $release_meta['release_documentation_link'] . '">' . __( 'Online Documentation', 'xubuntu' ) . '</a>';
+		}
+		if( isset( $info_links ) ) {
+			$info .= '<dt>' . __( 'Release Links', 'xubuntu' ) . '</dt><dd>' . implode( $info_links, '<br />' ) . '</dd>';
+		}
 	}
 
 	if( strlen( $info ) > 0 ) {
@@ -54,9 +56,9 @@
 
 <?php
 	//  Direct download links
-	if( $eol_time > time( ) ) {
+	if( isset( $eol_time ) && $eol_time > time( ) && $release_meta['release_released'] == 1 ) {
 		if( shortcode_exists( 'mirrors' ) )  {
-			$mirrors = do_shortcode( '[mirrors release=' . $release->name . ']' );
+			$mirrors = do_shortcode( '[mirrors release=' . $release->slug . ']' );
 			if( isset( $mirrors ) ) {
 				echo '<h2>' . __( 'Direct Downloads', 'xubuntu' ) . '</h2>';
 				echo $mirrors;

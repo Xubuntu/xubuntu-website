@@ -81,6 +81,12 @@ $taxonomy_release_fields = array(
 		'type' => 'url',
 		'description' => __( 'URL for the online documentation for the release. Will be hidden after the release goes EOL.', 'xubuntu' )
 	),
+	'release_released' => array(
+		'label' => __( 'Released?', 'xubuntu' ),
+		'type' => 'checkbox',
+		'check_label' => 'Is this release out?',
+		'description' => __( 'Controls the visibility of release links on the release apes; check this box once released and links will appear.', 'xubuntu' )
+	),
 );
 
 add_action( 'release_edit_form_fields', 'release_taxonomy_custom_fields_edit', 10, 2 );
@@ -99,13 +105,21 @@ function release_taxonomy_custom_fields_edit( $tax ) {
 		echo '<label for="' . $id . '">' . $field['label'] . '</label>';
 		echo '</th>';
 		echo '<td>';
-		echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . ( !isset( $term_meta ) ?: $term_meta[$id] ) . '" type="' . $field['type'] . '" />';
+		switch( $field['type'] ) {
+			case 'checkbox':
+				echo '<input name="term_meta[' . $id . ']" id="' . $id . '" ' . ( !isset( $term_meta[$id] ) ? '' : checked( $term_meta[$id], '1', false ) ) . ' type="checkbox" /> ' . $field['check_label'];
+				break;
+			default:
+				echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . ( !isset( $term_meta ) ? '' : $term_meta[$id] ) . '" type="' . $field['type'] . '" />';
+		}
 		if( isset( $field['description'] ) ) {
 			echo '<p class="description">' . $field['description'] . '</p>';
 		}
 		echo '</td>';
 		echo '</tr>';
 	}
+
+	print_r( $term_meta );
 }
 
 function release_taxonomy_custom_fields_add( $tax ) {
@@ -118,7 +132,13 @@ function release_taxonomy_custom_fields_add( $tax ) {
 	foreach( $taxonomy_release_fields as $id => $field ) {
 		echo '<div class="form-field">';
 		echo '<label for="' . $id . '">' . $field['label'] . '</label>';
-		echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . ( !isset( $term_meta ) ?: $term_meta[$id] ) . '" type="' . $field['type'] . '" />';
+		switch( $field['type'] ) {
+			case 'checkbox':
+				echo '<input name="term_meta[' . $id . ']" id="' . $id . '" ' . ( !isset( $term_meta[$id] ) ? '' : checked( $term_meta[$id], '1', false ) ) . ' type="checkbox" /> ' . $field['check_label'];
+				break;
+			default:
+				echo '<input name="term_meta[' . $id . ']" id="' . $id . '" value="' . ( !isset( $term_meta ) ? '' : $term_meta[$id] ) . '" type="' . $field['type'] . '" />';
+		}
 		if( 'date' == $field['type'] ) {
 			echo '<p>Date in YYYY-MM-DD format.</p>';
 		}
@@ -138,12 +158,14 @@ add_action( 'created_release', 'release_taxonomy_custom_fields_save', 10, 2 );
 function release_taxonomy_custom_fields_save( $term_id ) {
 	if( isset( $_POST['term_meta'] ) ) {
 		$term_meta = get_option( 'taxonomy_term_' . $term_id );
-		$keys = array_keys( $_POST['term_meta'] );
-		foreach( $keys as $key ) {
-			if( isset( $_POST['term_meta'][$key] ) ) {
-				$term_meta[$key] = $_POST['term_meta'][$key];
-			}  
-		}  
+//		$keys = array_keys( $_POST['term_meta'] );
+//		foreach( $keys as $key ) {
+		foreach( $_POST['term_meta'] as $key => $value ) {
+			if( isset( $value ) ) {
+				$term_meta[$key] = $value;
+			}
+		}
+		if( isset( $_POST['term_meta']['release_released'] ) ) { $term_meta['release_released'] = 1; } else { $term_meta['release_released'] = 0; }
 
 		update_option( 'taxonomy_term_' . $term_id, $term_meta );
 	}
@@ -378,14 +400,17 @@ function release_documentation_links( $atts ) {
 		$out = '<ul>';
 		foreach( $releases as $release ) {
 			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
-			$date_release = new DateTime( $release_meta['release_date'] );
 
-			if( strlen( $release_meta['release_codename'] ) > 0 ) {
-				$release->name .= ' (' . $release_meta['release_codename'] . ')';
-			}
-			if( $release->release_is_eol == 0 && $date_release->format( 'Ymd' ) <= $date_now->format( 'Ymd' ) ) {
-				$date_eol = new DateTime( $release_meta['release_eol'] );
-				$out .= '<li><strong><a href="' . $release_meta['release_documentation_link'] . '">Xubuntu ' . $release->name . '</a></strong>, supported until ' . $date_eol->format( 'F Y' ) . '</li>';
+			if( isset( $release_meta['release_documentation_link'] ) && strlen( $release_meta['release_documentation_link'] ) > 0 && isset( $release_meta['release_released'] ) && $release_meta['release_released'] == 1 ) {
+				$date_release = new DateTime( $release_meta['release_date'] );
+
+				if( strlen( $release_meta['release_codename'] ) > 0 ) {
+					$release->name .= ' (' . $release_meta['release_codename'] . ')';
+				}
+				if( $release->release_is_eol == 0 && $date_release->format( 'Ymd' ) <= $date_now->format( 'Ymd' ) ) {
+					$date_eol = new DateTime( $release_meta['release_eol'] );
+					$out .= '<li><strong><a href="' . $release_meta['release_documentation_link'] . '">Xubuntu ' . $release->name . '</a></strong>, supported until ' . $date_eol->format( 'F Y' ) . '</li>';
+				}
 			}
 		}
 		$out .= '</ul>';

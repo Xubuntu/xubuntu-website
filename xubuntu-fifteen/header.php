@@ -14,7 +14,7 @@
 	<?php wp_head( ); ?>
 </head>
 
-<body id="xubuntu" <?php echo body_class( ); ?>>
+<body id="xubuntu" <?php echo body_class( 'no-js' ); ?>>
 
 <header>
 	<div id="logo">
