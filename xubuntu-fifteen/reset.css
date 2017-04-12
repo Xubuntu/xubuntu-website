@@ -83,3 +83,12 @@ table {
 .hidden,
 .screen-reader-text { display: none; }
 .small { font-size: 85%; }
+
+
+/*
+ * 
+ */
+
+.show-on-js {
+	display: none;
+}

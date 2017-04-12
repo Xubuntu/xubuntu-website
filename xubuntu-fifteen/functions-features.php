@@ -69,7 +69,7 @@ function xubuntu_scripts( ) {
 		wp_enqueue_script( 'xubuntu-script-menu', get_template_directory_uri( ) . '/script-menu.js', array( 'jquery' ), '2' );
 	}
 
-	wp_enqueue_script( 'xubuntu-script-releases', get_template_directory_uri( ) . '/script-releases.js', array( 'jquery' ), '2' );
+	wp_enqueue_script( 'xubuntu-script-releases', get_template_directory_uri( ) . '/script-releases.js', array( 'jquery' ), '3' );
 }
 
 /*  Enable theme support

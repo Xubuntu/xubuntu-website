@@ -185,7 +185,7 @@ function release_download_mirror_shortcode_downloads( $atts ) {
 	$mirrors = get_posts( $args );
 
 	if( count( $mirrors ) > 0 ) {
-		$out = '<ul class="columnlist mirrors">';
+		$out = '<ul class="columnlist mirrors nojs">';
 		foreach( $mirrors as $mirror ) {
 			$mirror_meta = get_post_meta( $mirror->ID );
 			if( $mirror_meta['mirror_main'][0] == 1 ) {
