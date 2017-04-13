@@ -1,5 +1,6 @@
 jQuery( function( ) {
 	jQuery( '.show-on-js' ).show( );
+	jQuery( 'body.no-js' ).removeClass( 'no-js' );
 
 	/* Release list */
 	jQuery( '.releases .eol' ).hide( );
