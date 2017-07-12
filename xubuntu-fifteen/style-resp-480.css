@@ -1,0 +1,21 @@
+body {
+	min-width: 320px;
+}
+
+h1 {
+	font-size: 160%;
+}
+
+h2 {
+	font-size: 140%;
+}
+
+/*  Navigation, horizontal  */
+
+.navigation.nh .menu > li {
+	width: 100% !important;
+	padding: 0 !important;
+}
+	.navigation.nh .menu > li:nth-child(odd) {
+		border-right: none !important;
+	}

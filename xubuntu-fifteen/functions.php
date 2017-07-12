@@ -43,9 +43,10 @@ function xubuntu_styles( ) {
 
 	// Responsive design
 	wp_enqueue_style( 'xubuntu-style-resp-1200', get_stylesheet_directory_uri( ) . '/style-resp-1200.css', array( 'xubuntu-style', 'xubuntu-style-common' ), false, 'only screen and (max-width:1200px)' );
-	wp_enqueue_style( 'xubuntu-style-resp-1000', get_stylesheet_directory_uri( ) . '/style-resp-1000.css', array( 'xubuntu-style', 'xubuntu-style-common', 'xubuntu-style-resp-1200' ), false, 'only screen and (max-width:1000px)' );
-	wp_enqueue_style( 'xubuntu-style-resp-800', get_stylesheet_directory_uri( ) . '/style-resp-800.css', array( 'xubuntu-style', 'xubuntu-style-common', 'xubuntu-style-resp-1000' ), false, 'only screen and (max-width:800px)' );
-	wp_enqueue_style( 'xubuntu-style-resp-600', get_stylesheet_directory_uri( ) . '/style-resp-600.css', array( 'xubuntu-style', 'xubuntu-style-common', 'xubuntu-style-resp-800' ), false, 'only screen and (max-width:600px)' );
+	wp_enqueue_style( 'xubuntu-style-resp-1000', get_stylesheet_directory_uri( ) . '/style-resp-1000.css', array( 'xubuntu-style-resp-1200' ), false, 'only screen and (max-width:1000px)' );
+	wp_enqueue_style( 'xubuntu-style-resp-800', get_stylesheet_directory_uri( ) . '/style-resp-800.css', array( 'xubuntu-style-resp-1000' ), false, 'only screen and (max-width:800px)' );
+	wp_enqueue_style( 'xubuntu-style-resp-600', get_stylesheet_directory_uri( ) . '/style-resp-600.css', array( 'xubuntu-style-resp-800' ), false, 'only screen and (max-width:600px)' );
+	wp_enqueue_style( 'xubuntu-style-resp-480', get_stylesheet_directory_uri( ) . '/style-resp-480.css', array( 'xubuntu-style-resp-600' ), false, 'only screen and (max-width:480px)' );
 }
 
 /*  Check if the current page is a blog page
