@@ -34,8 +34,8 @@ function xubuntu_styles( ) {
 	// Eric Meyer: CSS reset | http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
 	wp_enqueue_style( 'css-reset', get_stylesheet_directory_uri( ) . '/reset.css' );
 
-	// Font: Open Sans
-	wp_enqueue_style( 'font-open-sans', get_stylesheet_directory_uri( ) . '/font-open-sans.css' );
+	// Font: Noto Sans
+	wp_enqueue_style( 'font-noto-sans', get_stylesheet_directory_uri( ) . '/font-noto-sans.css' );
 
 	// Main style sheets
 	wp_enqueue_style( 'xubuntu-style', get_stylesheet_directory_uri( ) . '/style.css' );
