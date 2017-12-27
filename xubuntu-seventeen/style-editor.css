@@ -1,0 +1,104 @@
+body {
+	font-size: small;
+	font-family: 'Noto Sans', sans-serif !important;
+	line-height: 1.5em;
+
+	background-color: #fafafa;
+	color: #3c3c3c;
+}
+
+/*  Elements
+ *
+ */
+
+a {
+	/* This imitates the hover style for editing clarity */
+	color: #205dba;
+	border-bottom: 1px solid #bccde6;
+}
+
+blockquote {
+	/* Remove left margin (from WordPress) */
+	margin: 0;
+}
+	blockquote p {
+		/* Fix spacing issues */
+		margin-top: 0;
+	}
+
+h2 {
+	/* Imitate the style in the content area */
+	border-top: 1px dotted #ccc;
+	padding-top: 0.5em;
+}
+
+
+li { margin-bottom: 0.2em; list-style-position: outside; margin-left: 1.2em; }
+	ul li {
+		list-style-type: none;
+		margin-left: 1em;
+	}
+		ul li:before {
+			display: block;
+			float: left;
+
+			width: 0.7em;
+			margin-left: -0.7em;
+			margin-top: -0.12em;
+			content: "›";
+			font-weight: 300;
+			font-size: 140%;
+			color: #555;
+		}
+	ol li { list-style-type: decimal; margin-left: 1.6em; }
+	ol, ul {
+		/* Remove left margin (from WordPress) */
+		padding-left: 0 !important;
+	}
+
+/*  Templates
+ *
+ */
+
+/*  Proper padding for aligned images  */
+div.mceTemp .alignright { padding-left: 20px; }
+div.mceTemp .alignleft { padding-right: 20px; }
+.aligncenter { margin: 0 auto !important; }
+
+/*  Gallery styles, adapted for the editor */
+dl.wp-caption dd.wp-caption-dd,
+.gallery dd.wp-caption-text {
+	text-align: center;
+	color: #999;
+	padding: 0;
+	line-height: 1.3em;
+}
+
+dt.gallery-icon img {
+	border-radius: 3px;
+	box-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.2 );
+}
+
+.wpview-type-gallery .gallery {
+	/* Make sure the gallery in editor doesn't have scrollbars */
+	overflow: visible !important;
+}
+
+
+/*  Responsive styles
+ * 
+ */
+
+@media only screen and (max-width:1000px) {
+	.alignright,
+	.alignleft {
+		max-width: 310px;
+		height: auto;
+	}
+
+	.alignright img,
+	.alignleft img {
+		max-width: 300px;
+		height: auto;
+	}
+}

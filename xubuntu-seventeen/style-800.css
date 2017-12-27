@@ -1,0 +1,107 @@
+/*
+ *  Content width
+ *
+ */
+
+header #logo, header nav,
+#content,
+.widgets_front .widgets,
+footer {
+	width: 90%;
+}
+
+/*
+ *  Header
+ *
+ */
+
+#navi {
+	font-size: 90%;
+}
+
+/*
+ *  Main content area
+ *
+ */
+section#middle {
+	padding: 1.5em 0;
+}
+	#content {
+		display: flex;
+		border-radius: 4px;
+		box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+		padding: 1.8em 2.2em;
+	}
+		main {
+			flex: 68;
+		}
+		body.home main {
+			padding: 2em 0 1em 0;
+		}
+		aside {
+			flex: 32;
+			margin-left: 2em;
+		}
+
+/*
+ *  Navigation
+ *
+ */
+
+.navigation.nd .menu li a {
+	padding: 0.5em 15px;
+}
+
+/*
+ *  Widget areas
+ *  We use flex because it works with unknown column counts
+ *
+ */
+
+.widgets_flex .widgets {
+	display: flex;
+}
+	.widgets_flex .widget {
+		float: left;
+		width: 25.1%;
+
+		box-sizing: border-box;
+		flex-grow: 1;
+
+		padding: 0 1.5em;
+
+		border-right: 1px dotted rgba( 0, 0, 0, 0.2 );
+	}
+		.widgets_flex .widget:first-child {
+			padding-left: 0;
+		}
+		.widgets_flex .widget:last-child {
+			border-right: none;
+			padding-right: 0;
+		}
+		.widgets_flex .widget p:last-child {
+			margin-bottom: 0;
+		}
+
+/*
+ *  Templates
+ *
+ */
+
+/*  Featured image  */
+
+.post-thumbnail {
+	float: right;
+	margin: -1em 0 2em 2em;
+
+	max-width: 50%;
+	height: auto;
+}
+
+/*  List in columns  (TinyMCE)  */
+
+ul.columnlist {
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+}

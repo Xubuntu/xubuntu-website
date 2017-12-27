@@ -1,0 +1,27 @@
+/*
+ *  Navigation
+ *
+ */
+
+.navigation.nh .menu {
+	grid-template-columns: repeat( 6, 1fr );
+}
+	.navigation.nh .menu > li:nth-child(3n) {
+		border-right: 1px solid rgba( 0, 0, 0, 0.10 );
+	}
+	.navigation.nh .menu > li:last-child {
+		border-right: none;
+	}
+
+/*
+ *  Templates
+ *
+ */
+
+/*  Post lists  */
+
+.posts-list li .post-time {
+	display: inline-block;
+	width: 25%;
+	margin-right: 0.25em;
+}

@@ -1,0 +1,444 @@
+/*
+ *  Theme Name: Xubuntu Seventeen
+ *  Theme URI: https://xubuntu.org/
+ *  Description: A theme built for the Xubuntu website at xubuntu.org.
+ *
+ *  Author: Pasi Lallinaho
+ *  Author URI: http://open.knome.fi/
+ *
+ *  Version: 2017-dec+
+ *
+ */
+
+body {
+	font-size: small;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 500;
+	line-height: 1.5em;
+
+	background-color: #e4e4e4;
+	color: #444;
+
+	min-width: 320px;
+}
+
+/*
+ *  Content width
+ *
+ */
+
+header #logo, header nav, header::after,
+#content,
+.widgets_front .widgets,
+footer {
+	width: 95%;
+	max-width: 1400px;
+	margin: 0 auto;
+
+	clear: both;
+}
+
+#content {
+	width: 100%;
+}
+
+/*
+ *  Header
+ *
+ */
+
+header {
+	background: #0e82d0 linear-gradient( to right top, rgba( 0, 0, 0, 0 ), rgba( 0, 0, 0, 0.15 ) );
+
+	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+}
+	header a { border-bottom: none !important; }
+	header ul { margin-bottom: 0; }
+
+ 	#logo {
+		position: relative;
+		z-index: 1;
+
+		padding: 0.5em 0;
+		color: #fff;
+	}
+		/*  Compact version of the logo */
+		#logo a img {
+			display: none;
+		}
+		#logo a:after {
+			font-size: 120%;
+			font-weight: 600;
+
+			padding-right: 30px;
+
+			background: transparent url(images/xubuntu-icon-20.png) 100% 50% no-repeat;
+			content: "Xubuntu";
+
+			color: #fff;
+		}
+
+	#navi {
+		position: relative;
+		z-index: 1;
+
+		font-size: 80%;
+		background-color: rgba( 0, 0, 0, 0.2 );
+	}
+		#scrolltobottomnavi {
+			position: absolute;
+			top: 0;
+			right: 0.5em;
+			height: 100%;
+		}
+			#scrolltobottomnavi img {
+				max-height: 100%;
+				width: auto;
+			}
+
+	header.scrolled {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+/*
+ *  Main content area
+ * 
+ */
+
+section#middle {
+	background-color: #eee;
+	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+}
+	#content {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 2em;
+
+		padding: 2em 2.5% 0 2.5%;
+
+		font-size: 110%;
+
+		background-color: #fafafa;
+	}
+		aside {
+			font-size: 90%;
+		}
+			aside > :first-child {
+				margin-top: 0;
+			}
+
+body.home section#middle {
+	background-color: #f8f8f8;
+	padding: 0;
+}
+	body.home #content {
+		padding: 0;
+
+		background-color: transparent;
+		box-shadow: none;
+	}
+		body.home main {
+			padding: 2em 2.5% 1em 2.5%;
+		}
+			body.home main .post-post { margin: 0; }
+			body.home main h1 { margin-top: 0 !important; }
+
+/*
+ *  Footer
+ *
+ */
+
+footer {
+	padding: 2em 0;
+	font-size: 80%;
+	color: #555;
+}
+	footer > *:nth-child(n+2) {
+		border-top: 1px dotted #aaa;
+		padding-top: 1.5em;
+		margin-top: 1.5em;
+	}
+		nav#footer_navi .menu .sub-menu {
+			font-size: 110%;
+		}
+
+/*
+ *  Navigation
+ *
+ */
+
+/*  Generic  */
+
+.navigation .menu .sub-menu {
+	font-size: 100%;
+}
+.navigation .menu .menu-item-has-children ul {
+	margin: 0.5em 0 1.5em 0;
+}
+
+.navigation .menu a {
+	display: block;
+	width: 100%;
+}
+
+/*  Quick navigation */
+
+.navigation.nq {
+	display: block;
+
+	padding: 0.5em 0;
+}
+	.navigation.nq li {
+		font-size: 125%;
+		display: inline;
+	}
+	.navigation.nq a {
+		display: inline;
+		margin-right: 1em;
+
+		color: #fff;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+/*  Dropdown  */
+
+.navigation.nd {
+	display: none;
+}
+
+/*  Horizontal  */
+
+.navigation.nh .menu > li {
+	border-bottom: 1px dotted rgba( 0, 0, 0, 0.075 );
+	margin-bottom: 1em;
+}
+	.navigation.nh .menu > li:last-child {
+		border-bottom: none;
+	}
+	.navigation.nh .menu > li > a {
+		font-size: 125%;
+		color: #333;
+		border-bottom: none;
+	}
+
+/*
+ *  Post styles
+ *
+ */
+
+.post-post {
+	color: #333;
+	margin: 1.5em 0 0.5em 0;
+}
+	.post-post > :last-child {
+		margin-bottom: 0;
+	}
+
+.post-meta,
+.post-meta a {
+	color: rgba( 0, 0, 0, 0.2 );
+}
+	.post-meta span a {
+		transition: all 0.5s ease-in-out;
+	}
+	.post-meta span a:hover,
+	.post-meta span a:focus {
+		color: rgba( 0, 0, 0, 0.5 );
+	}
+
+/*
+ *  Templates
+ *
+ */
+
+/*  Attachments browsing  */
+
+.attachment_navi {
+	text-align: center;
+}
+	.attachment_navi .button:last-child {
+		margin-right: 0;
+	}
+
+/*  Classes for menus  */
+
+.menu .strong {
+	font-weight: 600;
+}
+
+/*  Featured image  */
+
+.post-thumbnail {
+	text-align: center;
+}
+	.post-thumbnail img {
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+/*  Featured image on the front page  */
+
+body.home .post-thumbnail {
+	margin-top: 0;
+}
+body.home main h1 {
+	display: inline;
+}
+	body.home main h1:after {
+		display: block;
+		content: "";
+		margin-bottom: 1em;
+	}
+
+/*  Home page widgets  */
+
+body.home .widgets_outer {
+	padding: 1em 0;
+	margin-bottom: 1em;
+}
+	body.home .widgets_outer#front,
+	body.home .widgets_outer#front-3 {
+		padding: 2em 0;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+	}
+	body.home .widgets_outer:last-child {
+		padding-bottom: 2em;
+	}
+
+/*  Post lists  */
+
+.posts-list li {
+	list-style-type: none;
+	margin-left: 0;
+}
+	.posts-list li a,
+	.posts-list li .post-time {
+		display: block;
+	}
+
+/*  Post pagination  */
+
+main .post + .post,
+.post-pagination {
+	margin-top: 2em;
+	padding-top: 1.25em;
+	border-top: 1px dotted rgba( 28, 80, 161, 0.5 );
+}
+.post-pagination {
+	margin-bottom: 0;
+	font-size: 90%;
+	border-top-color: rgba( 0, 0, 0, 0.5 );
+}
+
+/*  Release archive information  */
+
+dl.release-info {
+	margin-bottom: 1em;
+}
+	dl.release-info dt {
+		float: left;
+		clear: both;
+
+		width: 25%;
+		margin-right: 5px;
+
+		font-weight: bold;
+	}
+	dl.release-info dd {
+		float: left;
+	}
+	dl.release-info dd.eol::after {
+		content: "Unsupported";
+		margin-left: 0.5em;
+		color: rgba( 200, 0, 0, 1 );
+	}
+
+/*  Release lists  */
+
+.releases .nobullet::before {
+	content: " " !important;
+}
+.releases .show-eol {
+	color: rgba( 0, 0, 0, 0.5 );
+	margin-left: -1em;
+}
+.releases .eol a::before {
+	content: "EOL";
+	font-size: 90%;
+	margin-right: 0.5em;
+	color: rgba( 0, 0, 0, 0.5 );
+}
+
+/*  Mirror lists  (code)  */
+
+.mirrors .main {
+	font-weight: 600;
+}
+
+.mirrors .mirror-lp-url {
+	display: none;
+	margin-right: 1em;
+	float: right;
+}
+	body.no-js .mirrors .mirror-lp-url,
+	.mirrors.expanded .mirror-lp-url {
+		display: inline-block;
+	}
+	.mirrors .mirror-lp-url a {
+		font-size: 80%;
+		color: rgba( 0, 0, 0, 0.5 );
+	}
+
+.mirrors .nobullet a {
+	font-size: 90%;
+}
+	.mirrors .nobullet::before {
+		content: " " !important;
+	}
+
+/*  Search form  */
+
+.search-form {
+	display: flex;
+}
+	.search-form label {
+		/* Search input box */
+		flex: 3;
+		margin-right: 0.5em;
+	}
+		.search-form label input {
+			width: 100%;
+		}
+	.search-form .search-submit {
+		flex: 1;
+	}
+
+/*  Tagclouds  */
+
+.tagcloud a {
+	display: block;
+	font-size: 100% !important;
+	margin-left: 1em;
+	margin-bottom: 0.2em;
+}
+	.tagcloud a {
+		border-bottom: none !important;
+	}
+	.tagcloud a::before {
+		/* Imitates the list style */
+		display: block;
+		float: left;
+
+		width: 0.7em;
+		margin-left: -0.7em;
+		margin-top: -0.12em;
+		content: "›";
+		font-weight: 300;
+		font-size: 140%;
+		color: #555;
+	}
