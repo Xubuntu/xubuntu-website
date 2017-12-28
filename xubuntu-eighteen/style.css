@@ -1,10 +1,10 @@
 /*
- *  Theme Name: Xubuntu Seventeen
+ *  Theme Name: Xubuntu Eighteen
  *  Theme URI: https://xubuntu.org/
  *  Description: A theme built for the Xubuntu website at xubuntu.org.
  *
  *  Author: Pasi Lallinaho
- *  Author URI: http://open.knome.fi/
+ *  Author URI: https://open.knome.fi/
  *
  *  Version: 2017-dec+
  *
@@ -16,7 +16,7 @@ body {
 	font-weight: 500;
 	line-height: 1.5em;
 
-	background-color: #e4e4e4;
+	background-color: #e8eaeb;
 	color: #444;
 
 	min-width: 320px;
@@ -29,17 +29,14 @@ body {
 
 header #logo, header nav, header::after,
 #content,
+body.home main,
 .widgets_front .widgets,
 footer {
-	width: 95%;
+	width: 90%;
 	max-width: 1400px;
 	margin: 0 auto;
 
 	clear: both;
-}
-
-#content {
-	width: 100%;
 }
 
 /*
@@ -49,8 +46,9 @@ footer {
 
 header {
 	background: #0e82d0 linear-gradient( to right top, rgba( 0, 0, 0, 0 ), rgba( 0, 0, 0, 0.15 ) );
-
 	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+
+	z-index: 1000;
 }
 	header a { border-bottom: none !important; }
 	header ul { margin-bottom: 0; }
@@ -83,7 +81,8 @@ header {
 		z-index: 1;
 
 		font-size: 80%;
-		background-color: rgba( 0, 0, 0, 0.2 );
+		background-color: rgba( 10, 98, 158, 0.3 );
+		border-bottom: 1px solid rgba( 0, 0, 0, 0.15 );
 	}
 		#scrolltobottomnavi {
 			position: absolute;
@@ -109,7 +108,7 @@ header {
  */
 
 section#middle {
-	background-color: #eee;
+	background-color: #eff2f4; /* was: #eee; */
 	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
 }
 	#content {
@@ -117,11 +116,10 @@ section#middle {
 		grid-template-columns: 1fr;
 		grid-gap: 2em;
 
-		padding: 2em 2.5% 0 2.5%;
+		min-height: 400px;
 
 		font-size: 110%;
-
-		background-color: #fafafa;
+		padding: 2em 0;
 	}
 		aside {
 			font-size: 90%;
@@ -130,21 +128,21 @@ section#middle {
 				margin-top: 0;
 			}
 
-body.home section#middle {
-	background-color: #f8f8f8;
-	padding: 0;
-}
-	body.home #content {
-		padding: 0;
+/*  Home page  */
+body.home #content {
+	width: 100%;
+	max-width: 100%;
 
-		background-color: transparent;
-		box-shadow: none;
+	padding: 0;
+	margin: 0;
+
+	background: #c7e8ff linear-gradient( to top, transparent, rgba( 255, 255, 255, 0.4 ) ) 0 0 no-repeat;
+}
+	body.home main {
+		padding: 2em 0 0 0;
 	}
-		body.home main {
-			padding: 2em 2.5% 1em 2.5%;
-		}
-			body.home main .post-post { margin: 0; }
-			body.home main h1 { margin-top: 0 !important; }
+		body.home main .post-post { margin: 0; }
+		body.home main h1 { margin-top: 0 !important; }
 
 /*
  *  Footer
@@ -231,10 +229,14 @@ footer {
  */
 
 .post-post {
+	position: relative;
 	color: #333;
 	margin: 1.5em 0 0.5em 0;
 }
-	.post-post > :last-child {
+	.post-entry > :first-child {
+		margin-top: 0;
+	}
+	.post-entry > :last-child {
 		margin-bottom: 0;
 	}
 
@@ -248,6 +250,18 @@ footer {
 	.post-meta span a:hover,
 	.post-meta span a:focus {
 		color: rgba( 0, 0, 0, 0.5 );
+	}
+
+
+body.blog .type-post {
+	padding: 2em;
+
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
+	border-radius: 4px;
+}
+	.type-post + .type-post {
+		margin-top: 1.5em;
 	}
 
 /*
@@ -283,8 +297,14 @@ footer {
 /*  Featured image on the front page  */
 
 body.home .post-thumbnail {
-	margin-top: 0;
+	margin: 0 0 2em 0;
+
+	max-height: 100px;
 }
+	body.home .post-thumbnail img {
+		max-height: 100px;
+		width: auto;
+	}
 body.home main h1 {
 	display: inline;
 }
@@ -323,16 +343,9 @@ body.home .widgets_outer {
 
 /*  Post pagination  */
 
-main .post + .post,
 .post-pagination {
-	margin-top: 2em;
-	padding-top: 1.25em;
-	border-top: 1px dotted rgba( 28, 80, 161, 0.5 );
-}
-.post-pagination {
-	margin-bottom: 0;
+	margin: 1.5em 0 0 0;
 	font-size: 90%;
-	border-top-color: rgba( 0, 0, 0, 0.5 );
 }
 
 /*  Release archive information  */

@@ -5,6 +5,7 @@
 
 header #logo, header nav,
 #content,
+body.home main,
 .widgets_front .widgets,
 footer {
 	width: 90%;
@@ -23,25 +24,26 @@ footer {
  *  Main content area
  *
  */
-section#middle {
-	padding: 1.5em 0;
+
+#content {
+	display: flex;
 }
-	#content {
-		display: flex;
-		border-radius: 4px;
-		box-shadow: 0 0 10px rgba( 0, 0, 0, 0.1 );
-		padding: 1.8em 2.2em;
+	main {
+		flex: 68;
 	}
-		main {
-			flex: 68;
+		body.home #content {
+			display: block;
+			border-radius: 0;
 		}
 		body.home main {
-			padding: 2em 0 1em 0;
+			margin: 0 auto;
+			padding-right: 0;
+			padding-left: 0;
 		}
-		aside {
-			flex: 32;
-			margin-left: 2em;
-		}
+	aside {
+		flex: 32;
+		margin-left: 2em;
+	}
 
 /*
  *  Navigation
@@ -97,6 +99,18 @@ section#middle {
 	max-width: 50%;
 	height: auto;
 }
+	body.home .post-thumbnail img {
+		max-height: unset;
+	}
+
+
+/*  Featured image on front page  */
+
+body.home .post-thumbnail {
+	margin: 2em 0 2em 6em;
+	max-height: unset;
+}
+
 
 /*  List in columns  (TinyMCE)  */
 

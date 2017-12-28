@@ -17,6 +17,16 @@ function xubuntu_widgets_init( ) {
 			'after_title' => '</h2>'
 		) );
 
+		/* Frontpage popup */
+		register_sidebar( array(
+			'name' => 'Front page popup',
+			'id' => 'front_popup',
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h1>',
+			'after_title' => '</h1>'
+		) );
+
 		/* Navigation for blog pages */
 		register_sidebar( array(
 			'name' => 'Blog navigation',

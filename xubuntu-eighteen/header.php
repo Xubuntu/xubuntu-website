@@ -18,7 +18,9 @@
 
 <header>
 	<div id="logo">
-		<a href="<?php echo home_url( '/' ); ?>"><img src="<?php echo get_stylesheet_directory_uri( ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" /></a>
+		<a href="<?php echo home_url( '/' ); ?>">
+			<img class="light" src="<?php echo get_stylesheet_directory_uri( ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" />
+		</a>
 	</div>
 
 	<div id="navi">

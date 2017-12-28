@@ -25,7 +25,7 @@ header {
 	#logo {
 		padding: 1.6em 0 1.2em 0;
 	}
-		#logo a img {
+		#logo a img.light {
 			display: block;
 		}
 		#logo a::after {

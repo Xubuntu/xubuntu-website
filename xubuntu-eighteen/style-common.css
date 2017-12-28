@@ -97,6 +97,7 @@ h1 {
 	color: #1c50a1;
 }
 	h1.post-title { margin-bottom: 0; }
+		.type-page h1.post-title { margin-bottom: 1em; }
 	h1.post-title a { border-bottom: none; color: #1c50a1; }
 	body.archive h1.post-title,
 	body.search h1.post-title {
@@ -115,8 +116,9 @@ h2 { font-size: 140%; }
 			margin-top: 0;
 		}
 	.post-post h2:first-child,
-	.post-post .hb h2 {
-		border-top: none; padding-top: 0;
+	.hb h2 {
+		border-top: none;
+		padding-top: 0;
 	}
 	.widgets h2 {
 		margin-top: 0;
@@ -337,12 +339,17 @@ a.button {
 	color: #333;
 
 	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.1 );
-	border-color: rgba( 0, 0, 0, 0.1 );
+/*	border-color: rgba( 0, 0, 0, 0.1 ); */
+	border-color: #e8f3fa;
 	border-left-width: 10px;
 	border-left-style: solid;
 
 	line-height: 1.4em;
 }
+	.hb a,
+	.hb h2 {
+		color: rgba( 19, 125, 194, 0.8 );
+	}
 	.hb > :first-child { margin-top: 10px; }
 	.hb > :last-child { margin-bottom: 10px; }
 		.hb p:first-child:last-child {
