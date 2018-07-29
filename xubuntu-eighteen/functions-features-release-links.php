@@ -23,9 +23,8 @@ function release_link_register( ) {
 				'all_items' => _x( 'All Release Links', 'post type label: all_items', 'xubuntu' ),
 			),
 			'description' => _x( 'Xubuntu Release Links', 'post type description', 'xubuntu' ),
-			'public' => false,
-			'show_ui' => true,
-			'show_in_menu' => true,
+			'public' => true,
+			'show_in_menu' => false,
 			'menu_position' => 20,
 			'menu_icon' => 'dashicons-admin-links',
 			'supports' => false,
@@ -247,7 +246,7 @@ function release_link_shortcode_press( $atts ) {
 	foreach( $releases as $release ) {
 		$links = release_link_list( 'press', $release->term_id );
 		if( count( $links ) > 0 ) {
-			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+			$release_meta = get_release_meta( $release->term_id );
 			$navi .= '<a class="button" href="#' . $release->slug . '">' . $release->name . '</a>';
 			$links_out .= '<h2 id="' . $release->slug . '">' . $release->name;
 			if( strlen( $release_meta['release_codename'] ) > 0 ) {

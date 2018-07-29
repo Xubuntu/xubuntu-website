@@ -53,4 +53,21 @@ function xubuntu_articles_filters( $query ) {
 	}
 }
 
+/*  Since we do not support comments on the site, hide comment menus from the admin
+ *
+ */
+
+add_action( 'admin_menu', 'xubuntu_hide_comment_menu' );
+
+function xubuntu_hide_comment_menu( ) {
+	remove_menu_page( 'edit-comments.php' );
+}
+
+add_action( 'wp_before_admin_bar_render', 'xubuntu_hide_comment_bar' );
+
+function xubuntu_hide_comment_bar( ) {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu( 'comments' );
+}
+
 ?>

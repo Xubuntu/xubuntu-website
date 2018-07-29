@@ -1,7 +1,7 @@
 <?php
 	//  Get release information
 	$release = get_term_by( 'slug', get_query_var( 'release' ), 'release', OBJECT );
-	$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+	$release_meta = get_release_meta( $release->term_id );
 
 	//  Get release timestamp
 	if( isset( $release_meta['release_date'] ) && $release_meta['release_date'] > 0 ) {
@@ -32,7 +32,7 @@
 	}
 
 	//  Release links
-	if( $release_time < time( ) && $release_meta['release_released'] == 1 ) {
+	if( $release_time < time( ) && $release_meta['release_released'] == 1 && $eol_time > time( ) ) {
 		if( isset( $release_meta['release_torrent_64bit'] ) && strlen( $release_meta['release_torrent_64bit'] ) > 0 ) {
 			$info_links[] = '<strong><a href="' . $release_meta['release_torrent_64bit'] . '">' . __( 'Torrent download for 64-bit systems', 'xubuntu' ) . '</a></strong>';
 		}

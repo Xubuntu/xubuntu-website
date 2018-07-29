@@ -139,10 +139,12 @@ main img {
 
 	border-radius: 3px;
 	box-shadow: 1px 1px 5px rgba( 0, 0, 0, 0.2 );
+	background-color: #fff;
 }
 	main img.plain {
 		border-radius: 0;
 		box-shadow: none;
+		background-color: transparent;
 	}
 
 li { list-style-position: inside; }

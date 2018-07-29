@@ -34,6 +34,7 @@ function release_taxonomy_register( ) {
 				'not_found' => _x( 'No releases found.', 'taxonomy label: not_found', 'xubuntu' ),
 			),
 			'public' => true,
+			'show_in_menu' => false,
 			'show_in_nav_menus' => true,
 			'show_tagcloud' => false,
 			'show_in_quick_edit' => true,
@@ -44,6 +45,53 @@ function release_taxonomy_register( ) {
 			'rewrite' => array( 'with_front' => false ),
 		)
 	);
+}
+
+/*
+ *  Add a custom admin menu page for releases
+ *
+ */
+
+add_action( 'admin_menu', 'release_admin_menu' );
+
+function release_admin_menu( ) {
+	global $submenu;
+	$icon = 'dashicons-flag';
+	$icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iNjQiCiAgIGhlaWdodD0iNjQiCiAgIGlkPSJzdmczNjgxIgogICB2ZXJzaW9uPSIxLjEiCiAgIGlua3NjYXBlOnZlcnNpb249IjAuOTIuMyAoMjQwNTU0NiwgMjAxOC0wMy0xMSkiCiAgIHNvZGlwb2RpOmRvY25hbWU9Imljb25fYmxhY2tfc2hhcGUuc3ZnIgogICBpbmtzY2FwZTpleHBvcnQtZmlsZW5hbWU9Ii9kYXRhL2tub21lL09wZW4vWHVidW50dS9Mb2dvLzIwMTcvaWNvbi0xMDI0LnBuZyIKICAgaW5rc2NhcGU6ZXhwb3J0LXhkcGk9IjE0MzkuOTk5NSIKICAgaW5rc2NhcGU6ZXhwb3J0LXlkcGk9IjE0MzkuOTk5NSI+CiAgPGRlZnMKICAgICBpZD0iZGVmczM2ODMiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJiYXNlIgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnpvb209IjcuOTk5OTk5NiIKICAgICBpbmtzY2FwZTpjeD0iNjAuODYyODIyIgogICAgIGlua3NjYXBlOmN5PSI0My4wNzM1IgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJweCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJsYXllcjEiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIGZpdC1tYXJnaW4tdG9wPSIwIgogICAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICAgIGZpdC1tYXJnaW4tYm90dG9tPSIwIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTYzMyIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMzE5IgogICAgIGlua3NjYXBlOndpbmRvdy14PSI5ODAiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9IjAiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIKICAgICBzaG93Z3VpZGVzPSJmYWxzZSIgLz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGEzNjg2Ij4KICAgIDxyZGY6UkRGPgogICAgICA8Y2M6V29yawogICAgICAgICByZGY6YWJvdXQ9IiI+CiAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+CiAgICAgICAgPGRjOnR5cGUKICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPgogICAgICAgIDxkYzp0aXRsZT48L2RjOnRpdGxlPgogICAgICA8L2NjOldvcms+CiAgICA8L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8ZwogICAgIGlua3NjYXBlOmxhYmVsPSJMYXllciAxIgogICAgIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiCiAgICAgaWQ9ImxheWVyMSIKICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNTAxLjMxMjAzLC00OTQuMDMxNjQpIj4KICAgIDxwYXRoCiAgICAgICBzdHlsZT0iZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIgogICAgICAgZD0iTSAzMiAwIEEgMzIgMzIgMCAwIDAgMCAzMiBBIDMyIDMyIDAgMCAwIDMyIDY0IEEgMzIgMzIgMCAwIDAgNjQgMzIgQSAzMiAzMiAwIDAgMCAzMiAwIHogTSA0Mi41MzEyNSAxMS45MzE2NDEgQyA0My40MjE5MTYgMTIuMDkzNjYgNDIuODE3MDc1IDE2LjI5OTM1OSA0Mi41NzgxMjUgMTguODU3NDIyIEMgNDIuMzYxODY1IDIxLjE3MjU2MiA0Mi4yNDEzOTQgMjEuOTM1MTU0IDQxLjgwODU5NCAyNC40OTAyMzQgQyA0MS42NzI2MDQgMjUuMjkzMDU0IDQxLjI3Mjk2MSAyNi4zMjEyOTggNDAuMDI1MzkxIDI2LjE3MzgyOCBDIDM4Ljk3ODg4MSAyNi4wNDExNjggMzguODExMjAzIDI0LjMxODE3MSAzOC44NDU3MDMgMjMuNTE5NTMxIEMgMzguOTA0OTgzIDIyLjE0ODE2MSAzOS42NTM5NzEgMTguODA3NzMyIDM5Ljg5NDUzMSAxNy42MDc0MjIgQyA0MC4yMDMzMjEgMTYuMDY2NjYyIDQxLjE0NTIyMSAxMi4zODk5MDggNDIuMzMyMDMxIDExLjk1NTA3OCBDIDQyLjQwNTI0NiAxMS45MjgyNTMgNDIuNDcxODcyIDExLjkyMDgzOSA0Mi41MzEyNSAxMS45MzE2NDEgeiBNIDUwLjg4NjcxOSAxMy44MjgxMjUgQyA1Mi42NzE1NTkgMTMuNTcxNjg1IDQ5Ljk2NjM0MiAxOC40MDY2MzggNDguODgyODEyIDIwLjkyMzgyOCBDIDQ4LjE0NjI5MyAyMi42MzQ4NjggNDcuNjE4NzEzIDI0LjAwNTI2OCA0Ni42NjQwNjIgMjYuMjY3NTc4IEMgNDYuMzQ3NDkzIDI3LjAxNzc2OCA0NS4zNzM2NDcgMjguMDk2OTIzIDQ0LjI0ODA0NyAyNy41MzkwNjIgQyA0My4zMDM1ODcgMjcuMDcwOTg0IDQzLjYyNzEzNyAyNS42OTQ3MDkgNDQuMzEwNTQ3IDI0LjA5OTYwOSBDIDQ1LjI5NDgxNyAyMS44MDIyNTkgNDYuMTAzNjgxIDIwLjI2Njc1NiA0Ny4xNDQ1MzEgMTguNTM1MTU2IEMgNDcuOTUxODAxIDE3LjE4Njk1NiA0OS42MzU1ODkgMTQuMDA3ODg1IDUwLjg4NjcxOSAxMy44MjgxMjUgeiBNIDI2LjI4MzIwMyAxNS4wNzIyNjYgQyAyNy4xMTQ1NzMgMTUuMTMwNjI2IDI3LjgwNzcyMyAxNS40OTY2MDYgMjguMjgzMjAzIDE2LjA3MjI2NiBDIDMwLjMzNjIyMyAxOC41NTc4NTYgMjkuOTAyODMxIDIyLjgyNDEwNiAzMC4wODIwMzEgMjYuMDY2NDA2IEMgMzMuMjgyMzAxIDI2LjI0MDUzNiAzNS45MjIyMTEgMjYuNjI4NzUgMzkuMzMyMDMxIDI3LjYyNSBDIDQxLjkzMDc2MSAyOC4zODQyOCA0NS41MjcwMzQgMjkuNjU1ODE4IDQ3LjYzMjgxMiAzMS4wMjM0MzggQyA0OS43MzA3ODQgMzIuMzg1OTk4IDUxLjMwNDY2MiAzNC4xNTAyMzggNTEuNjMyODEyIDM2LjUyMzQzOCBDIDUxLjgzNjQzMyAzNy45OTYwNTcgNTAuNzE2OTMxIDM5LjQ3Mjk1NiA0OS4xODE2NDEgNDAuODIyMjY2IEMgNDcuNjQ4ODMxIDQyLjE2OTM4NiA0NS42NDQxNjIgNDMuNDM1NzA3IDQzLjQ4MjQyMiA0NC42MjMwNDcgQyA0MS4zMjE3MzIgNDUuODA5ODE3IDM5LjA3NDg4MyA0Ni44ODcyMTYgMzcuMjgzMjAzIDQ3LjcyMjY1NiBDIDMzLjM3MzQxMyA0OS41NDU3NTYgMjkuMjQwMTYyIDUxLjMyMjM5NCAyNC4xNjk5MjIgNTEuODMzOTg0IEMgMTAuNDIzNDYyIDUzLjIyMTAxNCAxMS45MjM3NDEgNDAuNzQ2MTg3IDEyLjQ1NzAzMSAzNi42MjMwNDcgQyAxMi44NzI0NTEgMzMuNDExMTk3IDE0LjU5MTQ1MyAyOC43Nzc3MzQgMTQuODc2OTUzIDI3LjkzMzU5NCBDIDE0LjUwMjc1MyAyNi43NDUwMzQgMTQuMjExMjcyIDI1Ljc0MjgwNiAxMy45ODI0MjIgMjQuNDcyNjU2IEMgMTMuNzg3OTgyIDIzLjM5MzQ4NiAxMy42ODMxMzEgMjIuMTQ5NTI2IDEzLjkzMTY0MSAyMS4wNzIyNjYgQyAxNC4xNzY1MzEgMjAuMDEwNzM2IDE0Ljg5MDQ4NiAxOC44Mjc3MjQgMTYuMDcyMjY2IDE4LjMzMzk4NCBDIDE3LjAwOTA3NiAxNy45NDI1ODQgMTcuNjk2NzI2IDE4LjA5NzMxNSAxOC41NzIyNjYgMTguODkwNjI1IEMgMTkuMjkzMDc2IDE5LjU0MzczNSAxOS44OTc0MzIgMjAuNTExMTY4IDIwLjQ4MjQyMiAyMS41MjM0MzggQyAyMS4zMjgxNTIgMjIuOTg2ODg3IDIxLjY3MjUwNCAyNC41MDU2MjcgMjIuMzk2NDg0IDI1Ljk5MjE4OCBDIDIyLjUzNjQ3NCAyNi4yNzk1MDcgMjMuMjU5NzgxIDI2LjQxMTg3MiAyMy42ODE2NDEgMjYuMjg5MDYyIEMgMjMuNzc5ODIxIDI2LjI2MDQ4MiAyMy44ODgxMzEgMjYuMDEzOTU2IDIzLjgzMjAzMSAyNS44MjIyNjYgQyAyMi45MDI5MDEgMjIuNjQ1MTE2IDIyLjIzODY3MiAyMC4wMTgwNTYgMjIuNzAxMTcyIDE3LjcyMjY1NiBDIDIzLjEzMDUwMiAxNS41OTE4ODYgMjQuOTQ3MTMzIDE1LjEyNjA2NiAyNi4yODMyMDMgMTUuMDcyMjY2IHogIgogICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAxLjMxMjAzLDQ5NC4wMzE2NCkiCiAgICAgICBpZD0icGF0aDEyODc4IiAvPgogIDwvZz4KPC9zdmc+Cg==';
+	add_menu_page( __( 'Releases', 'xubuntu' ), __( 'Releases', 'xubuntu' ), 'manage_categories', 'release_admin', 'release_admin_page', $icon, 24 );
+
+	// Releases taxonomy
+	$release_tax_admin_url = admin_url( 'edit-tags.php?taxonomy=release' );
+	$submenu['release_admin'][] = array( __( 'Releases', 'xubuntu' ), 'manage_categories', $release_tax_admin_url );
+
+	// Mirror post type
+	$mirror_admin_url = admin_url( 'edit.php?post_type=download_mirror' );
+	$submenu['release_admin'][] = array( __( 'Mirrors', 'xubuntu' ), 'manage_categories', $mirror_admin_url );
+
+	// Release link post type
+	$release_link_admin_url = admin_url( 'edit.php?post_type=release_link' );
+	$submenu['release_admin'][] = array( __( 'Links', 'xubuntu' ), 'manage_categories', $release_link_admin_url );
+}
+
+add_action( 'admin_head', 'release_menu_highlight' );
+
+function release_menu_highlight( ) {
+	global $parent_file, $submenu_file, $post_type;
+
+	if( 'edit-tags.php?taxonomy=release' == $submenu_file ||
+		'download_mirror' == $post_type ||
+		'release_link' == $post_type ) {
+		$parent_file = 'release_admin';
+		$submenu_file = admin_url( $submenu_file );
+	}
+	if( 'download_mirror' == $post_type ||
+		'release_link' == $post_type ) {
+		$submenu_file = admin_url( 'edit.php?post_type=' . $post_type );
+	}
+}
+
+function release_admin_page( ) {
+	echo 'Hello!';
 }
 
 /*
@@ -60,6 +108,11 @@ $taxonomy_release_fields = array(
 		'label' => __( 'Release Date', 'xubuntu' ),
 		'type' => 'date',
 		'description' => __( 'Date in YYYY-MM-DD format.', 'xubuntu' )
+	),
+	'release_lts' => array(
+		'label' => __( 'LTS?', 'xubuntu' ),
+		'type' => 'checkbox',
+		'check_label' => 'This release is a long term support (LTS) release.',
 	),
 	'release_eol' => array(
 		'label' => __( 'Release End of Life', 'xubuntu' ),
@@ -84,7 +137,7 @@ $taxonomy_release_fields = array(
 	'release_released' => array(
 		'label' => __( 'Released?', 'xubuntu' ),
 		'type' => 'checkbox',
-		'check_label' => 'Is this release out?',
+		'check_label' => 'This release is officially released.',
 		'description' => __( 'Controls the visibility of release links on the release apes; check this box once released and links will appear.', 'xubuntu' )
 	),
 );
@@ -96,7 +149,7 @@ function release_taxonomy_custom_fields_edit( $tax ) {
 	global $taxonomy_release_fields;
 
 	if( isset( $tax->term_id ) ) {
-		$term_meta = get_option( 'taxonomy_term_' . $tax->term_id );
+		$term_meta = get_release_meta( $tax->term_id );
 	}
 
 	foreach( $taxonomy_release_fields as $id => $field ) {
@@ -124,7 +177,7 @@ function release_taxonomy_custom_fields_add( $tax ) {
 	global $taxonomy_release_fields;
 
 	if( isset( $tax->term_id ) ) {
-		$term_meta = get_option( 'taxonomy_term_' . $tax->term_id );
+		$term_meta = get_release_meta( $tax->term_id );
 	}
 
 	foreach( $taxonomy_release_fields as $id => $field ) {
@@ -155,17 +208,18 @@ add_action( 'created_release', 'release_taxonomy_custom_fields_save', 10, 2 );
 
 function release_taxonomy_custom_fields_save( $term_id ) {
 	if( isset( $_POST['term_meta'] ) ) {
-		$term_meta = get_option( 'taxonomy_term_' . $term_id );
-//		$keys = array_keys( $_POST['term_meta'] );
-//		foreach( $keys as $key ) {
+		$term_meta = get_release_meta( $term_id );
 		foreach( $_POST['term_meta'] as $key => $value ) {
 			if( isset( $value ) ) {
 				$term_meta[$key] = $value;
 			}
 		}
+		if( isset( $_POST['term_meta']['release_lts'] ) ) { $term_meta['release_lts'] = 1; } else { $term_meta['release_lts'] = 0; }
 		if( isset( $_POST['term_meta']['release_released'] ) ) { $term_meta['release_released'] = 1; } else { $term_meta['release_released'] = 0; }
 
-		update_option( 'taxonomy_term_' . $term_id, $term_meta );
+		update_term_meta( $term_id, 'release_information', $term_meta );
+		// TODO: Temporarily keep deleting options
+		delete_option( 'taxonomy_term_' . $term_id );
 	}
 }
 
@@ -181,7 +235,7 @@ function release_taxonomy_meta_box( ) {
 		$class = '';
 		echo '<ul class="releases">';
 		foreach( $releases as $release ) {
-			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+			$release_meta = get_release_meta( $release->term_id );
 			if( $class != 'eol' && $release->release_is_eol == 1 ) {
 				echo '<li class="nobullet show-on-js"><a class="show-eol" href="#show-eol">' . __( 'Show EOL releases', 'xubuntu' ) . '</a></li>';
 				$class = 'eol';
@@ -263,7 +317,7 @@ class XubuntuReleasesWidget extends WP_Widget {
 		if( is_array( $releases ) ) {
 			echo '<ul class="releases group">';
 			foreach( $releases as $release ) {
-				$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+				$release_meta = get_release_meta( $release->term_id );
 				if( strlen( $release_meta['release_codename'] ) > 0 ) {
 					$release->name .= ', ' . $release_meta['release_codename'];
 				}
@@ -315,7 +369,7 @@ function release_taxonomy_get_releases_sorted( ) {
 	$date_now = new DateTime( 'now' );
 
 	foreach( $releases as $release_id => $release ) {
-		$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+		$release_meta = get_release_meta( $release->term_id );
 
 		if( isset( $release_meta['release_eol'] ) ) {
 			$date_eol = new DateTime( $release_meta['release_eol'] );
@@ -368,7 +422,7 @@ function release_torrent_links( $atts ) {
 	}
 
 	$release = get_term_by( 'slug', $atts['release'], 'release' );
-	$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+	$release_meta = get_release_meta( $release->term_id );
 	$out = '';
 
 	if( isset( $release_meta['release_torrent_64bit'] ) ) {
@@ -397,7 +451,7 @@ function release_documentation_links( $atts ) {
 		$date_now = new DateTime( 'now' );
 		$out = '<ul>';
 		foreach( $releases as $release ) {
-			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+			$release_meta = get_release_meta( $release->term_id );
 
 			if( isset( $release_meta['release_documentation_link'] ) && strlen( $release_meta['release_documentation_link'] ) > 0 && isset( $release_meta['release_released'] ) && $release_meta['release_released'] == 1 ) {
 				$date_release = new DateTime( $release_meta['release_date'] );
@@ -417,5 +471,22 @@ function release_documentation_links( $atts ) {
 	}
 }
 
+/*
+ *  Get release metadata
+ *
+ */
+
+function get_release_meta( $release ) {
+	$meta = get_term_meta( $release, 'release_information', true );
+
+	// TODO: Temporary check to migrate data from options to term_meta
+	if( $meta == false ) {
+		$meta = get_option( 'taxonomy_term_' . $release );
+		update_term_meta( $release, 'release_information', $meta );
+		delete_option( 'taxonomy_term_' . $release );
+	}
+
+	return $meta;
+}
 
 ?>

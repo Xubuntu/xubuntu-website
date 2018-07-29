@@ -23,7 +23,7 @@
 	if( is_array( $releases ) ) {
 		$date_now = new DateTime( 'now' );
 		foreach( $releases as $release ) {
-			$release_meta = get_option( 'taxonomy_term_' . $release->term_id );
+			$release_meta = get_release_meta( $release->term_id );
 			$date_release = new DateTime( $release_meta['release_date'] );
 
 			if( strlen( $release_meta['release_codename'] ) > 0 ) {
