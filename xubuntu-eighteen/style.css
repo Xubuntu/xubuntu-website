@@ -70,7 +70,7 @@ header {
 
 			padding-right: 30px;
 
-			background: transparent url(images/xubuntu-icon-20.png) 100% 50% no-repeat;
+			background: transparent url(images/xubuntu-icon.svg) 100% 50% / 1.25rem 1.25rem no-repeat;
 			content: "Xubuntu";
 
 			color: #fff;
@@ -104,7 +104,7 @@ header {
 
 /*
  *  Main content area
- * 
+ *
  */
 
 section#middle {
