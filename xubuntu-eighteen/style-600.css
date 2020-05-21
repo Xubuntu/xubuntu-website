@@ -27,6 +27,7 @@ header {
 	}
 		#logo a img.light {
 			display: block;
+			width: 13.5rem;
 		}
 		#logo a::after {
 			display: none;

@@ -9,6 +9,7 @@
 	<meta name="author" content="The Xubuntu community" />
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1" />
 
+	<link rel="icon" type="image/svg+xml" href="<?php echo get_stylesheet_directory_uri( ); ?>/images/xubuntu-icon.svg">
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri( ); ?>/images/xubuntu-icon-16.png">
 
 	<?php wp_head( ); ?>
@@ -19,7 +20,7 @@
 <header>
 	<div id="logo">
 		<a href="<?php echo home_url( '/' ); ?>">
-			<img class="light" src="<?php echo get_stylesheet_directory_uri( ); ?>/images/xubuntu-logo-45.png" alt="Xubuntu" />
+			<img class="light" src="<?php echo get_stylesheet_directory_uri( ); ?>/images/xubuntu-logo.svg" alt="Xubuntu" />
 		</a>
 	</div>
 
