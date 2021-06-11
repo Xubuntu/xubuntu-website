@@ -1,8 +1,50 @@
-<{1','<'2'`$
+'_Job-run-build
+
+>~
+>~
 '
-~'#_
-`$'>1
+'{
+'#
+'*."-=!@&()${,/
+'_run-Job_config
+'>~
+'-
+'test
+'-
+'verify
+'-
+'build
+'-
+'test
+'-
+'verify
+'-
+'build
+'-
+'style
+'.css/
+'verify_build
+'.
+'style
+'.css
+	1 'Xubuntu Thirteen`
+','
+	'<
+	'2'
+	'Theme Name: Xubuntu Thirteen`
+
+	'$
+'
+>{>~
+	>'`$'
+	#_'verify-'Theme 
+Name: 
+	'Xubuntu Thirteen`
+`$
+	'`$'
+	'>1
  *  `$
+	'2'
         'Theme Name: Xubuntu Thirteen
  * 
         'Description: A theme built for the Xubuntu website. Features multiple widget areas in the frontpage.
@@ -10,16 +52,12 @@
         'Author: Pasi Lallinaho
  *  
         Version:
-         2013
+         2021
  *  
                 Author URI:
-         http
-         ://
-         open
-         '.knome.fi/
- *  
-                Theme URI: https://xubuntu
-         '.org/
+	'https://github.com/MoneyMan573/xubuntu-website/edit/BigGuy573/README/xubuntu-thirteen/style.css`
+         'http://open.knome.fi/`
+	'Theme URI:https://xubuntu.org/`
  *
  *  
                 License:
@@ -30,19 +68,10 @@
          later
  * 
                 License URI:
-         http:
-         /
-         /
-         www
-         .gnu.org/
-         licenses
-         /
-         gpl-2
-         .0.html
- *
- */
-
-html
+         'http://www.gnu.org/licenses/gpl-2.0.html`
+	**
+	'/
+	html
                 {`$
                         '>2
 	background: 
@@ -583,73 +612,239 @@ li
 
 .is-front #sidebar .photoslider.ctrl-ontop .c-prev:hover,
 .is-front #sidebar .photoslider.ctrl-ontop .c-next:hover {
-	background-color: #fff !important;
+	background-color: 
+		#fff 
+		!important
+		;
 }
 
-/*  Specific styles
- *
- */
+'*  Specific styles
+ '*
+ '*/
 
-a.header-image,
-a.header-image:hover,
-a.header-image:active,
-a.header-image:focus {
-	border: none;
+'/a
+	'./
+	'/	''/header/
+       '/-
+      '/image/
+           '/,
+          '/a
+         '/.
+        '/header/
+              '/-
+             '/image/
+                  '/:
+                 '/hover/
+                      '/,
+                     '/a
+                    '/.
+                   '/header/
+                         '/-
+                        '/image/
+                             '/:
+                            '/active/
+                                  '/,
+                                 '/a
+                                '/.
+                               '/header/
+                                     '/-
+                                    '/image/
+                                         '/:
+                                        '/focus
+                                       '/{
+	                              '/border:/
+		                             '/none
+		                            '/;
+                                           '/}
+                                          '/
+                                         '/.
+                                        '/post
+                                       '/-
+                                      '/title
+                                     '/{
+	                            '/margin
+	                           '/'/:
+	                          '/0 
+		                 '/0
+		                '/0
+		               '/.
+		              '/3em
+		             '/0
+		            '/;
+                           '/}
+                          '/.
+                         '/post
+                        '/-
+                       '/post 
+                      '/{
+	      '/color:/
+		    '/#333
+		   '/;
+	  '/margin:/
+		 '/1.5em
+		'/0
+	       '/;
+              '/}
+    '/#xubuntu/
+	    '/.
+	   '/item
+	  '/-
+ '/archive/
+'/      ./
+'/  post/
+'/    -/
+'/post/
+    '/{ 
+   '/margin
+  '/-
+ '/bottom: 
+'/3em
+/
+'/	'
+'/	/
+'/	;
+'/}
+'/
+'/.
+'/post
+'/table 
+'/	{
+'/	width:
+		100%
+'/		;
+'/}
+'/.post 
+'/	table
+'/	td 
+'/	{
+'/border:/ 
+       '/1px
+      '/solid
+     '/#ccc
+    '/	;
+   '/background-color:/ 
+  '/	#f6f6f6/
+ '/	;/
+'/padding:/ 
+/		3px/
+'/		;/
+'/}/
+ '/.post/ 
+'/table/
+     '/
+ '/th/ 
+ '/{/
+  '/text-align:/
+	'/left/
+       '/  ''/
+	 '/;/
+     '/''/}/
+      '/''/
+        '/#sidebar/ 
+             '/''/	
+            '/ul/
+	      '/#menu-main-menu/
+	                     '/{
+	       '/font-weight:/
+		      '/bold/
+		        '/;/
 }
 
-.post-title { margin: 0 0 0.3em 0; }
-.post-post { color: #333; margin: 1.5em 0; }
-	#xubuntu.item-archive .post-post { margin-bottom: 3em; }
-
-.post table {
-	width: 100%;
-}
-.post table td {
-	border: 1px solid #ccc;
-	background-color: #f6f6f6;
-	padding: 3px;
-}
-.post table th {
-	text-align: left;
+.archive-message
+	{
+	margin-bottom:
+		2em
+		;
 }
 
-#sidebar ul#menu-main-menu {
-	font-weight: bold;
-}
-
-.archive-message {
-	margin-bottom: 2em;
-}
-
-.news {
-	margin-bottom: 0.8em;
+.news 
+	{
+	margin-bottom: 
+		0.8em
+		;
 }
 
 .news-meta {
-	display: block;
-	font-size: 60%;
-	color: #999;
-	line-height: 1.1em;
+	display:
+		block
+		;
+	font-size: 
+		60%
+		;
+	color: 
+		#999
+		;
+	line-height: 
+		1.1em
+		;
 }
 
-/*  Post and comment metadata
- *
- */
+'*  Post and comment metadata
+ '*
+ '*/
 
-.post-meta, .post-meta a {
-	color: #ccc;
-	color: rgba(0,0,0,.2);
+'.post-meta, .post-meta a {
+'	color: '
+	'#'
+	'
+	'$
+	'>~
+	'
+	'#ccc
+	;
+'	color: '
+	'
+	rgba
+		(
+			0
+			,
+			0
+			,
+			0
+			,
+			.2
+		)
+		;
 }
 
-.post-meta span a {
-	-webkit-transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;
+.post-meta 
+	span
+	a 
+	{
+	-webkit-transition:
+		all 0.5s ease-in-out
+		;
+	-moz-transition:
+		all 0.5s ease-in-out
+		;
+	-o-transition:
+		all 0.5s ease-in-out
+		;
+	transition:
+		all 0.5s ease-in-out
+		;
 }
-.post-meta span a:hover,
-.post-meta span a:focus {
-	color: #808080;
-	color: rgba(0,0,0,.5);
+.post-meta span a:
+	hover
+	,
+.post-meta
+	span a
+	:
+	focus
+	{
+	color:
+		#808080;
+	color: 
+		rgba
+		(
+			0
+			,
+			0
+			,
+			0
+			,
+			.5
+		)
+		;
 }
 
