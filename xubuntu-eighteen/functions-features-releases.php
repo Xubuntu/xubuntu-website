@@ -423,10 +423,10 @@ function release_torrent_links( $atts ) {
 	$release_meta = get_release_meta( $release->term_id );
 	$out = '';
 
-	if( isset( $release_meta['release_torrent_64bit'] ) ) {
+	if( isset( $release_meta['release_torrent_64bit'] ) && strlen( $release_meta['release_torrent_64bit'] ) > 0 ) {
 		$out .= '<a class="button primary" href="' . $release_meta['release_torrent_64bit'] . '">' . _x( '<strong>64-bit</strong> systems', 'torrent download link', 'xubuntu' ) . '</a>';
 	}
-	if( isset( $release_meta['release_torrent_32bit'] ) ) {
+	if( isset( $release_meta['release_torrent_32bit'] ) && strlen( $release_meta['release_torrent_32bit'] ) > 0 ) {
 		$out .= '<a class="button" href="' . $release_meta['release_torrent_32bit'] . '">' . __( '<strong>32-bit</strong> systems', 'torrent download link', 'xubuntu' ) . '</a>';
 	}
 
